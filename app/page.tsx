@@ -1,113 +1,142 @@
-import Image from 'next/image'
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col xl-w-[1440px] mx-4">
+      <section
+        id="home"
+        className="flex flex-col xl-scroll-mt-[5rem] scroll-mt-[17rem] mt-[10rem] xl-mt-[5rem] gap-5 xl-gap-12 h-[65dvh]"
+      >
+        <div className="flex flex-col items-center">
+          <h1 className="text-[30px] xl-text-[99px] text-center ">
+            Hey, I&apos;m Michael 👋
+          </h1>
+          <h2 className="text-[40px] xl-text-[93px] font-bold text-center leading-[3.5rem] ">
+            Web Developer
+          </h2>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <div className="flex flex-col items-center gap-2">
+          <span className="xl:text-[28px] text-[19px] text-center max-w-[388px] md:w-auto">
+            I&apos;m on a mission to create captivating, enjoyable, and
+            user-oriented digital experiences
+          </span>
+          {/* <span className="xl-text-[28px] text-[18px] mx-6 sm:text-center max-w-[388px] md:w-auto">
+            Let&apos;s turn <span className="font-semibold">your vision </span>
+            into an online journey!
+          </span> */}
+        </div>
+        {/* <div className="flex gap-8 justify-center">
+          <Link
+            href="#work"
+            className="text-white bg-[#fd6231] text-center font-semibold xl-text-[32px] py-[10px] px-[20px] rounded-2xl"
+          >
+            My Work
+          </Link>
+          <Link
+            href="#contact"
+            className="bg-white xl-text-[32px] text-center py-[10px] px-[20px] rounded-2xl"
+          >
+            Contact
+          </Link>
+        </div> */}
+      </section>
+      <section
+        id="work"
+        className="flex flex-col scroll-m-[80px] xl-gap-[120px] gap-3 mb-[48px]"
+      >
+        <h3 className="xl-text-[99px] font-semibold text-[30px] ">My Work</h3>
+        <span className="xl-text-[28px] text-[18px] sm:text-center max-w-[388px] md:w-auto">
+          Discover my portfolio of diverse projects, highlighting my expertise
+          in web development and design.
+        </span>
+        <div className="flex flex-col xl-gap-[50px] gap-8 w-full mt-5 flex-1 justify-center">
+          <div className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px]">
+            <div className="flex justify-between items-center py-[13px] ">
+              <h4 className="xl-text-[41px] text-[18px] font-semibold">
+                BGRSolutions
+              </h4>
+              <span className="xl-text-[32px] text-sm">e-commerce</span>
+            </div>
+            <div className=" flex w-full h-full ">
+              <Link
+                href="https://bgrsolutions.net"
+                className="h-[200px] xl-h-[691px] w-full bg-[url('/bgrsolutions.webp')] bg-cover bg-no-repeat bg-center rounded-[16px] transition-all hover:scale-[1.01]"
+              ></Link>
+            </div>
+          </div>
+          <div className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px]">
+            <div className="flex justify-between items-center py-[13px] ">
+              <h4 className="xl-text-[41px] text-[18px] font-semibold">
+                CloudNineTenerife
+              </h4>
+              <span className="xl-text-[32px] text-sm">Beauty & Education</span>
+            </div>
+            <div className=" flex w-full h-full ">
+              <Link
+                href="https://cloudninetenerife.es"
+                className="h-[200px] xl-h-[691px] w-full bg-[url('/cloudninetenerife.webp')] bg-cover bg-no-repeat rounded-[16px] transition-all hover:scale-[1.01]"
+              ></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="work"
+        className="flex flex-col min-h-[90vh] scroll-m-[80px] xl-gap-[120px] gap-3 mb-[48px]"
+      >
+        <h3 className="xl-text-[99px] font-semibold text-[30px] ">About</h3>
+        <span className="xl-text-[28px] text-[19px] sm:text-center max-w-[388px] md:w-auto ">
+          Hello! I&apos;m Michael Geraghty, a dedicated Web Developer based in
+          the Canary Islands.
+        </span>
+        <span className="xl-text-[28px] text-[19px] sm:text-center max-w-[388px] md:w-auto ">
+          With a passion for web development, I specialize in creating dynamic
+          web pages and applications. Skilled in React.Js and Next.Js, I focus
+          on building intuitive, user-driven websites.
+        </span>
+        <span className="xl-text-[28px] text-[19px] sm:text-center max-w-[388px] md:w-auto ">
+          I thrive on feedback and detail, ensuring every project is a step
+          towards digital excellence..
+        </span>
+      </section>
+      {/* <section
+        id="contact"
+        className="flex flex-col min-h-[95vh] items-center  gap-[120px]"
+      >
+        <h3 className="text-[99px] font-semibold  ">Contact</h3>
+        <div className="flex flex-col items-center p-8 bg-opacity-50 rounded-[32px] backdrop-filter backdrop-blur-lg bg-gray-100 w-2/3">
+          <ul className="space-y-4">
+            <li className="glass-item">
+              <a
+                href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[33px] hover:font-semibold transition-all"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li className="glass-item">
+              <a
+                href="mailto:mikeygeraghty@gmail.com"
+                className="text-[33px] hover:font-semibold transition-all"
+              >
+                Email
+              </a>
+            </li>
+            <li className="glass-item">
+              <a
+                href="https://twitter.com/geraghtymikey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[33px] hover:font-semibold transition-all"
+              >
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section> */}
     </main>
-  )
+  );
 }
