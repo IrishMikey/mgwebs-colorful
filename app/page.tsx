@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col md:w-[575px] xl:w-[1080px] mx-4 lg:m-auto">
@@ -52,30 +52,30 @@ export default function Home() {
         </span>
 
         <div className="flex flex-col gap-8 w-full mt-5 flex-1 justify-center md:gap-12">
-          <div className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px]">
+          <Link
+            href="https://bgrsolutions.net"
+            className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px] xl:h-[750px] hover:scale-[1.01] active:scale-100 transition-all"
+          >
             <div className="flex justify-between items-center py-[13px] ">
               <h4 className=" text-[18px] font-semibold">BGRSolutions</h4>
               <span className=" text-sm">e-commerce</span>
             </div>
             <div className=" flex w-full h-full ">
-              <Link
-                href="https://bgrsolutions.net"
-                className="h-[200px] md:h-[305px] w-full bg-[url('/bgrsolutions.webp')] bg-cover bg-no-repeat bg-center rounded-[16px] transition-all hover:scale-[1.01]"
-              ></Link>
+              <div className="h-[200px] md:h-[305px] w-full bg-[url('/bgrsolutions.webp')] bg-cover bg-no-repeat bg-center rounded-[16px] xl:h-[685px]"></div>
             </div>
-          </div>
-          <div className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px]">
+          </Link>
+          <Link
+            href="https://cloudninetenerife.es"
+            className="flex flex-col w-full rounded-[16px] bg-white bg-opacity-30 backdrop-filter shadow backdrop-blur-lg  pb-[10px] px-[10px] xl:h-[750px] transition-all hover:scale-[1.01] active:scale-100"
+          >
             <div className="flex justify-between items-center py-[13px] ">
               <h4 className=" text-[18px] font-semibold">CloudNineTenerife</h4>
               <span className="text-sm">Beauty & Education</span>
             </div>
             <div className=" flex w-full h-full ">
-              <Link
-                href="https://cloudninetenerife.es"
-                className="h-[200px] md:h-[305px] w-full bg-[url('/cloudninetenerife.webp')] bg-cover bg-no-repeat rounded-[16px] transition-all hover:scale-[1.01]"
-              ></Link>
+              <div className="h-[200px] md:h-[305px] w-full bg-[url('/cloudninetenerife.webp')] bg-cover bg-no-repeat rounded-[16px]  xl:h-[685px]"></div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
       <section
@@ -83,23 +83,32 @@ export default function Home() {
         className="flex flex-col scroll-m-[60px] gap-5 mb-[1rem]"
       >
         <h3 className="font-semibold text-[30px] ">About</h3>
-        <div className="w-full flex flex-col gap-4">
-          <span className=" text-[19px] sm:text-center max-w-[388px]  md:max-w-fit md:text-start ">
-            Hello! I&apos;m Michael Geraghty, a dedicated Web Developer based in
-            the Canary Islands.
-          </span>
-          <span className="text-[19px] sm:text-center max-w-[388px]  md:max-w-fit md:text-start ">
-            With a passion for web development, I specialize in creating dynamic
-            web pages and applications. Skilled in React.Js and Next.Js, I focus
-            on building intuitive, user-driven websites.
-          </span>
-          <span className="text-[19px] sm:text-center max-w-[388px]  md:max-w-fit md:text-start ">
-            I thrive on feedback and detail, ensuring every project is a step
-            towards digital excellence.
-          </span>
-        </div>
-        <div className="flex w-full h-full">
-          <div className="h-[230px] md:h-[385px] w-full bg-[url('/me_headshot.webp')] bg-cover bg-no-repeat bg-center rounded-[16px] "></div>
+        <div className="flex flex-col lg:flex-row gap-5 xl:gap-12">
+          <div className="w-full flex flex-col gap-4">
+            <span className=" text-[19px] sm:text-center  xl:max-w-[544px] md:text-start ">
+              Hello! I&apos;m Michael Geraghty, a dedicated Web Developer based
+              in the Canary Islands.
+            </span>
+            <span className="text-[19px] sm:text-center  xl:max-w-[544px] md:text-start ">
+              With a passion for web development, I specialize in creating
+              dynamic web pages and applications. Skilled in UI design and
+              Next.Js, I focus on building intuitive, user-driven websites.
+            </span>
+            <span className="text-[19px] sm:text-center  xl:max-w-[544px] md:text-start ">
+              I thrive on feedback and detail, ensuring every project is a step
+              towards digital excellence.
+            </span>
+          </div>
+          <div className="">
+            {/* <div className="h-[230px] md:h-[385px] w-full bg-[url('/me_headshot.webp')] bg-cover bg-no-repeat bg-center rounded-[16px]"></div> */}
+            <Image
+              src="/me_headshot.webp"
+              height="230"
+              width="358"
+              alt="A picture of me, Michael Geraghty"
+              className="rounded-[16px] xl:w-[700px]"
+            ></Image>
+          </div>
         </div>
       </section>
       <section
