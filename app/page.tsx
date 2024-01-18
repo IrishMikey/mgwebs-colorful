@@ -2,21 +2,21 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col md:w-[575px] xl:max-w-[1440px] mx-4">
+    <main className="flex min-h-screen flex-col md:w-[575px] xl:w-[1080px] mx-4 lg:m-auto">
       <section
         id="home"
         className="flex flex-col scroll-mt-[17rem] mt-[13rem] gap-5 h-[58dvh]"
       >
-        <div className="flex flex-col items-center">
-          <h1 className="text-[30px]  text-center ">
+        <div className="flex flex-col items-center lg:items-start">
+          <h1 className="text-[30px] lg:text-[55px] ">
             Hey, I&apos;m Michael 👋
           </h1>
-          <h2 className="text-[40px] font-bold text-center leading-[3.5rem] ">
+          <h2 className="text-[40px] font-bold  leading-[3.5rem] lg:text-[75px] ">
             Web Developer
           </h2>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[19px] text-center max-w-[388px] md:w-auto">
+        <div className="flex flex-col items-center lg:items-start gap-2">
+          <span className="text-[19px] text-center max-w-[388px] md:w-auto lg:text-start lg:text-[22px] lg:w-[55%]">
             I&apos;m on a mission to create captivating, enjoyable, and
             user-oriented digital experiences
           </span>

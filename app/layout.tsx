@@ -20,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} flex flex-col items-center `}>
+      <body
+        className={`${poppins.className} flex flex-col items-center lg:m-auto lg:items-start`}
+      >
         <NavBar />
         {children}
       </body>
