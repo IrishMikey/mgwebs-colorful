@@ -8,6 +8,11 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+// Font awesome
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 export const metadata: Metadata = {
   title: "MGWebs",
   description: "Web development by Michael Geraghty",
