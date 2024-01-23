@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "./navBar";
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["200", "400", "500"],
+  weight: ["200", "400", "500", "700"],
   variable: "--font-poppins",
 });
 
