@@ -8,7 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {},
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+        daysOne: ["var(--font-days-one)"],
+      },
     },
   },
   plugins: [

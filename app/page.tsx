@@ -9,43 +9,25 @@ export default function Home() {
     <main className="mx-4 flex min-h-screen flex-col md:w-[575px] lg:m-auto xl:w-[1080px]">
       <section
         id="home"
-        className="flex h-[96svh] scroll-mt-[13rem] flex-col items-center justify-center gap-12 xl:mt-[9rem] xl:h-[80dvh] xl:gap-[7rem]"
+        className="flex h-[96svh] scroll-mt-[13rem] flex-col gap-12 pt-[6rem] xl:mt-[9rem] xl:h-[80dvh] xl:gap-[7rem]"
       >
-        <div className="bg- flex max-w-[300px] flex-col justify-between  gap-7 xl:gap-[15px] ">
+        <div className="flex flex-col justify-between  gap-7 xl:gap-[15px] ">
           <a
             href="#about"
-            className="absolute left-0 top-[9rem] rounded-r-lg bg-white bg-opacity-60 px-4 py-1 text-[1.25rem] italic shadow backdrop-blur-lg backdrop-filter xl:text-[3.125rem] "
+            className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] xl:text-[3.125rem] "
           >
             Hey, I&apos;m Michael 👋
           </a>
-          <h1 className="text-center text-[3.25rem] font-bold leading-[3.125rem] lg:text-[7.4375rem] xl:leading-[7.9375rem]">
-            Web Developer <span className="texStroke italic"> & Designer</span>
+          <h1 className="font-daysOne text-[4rem]  leading-[4rem] lg:text-[7.4375rem] xl:leading-[7.9375rem]">
+            Web Developer <span className="texStroke italic"> &Designer</span>
           </h1>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <span className="max-w-[388px] text-center text-2xl md:w-auto xl:max-w-[60%] xl:text-[1.375rem]">
+        <div className="flex flex-col gap-2">
+          <span className="max-w-[388px] text-2xl md:w-auto xl:max-w-[60%] xl:text-[1.375rem]">
             I&apos;m on a mission to create captivating, enjoyable, and
             user-oriented digital experiences
           </span>
-          {/* <span className="xl-text-[28px] text-[1.125rem] mx-6 sm:text-center max-w-[388px] md:w-auto">
-            Let&apos;s turn <span className="font-semibold">your vision </span>
-            into an online journey!
-          </span> */}
         </div>
-        {/* <div className="flex gap-8 justify-center">
-          <Link
-            href="#work"
-            className="text-white bg-[#fd6231] text-center font-semibold xl-text-[32px] py-[0.625rem] px-[20px] rounded-2xl"
-          >
-            My Work
-          </Link>
-          <Link
-            href="#contact"
-            className="bg-white xl-text-[32px] text-center py-[0.625rem] px-[20px] rounded-2xl"
-          >
-            Contact
-          </Link>
-        </div> */}
       </section>
       {/* Work section */}
       <section
