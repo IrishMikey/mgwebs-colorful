@@ -9,18 +9,21 @@ export default function Home() {
     <main className="mx-4 flex min-h-screen flex-col md:w-[575px] lg:m-auto xl:w-[1080px]">
       <section
         id="home"
-        className="mt-[10rem] flex h-[58dvh] scroll-mt-[13rem] flex-col gap-8 xl:mt-[9rem] xl:h-[80dvh] xl:gap-[7rem]"
+        className="flex h-[96svh] scroll-mt-[13rem] flex-col items-center justify-center gap-12 xl:mt-[9rem] xl:h-[80dvh] xl:gap-[7rem]"
       >
-        <div className="bg- flex max-w-[350px] flex-col justify-between  gap-7 xl:gap-[15px] ">
-          <h1 className="rounded-xl bg-white bg-opacity-60 px-[16px] py-1 text-[1.575rem] shadow backdrop-blur-lg backdrop-filter xl:text-[3.125rem] ">
+        <div className="bg- flex max-w-[300px] flex-col justify-between  gap-7 xl:gap-[15px] ">
+          <a
+            href="#about"
+            className="absolute left-0 top-[9rem] rounded-r-lg bg-white bg-opacity-60 px-4 py-1 text-[1.25rem] italic shadow backdrop-blur-lg backdrop-filter xl:text-[3.125rem] "
+          >
             Hey, I&apos;m Michael 👋
-          </h1>
-          <h2 className="text-center text-[2.5rem]  font-bold leading-tight lg:text-[7.4375rem] xl:leading-[7.9375rem]">
+          </a>
+          <h1 className="text-center text-[3.25rem] font-bold leading-[3.125rem] lg:text-[7.4375rem] xl:leading-[7.9375rem]">
             Web Developer <span className="texStroke italic"> & Designer</span>
-          </h2>
+          </h1>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <span className="max-w-[388px] text-center text-[19px] md:w-auto xl:max-w-[60%] xl:text-[1.375rem]">
+          <span className="max-w-[388px] text-center text-2xl md:w-auto xl:max-w-[60%] xl:text-[1.375rem]">
             I&apos;m on a mission to create captivating, enjoyable, and
             user-oriented digital experiences
           </span>
@@ -88,7 +91,7 @@ export default function Home() {
       {/* About section */}
       <section
         id="about"
-        className="my-[1rem] flex h-[80dvh] scroll-m-[60px] flex-col gap-5"
+        className="my-[1rem] flex scroll-m-[60px] flex-col gap-5"
       >
         <h3 className="text-[30px] font-semibold ">About</h3>
         <div className="flex flex-col gap-5 lg:flex-row xl:flex-1 xl:items-center xl:gap-12">
@@ -121,44 +124,44 @@ export default function Home() {
       </section>
       <section
         id="contact"
-        className="mb-[48px] flex h-[90dvh] scroll-m-[80px] flex-col gap-3 pt-[3rem]"
+        className="mb-[48px] flex h-[90dvh] scroll-m-[58px] flex-col gap-3 pt-[3rem]"
       >
         <h3 className="text-[30px] font-semibold ">Contact</h3>
         <span className="max-w-[388px] text-[1.125rem] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
           Connect with me for collaborations, questions, or just to say hello!
         </span>
         <div className="flex flex-1 flex-col gap-8 xl:mt-[12rem]">
-          <div className="flex bg-opacity-50 p-8 text-center xl:justify-evenly">
-            <div className="">
+          <div className="flex flex-col gap-5 bg-opacity-50 p-8 text-center lg:flex-row xl:justify-evenly">
+            <div className="flex justify-center">
               <a href="mailto:mikeygeraghty@gmail.com">
-                <div className="mb-2 flex items-center justify-center rounded-[1rem]  bg-gray-100 backdrop-blur-lg backdrop-filter transition-all hover:scale-105 hover:border hover:border-[#1d5352] active:scale-100 xl:h-[250px] xl:w-[250px] xl:text-6xl">
-                  <FontAwesomeIcon icon={faEnvelope} size="2x" />
+                <div className="mb-2 flex h-[120px] w-[170px] items-center justify-center rounded-[1rem] bg-gray-100 shadow-lg shadow-neutral-500/20 backdrop-blur-lg  backdrop-filter transition hover:scale-105 hover:border hover:border-[#1d5352] active:scale-95 xl:h-[250px] xl:w-[250px] xl:text-6xl">
+                  <FontAwesomeIcon icon={faEnvelope} size="5x" />
                 </div>
-                <span className="text-[22px]">Email</span>
+                <span className="text-xl">Email</span>
               </a>
             </div>
-            <div className="">
+            <div className="flex justify-center">
               <a
                 href="https://www.linkedin.com/in/michaeldanielgeraghty/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="mb-2 flex items-center justify-center rounded-[1rem]  bg-gray-100 backdrop-blur-lg backdrop-filter transition-all hover:scale-105 hover:border hover:border-[#1d5352] active:scale-100 xl:h-[250px] xl:w-[250px] xl:text-6xl">
-                  <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                <div className="mb-2 flex h-[120px] w-[170px] items-center justify-center rounded-[1rem]  bg-gray-100 shadow-lg shadow-neutral-500/20 backdrop-blur-lg backdrop-filter transition hover:scale-105 hover:border hover:border-[#1d5352] active:scale-95 xl:h-[250px] xl:w-[250px] xl:text-6xl">
+                  <FontAwesomeIcon icon={faLinkedin} size="5x" />
                 </div>
-                <span className="text-[22px]">LinkedIn</span>
+                <span className="text-xl">LinkedIn</span>
               </a>
             </div>
-            <div className=" ">
+            <div className="flex justify-center ">
               <a
                 href="https://twitter.com/MGWebss"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="mb-2 flex items-center justify-center rounded-[1rem]  bg-gray-100 backdrop-blur-lg backdrop-filter transition-all hover:scale-105 hover:border hover:border-[#1d5352] active:scale-100 xl:h-[250px] xl:w-[250px] xl:text-6xl">
-                  <FontAwesomeIcon className="" icon={faXTwitter} size="2x" />
+                <div className="mb-2 flex h-[120px] w-[170px] items-center justify-center rounded-[1rem] bg-gray-100 shadow-lg shadow-neutral-500/20 backdrop-blur-lg  backdrop-filter transition hover:scale-105 hover:border hover:border-[#1d5352] active:scale-95 xl:h-[250px] xl:w-[250px] xl:text-6xl">
+                  <FontAwesomeIcon className="" icon={faXTwitter} size="5x" />
                 </div>
-                <span className="text-[22px]">X</span>
+                <span className="text-xl">X</span>
               </a>
             </div>
           </div>
