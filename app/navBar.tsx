@@ -1,8 +1,8 @@
 export default function NavBar() {
   return (
-    <nav className="my-[20px] z-50 fixed lg:left-0 lg:right-0">
+    <nav className="fixed z-50 my-[20px] lg:left-0 lg:right-0">
       <div className="lg:flex lg:justify-center">
-        <ul className="bg-white bg-opacity-60 backdrop-filter shadow backdrop-blur-lg px-[16px] py-1 rounded-xl  ">
+        <ul className="rounded-xl bg-white bg-opacity-60 px-[8px] py-1 shadow backdrop-blur-lg backdrop-filter  ">
           <li className="flex gap-8">
             <a
               className="text-[16px] transition-all hover:font-semibold"

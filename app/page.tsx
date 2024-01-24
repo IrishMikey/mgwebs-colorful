@@ -11,11 +11,11 @@ export default function Home() {
         id="home"
         className="mt-[10rem] flex h-[58dvh] scroll-mt-[13rem] flex-col gap-8 xl:mt-[9rem] xl:h-[80dvh] xl:gap-[7rem]"
       >
-        <div className="flex flex-col items-center xl:gap-[15px] ">
-          <h1 className="text-[1.575rem] xl:text-[3.125rem]  ">
+        <div className="bg- flex max-w-[350px] flex-col justify-between  gap-7 xl:gap-[15px] ">
+          <h1 className="rounded-xl bg-white bg-opacity-60 px-[16px] py-1 text-[1.575rem] shadow backdrop-blur-lg backdrop-filter xl:text-[3.125rem] ">
             Hey, I&apos;m Michael 👋
           </h1>
-          <h2 className="text-center text-[2.5rem] font-bold leading-tight lg:text-[7.4375rem] xl:leading-[7.9375rem]">
+          <h2 className="text-center text-[2.5rem]  font-bold leading-tight lg:text-[7.4375rem] xl:leading-[7.9375rem]">
             Web Developer <span className="texStroke italic"> & Designer</span>
           </h2>
         </div>
