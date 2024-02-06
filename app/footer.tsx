@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="w-full ">
-      <div className=" max-w-screen-xl rounded-t-lg bg-white p-4 shadow md:flex md:items-center md:justify-between dark:bg-gray-800">
+    <footer className="bg-royal-blue-900 text-royal-blue-100 w-full rounded-t-lg shadow">
+      <div className=" max-w-screen  p-4 md:flex md:w-[575px] md:items-center md:justify-between lg:m-auto xl:w-[1080px] ">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           <a href="https://mgwebs.com/" className="hover:underline">
             MGWebs

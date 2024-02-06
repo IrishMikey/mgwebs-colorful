@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Days_One } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import NavBar from "./navBar";
 import Footer from "./footer";
@@ -9,7 +9,7 @@ const poppins = Poppins({
   weight: ["200", "400", "500", "700"],
   variable: "--font-poppins",
 });
-const days_one = Days_One({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-days-one",
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${days_one.variable} flex flex-col items-center lg:m-auto lg:items-start`}
+        className={`${poppins.variable} ${montserrat.variable} flex flex-col items-center lg:m-auto lg:items-start`}
       >
         <NavBar />
         {children}

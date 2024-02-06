@@ -7,10 +7,25 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      "royal-blue": {
+        "50": "#f0f4fe",
+        "100": "#dde5fc",
+        "200": "#c3d2fa",
+        "300": "#99b5f7",
+        "400": "#698ff1",
+        "500": "#4266eb",
+        "600": "#304ae0",
+        "700": "#2838cd",
+        "800": "#262fa7",
+        "900": "#242d84",
+        "950": "#1a1e51",
+      },
+    },
     extend: {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
-        daysOne: ["var(--font-days-one)"],
+        montserrat: ["var(--font-montserrat)"],
       },
     },
   },
@@ -21,7 +36,6 @@ const config: Config = {
           "-webkit-text-stroke": "1px black", // For WebKit browsers
           "text-stroke": "1px black", // Standard syntax (not widely supported)
         },
-        // Add more custom utilities if needed
       };
     },
   ],
