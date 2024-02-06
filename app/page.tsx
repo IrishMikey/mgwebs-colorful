@@ -6,12 +6,12 @@ import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
   return (
-    <main className="mx-4 flex min-h-screen flex-col gap-16 font-poppins md:w-[575px] lg:m-auto xl:w-[1080px]">
+    <main className=" flex min-h-screen flex-col gap-16 font-poppins md:w-[575px] lg:m-auto xl:w-[1080px]">
       <section
         id="home"
-        className="mb-20 flex min-h-[75vh] scroll-mt-[7rem] flex-col overflow-hidden pt-[7rem] xl:min-h-[90vh] xl:gap-[7rem]"
+        className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] xl:gap-[7rem]"
       >
-        <div className="bg-royal-blue-300 rounded-[0 0 150px 150px] absolute -right-16 top-0 -z-10 h-[250px] w-[150px] blur-2xl"></div>
+        <div className="bg-royal-blue-300 rounded-[0 0 150px 150px] absolute -right-16 top-0 -z-10 h-[15rem] w-[10rem] blur-2xl"></div>
         <div className="flex flex-grow flex-col justify-between xl:gap-[5rem] ">
           <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] xl:text-[3.125rem] ">
             Hey, I&apos;m Michael 👋
@@ -27,8 +27,8 @@ export default function Home() {
         </div>
       </section>
       {/* Work section */}
-      <section id="work" className="flex scroll-m-[4.375rem] flex-col gap-3">
-        <h3 className="font-montserrat text-4xl font-bold text-[#070707] ">
+      <section id="work" className="mx-4 flex scroll-mt-[5rem] flex-col gap-3">
+        <h3 className="font-montserrat text-4xl font-bold text-[#070707] dark:text-[#EB7B14] ">
           My Work
         </h3>
 
@@ -69,9 +69,9 @@ export default function Home() {
       {/* About section */}
       <section
         id="about"
-        className="my-[1rem] flex scroll-m-[60px] flex-col gap-5"
+        className="mx-4 my-[1rem] flex scroll-m-[5rem] flex-col gap-5"
       >
-        <h3 className="font-montserrat text-4xl font-bold text-[#070707]">
+        <h3 className="font-montserrat text-4xl font-bold text-[#070707] dark:text-[#EB7B14]">
           About
         </h3>
         <div className="flex flex-col gap-5 xl:flex-1 xl:flex-row xl:items-center xl:gap-12">
@@ -104,7 +104,7 @@ export default function Home() {
       </section>
       <section
         id="contact"
-        className="mb-[48px] flex min-h-[90vh] scroll-m-[58px] flex-col gap-3 "
+        className="mx-4 flex min-h-[90vh] scroll-mt-[5rem] flex-col gap-3 "
       >
         <h3 className="text-[30px] font-semibold ">Contact</h3>
         <span className="max-w-[388px] text-[1.125rem] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
