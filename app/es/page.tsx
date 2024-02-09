@@ -3,45 +3,45 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import NavBar from "./navBar";
+import NavBar from "./navBarES";
 
 export default function Home() {
   return (
     <>
       <NavBar />
-
       <main className=" flex min-h-screen flex-col gap-16 font-poppins md:w-[575px] lg:m-auto xl:w-[1080px]">
         <section
-          id="home"
+          id="inicio"
           className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] xl:gap-[7rem]"
         >
           <div className="rounded-[0 0 150px 150px] absolute -right-16 top-0 -z-10 h-[15rem] w-[10rem] bg-royal-blue-300 blur-2xl"></div>
           <div className="flex flex-grow flex-col justify-between xl:gap-[5rem] ">
             <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] xl:text-[3.125rem] ">
-              Hey, I&apos;m Michael 👋
+              Hola, soy Michael 👋
             </h4>
 
-            <h1 className="font-montserrat text-6xl font-bold  leading-[3.75rem] lg:text-[7.4375rem] lg:leading-[6.75rem]">
-              Web Developer <span className="texStroke "> &Designer</span>
+            <h1 className="font-montserrat text-5xl font-bold  leading-[3.75rem] lg:text-[7.4375rem] lg:leading-[6.75rem]">
+              Desarrollo y Diseño Web
+              <span className="texStroke "> en Tenerife</span>
             </h1>
             <span className="text-lg md:w-auto xl:max-w-[80%] xl:text-3xl ">
-              I&apos;m on a mission to create captivating, enjoyable, and
-              user-oriented digital experiences
+              Mi misión es crear experiencias digitales agradables y orientadas
+              al usuario con diseño web tenerife.
             </span>
           </div>
         </section>
         {/* Work section */}
         <section
-          id="work"
+          id="proyectos"
           className="mx-4 flex scroll-mt-[5rem] flex-col gap-3"
         >
           <h3 className="font-montserrat text-4xl font-bold text-[#070707] dark:text-[#EB7B14] ">
-            My Work
+            Mis Proyectos
           </h3>
 
           <span className=" max-w-[294px]  text-[1.25rem] leading-8 sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
-            Discover my portfolio of diverse projects, highlighting my expertise
-            in web development and design.
+            Descubra mis diversos proyectos para empresas en tenerife,
+            destacando mi experiencia en diseño web tenerife.
           </span>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
@@ -65,7 +65,7 @@ export default function Home() {
                 <h4 className=" text-[1.125rem] font-semibold">
                   CloudNineTenerife
                 </h4>
-                <span className="text-sm">Beauty & Education</span>
+                <span className="text-sm">Belleza y Educación</span>
               </div>
               <div className=" flex min-h-full w-full ">
                 <div className="h-[200px] w-full rounded-[1rem] bg-[url('/cloudninetenerife.webp')] bg-cover bg-no-repeat md:h-[305px]  xl:h-[685px]"></div>
@@ -75,7 +75,7 @@ export default function Home() {
         </section>
         {/* About section */}
         <section
-          id="about"
+          id="sobre-mi"
           className="mx-4 my-[1rem] flex scroll-m-[5rem] flex-col gap-5"
         >
           <h3 className="font-montserrat text-4xl font-bold text-[#070707] dark:text-[#EB7B14]">
@@ -84,17 +84,18 @@ export default function Home() {
           <div className="flex flex-col gap-5 xl:flex-1 xl:flex-row xl:items-center xl:gap-12">
             <div className="flex w-full flex-col gap-4 text-[1.1875rem] xl:text-[1.6rem] ">
               <span className="  sm:text-center md:text-start xl:max-w-[580px] ">
-                Hello! I&apos;m Michael Geraghty, a dedicated Web Developer
-                based in the Canary Islands.
+                ¡Hola! soy Michael Geraghty, un desarrollador web dedicado
+                basado en las Islas Canarias.
               </span>
               <span className="sm:text-center  md:text-start xl:max-w-[580px] ">
-                With a passion for web development, I specialize in creating
-                dynamic web pages and applications. Skilled in UI design and
-                Next.Js, I focus on building intuitive, user-driven websites.
+                Con una pasión por el desarrollo web, me especializo en crear
+                páginas web y aplicaciones dinámicas. Con habilidades en diseño
+                de UI y diseño web wordpress tenerife, mi enfoque se centra en
+                construir sitios web intuitivos y orientados al usuario.
               </span>
               <span className="sm:text-center  md:text-start xl:max-w-[580px] ">
-                I thrive on feedback and detail, ensuring every project is a
-                step towards digital excellence.
+                Si estás buscando servicios de diseño web en Tenerife, ¡has
+                llegado al lugar indicado!
               </span>
             </div>
             <div className="">
@@ -103,19 +104,21 @@ export default function Home() {
                 src="/me_headshot.webp"
                 height="230"
                 width="358"
-                alt="A picture of me, Michael Geraghty"
+                alt="Una foto de mi, Michael Geraghty"
                 className="rounded-[1rem] xl:w-[700px]"
               ></Image>
             </div>
           </div>
         </section>
         <section
-          id="contact"
+          id="contacto"
           className="mx-4 flex min-h-[90vh] scroll-mt-[5rem] flex-col gap-3 "
         >
           <h3 className="text-[30px] font-semibold ">Contact</h3>
           <span className="max-w-[388px] text-[1.125rem] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
-            Connect with me for collaborations, questions, or just to say hello!
+            ¡Conéctate conmigo para colaboraciones, preguntas o simplemente para
+            saludar! Si estás interesado en el diseño web en Tenerife, estaré
+            encantado de ayudarte.
           </span>
           <div className="flex flex-1 flex-col gap-8 xl:mt-[12rem]">
             <div className="flex flex-col gap-5 bg-opacity-50 p-8 text-center lg:flex-row xl:justify-evenly">

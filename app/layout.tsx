@@ -34,7 +34,6 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} flex flex-col items-center lg:m-auto lg:items-start`}
       >
-        <NavBar />
         {children}
         <Footer />
       </body>
