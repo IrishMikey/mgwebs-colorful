@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./navBar";
 import Footer from "./footer";
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "400", "500", "700"],
+  weight: ["200", "400", "500", "600"],
   variable: "--font-poppins",
 });
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-days-one",
-});
+
 // Font awesome
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -32,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${montserrat.variable} flex flex-col items-center lg:m-auto lg:items-start`}
+        className={`${inter.variable} flex flex-col items-center lg:m-auto lg:items-start`}
       >
         {children}
         <Footer />
