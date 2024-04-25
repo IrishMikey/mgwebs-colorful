@@ -5,7 +5,18 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import NavBar from "./navBar";
 
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/modal";
+
 export default function Home() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <>
       <NavBar />
@@ -13,12 +24,12 @@ export default function Home() {
       <main className=" flex min-h-screen flex-col gap-16 font-poppins lg:m-auto xl:w-[1080px]">
         <section
           id="home"
-          className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] xl:gap-[7rem]"
+          className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] "
         >
           {/* Corner glow */}
           {/* <div className="rounded-[0 0 150px 150px] absolute -right-16 top-0 -z-10 h-[15rem] w-[10rem] bg-royal-blue-300 blur-2xl"></div> */}
-          <div className="flex flex-grow flex-col justify-between xl:gap-[5rem] ">
-            <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#9ba1a5] xl:text-[3.125rem]">
+          <div className="flex flex-grow flex-col justify-between">
+            <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#9ba1a5] ">
               Hey, I&apos;m Michael 👋
             </h4>
 
@@ -34,7 +45,7 @@ export default function Home() {
         {/* Work section */}
         <section
           id="work"
-          className="mx-4 flex scroll-mt-[5rem] flex-col gap-10  rounded-[1rem] bg-[#f2f2f2] p-5 pb-10 text-[#000]"
+          className="mx-4 flex scroll-mt-[5rem] flex-col gap-10  rounded-[1rem] bg-[#d5d5d5] p-5 pb-10 text-[#000]"
         >
           <div className="flex flex-col gap-5">
             <h3 className=" flex justify-between text-[2rem] font-[600] leading-[1.1em]">
@@ -48,9 +59,9 @@ export default function Home() {
           </div>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
-            <Link
-              href="https://bgrsolutions.net"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
+            <button
+              onPress={onOpen}
+              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
               <div className="flex items-center justify-between py-[13px] ">
                 <h4 className=" text-[1.125rem] font-semibold">BGRSolutions</h4>
@@ -62,10 +73,10 @@ export default function Home() {
                   woo commerce
                 </span>
               </div>
-            </Link>
+            </button>
             <Link
               href="https://casamagictenerife.com"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
+              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
               <div className="flex items-center justify-between py-[13px] ">
                 <h4 className=" text-[1.125rem] font-semibold">Casa Magic</h4>
@@ -80,7 +91,7 @@ export default function Home() {
             </Link>
             <Link
               href="https://cloudninetenerife.es"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff] bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
+              className="flex w-full flex-col rounded-[1rem] bg-[#fff] bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow transition-all hover:scale-[1.01] active:scale-100 "
             >
               <div className="flex items-center justify-between py-[13px] ">
                 <h4 className=" text-[1.125rem] font-semibold">Cloud Nine</h4>
