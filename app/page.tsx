@@ -14,6 +14,9 @@ import {
   useDisclosure,
 } from "@nextui-org/modal";
 
+import { Button } from "@nextui-org/button";
+useDisclosure;
+
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -59,7 +62,7 @@ export default function Home() {
           </div>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
-            <button
+            <Button
               onPress={onOpen}
               className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
@@ -73,7 +76,7 @@ export default function Home() {
                   woo commerce
                 </span>
               </div>
-            </button>
+            </Button>
             <Link
               href="https://casamagictenerife.com"
               className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
