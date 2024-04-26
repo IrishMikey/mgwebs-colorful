@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faExpand,
   faArrowUpRightFromSquare,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
@@ -52,16 +53,16 @@ export default function Home() {
         {/* Work section */}
         <section
           id="work"
-          className="bg-zinc-800 mx-4 flex scroll-mt-[5rem] flex-col  gap-10 rounded-[1rem] p-5 pb-10"
+          className="bg-zinc-900 flex scroll-mt-[5rem] flex-col gap-10 rounded-[1rem] px-3 py-5 pb-10"
         >
           <div className="flex flex-col gap-5">
             <h3 className=" flex justify-between text-[2rem] font-[600] leading-[1.1em]">
               Recent Work <span> 🔨</span>
             </h3>
 
-            <span className="max-w-[294px] leading-[1.4em] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
+            <span className="text-zinc-400 max-w-[40ch] ">
               Discover my portfolio of diverse projects, highlighting my
-              expertise in web development and design.
+              knowledge in web development and design.
             </span>
           </div>
 
@@ -69,23 +70,23 @@ export default function Home() {
             <Card
               onPress={onOpen}
               isPressable={true}
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
+              className="bg-zinc-500 flex w-full flex-col gap-2 rounded-[1rem] bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
-              <div className="flex items-center justify-between py-[13px] ">
+              <div className="flex w-full items-center justify-between py-[13px] ">
                 <h4 className=" text-[1.125rem] font-semibold">BGRSolutions</h4>
-                <span className=" text-sm text-[#5c5c5c]">e-commerce</span>
+                <FontAwesomeIcon icon={faExpand} />
               </div>
-              <div className=" flex min-h-full w-full flex-col gap-2 ">
-                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.webp')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
-                <div className="flex items-center justify-between">
-                  <Chip color="default" radius="md">
-                    WooCommerce
-                  </Chip>
-                  <FontAwesomeIcon
-                    icon={faArrowUpRightFromSquare}
-                    className="text-primary"
-                  />
-                </div>
+              <Image
+                as={NextImage}
+                src="/bgrsolutions.webp"
+                height={300}
+                width={600}
+                alt="Desktop screenshot of bgrsolutions.net"
+              ></Image>
+              <div className="flex items-center justify-between">
+                <Chip color="default" radius="md">
+                  WooCommerce
+                </Chip>
               </div>
             </Card>
             <Modal
