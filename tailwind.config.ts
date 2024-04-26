@@ -34,7 +34,9 @@ const config: Config = {
   },
   darkMode: "class",
   plugins: [
-    nextui(),
+    nextui({
+      addCommonColors: true,
+    }),
     function ({ addUtilities }: PluginAPI) {
       const newUtilities = {
         ".text-stroke": {

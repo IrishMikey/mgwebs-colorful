@@ -1,24 +1,28 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import NavBar from "./navBar";
+import NextImage from "next/image";
 
+import { Card, Link, Image, Button } from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
 import {
   Modal,
   ModalContent,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  useDisclosure,
 } from "@nextui-org/modal";
-
-import { Button } from "@nextui-org/button";
-useDisclosure;
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [scrollBehavior, setScrollBehavior] = useState("outside");
 
   return (
     <>
@@ -62,8 +66,9 @@ export default function Home() {
           </div>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
-            <Button
+            <Card
               onPress={onOpen}
+              isPressable={true}
               className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
               <div className="flex items-center justify-between py-[13px] ">
@@ -73,10 +78,97 @@ export default function Home() {
               <div className=" flex min-h-full w-full flex-col gap-2 ">
                 <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.webp')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
                 <span className=" w-fit rounded-xl bg-[#a1a1a1] px-2 text-sm text-[#fff]">
-                  woo commerce
+                  WooCommerce
                 </span>
               </div>
-            </Button>
+            </Card>
+            <Modal
+              isOpen={isOpen}
+              onOpenChange={onOpenChange}
+              scrollBehavior={scrollBehavior}
+            >
+              {/* PASS isOpen STATE FROM  useDisclosure HOOK*/}
+              <ModalContent>
+                {(onClose) => (
+                  <>
+                    <ModalHeader className="text-[2rem]">
+                      BGRSolutions
+                    </ModalHeader>
+                    <ModalBody className="gap-8">
+                      <p className="text-zinc-300">
+                        A dynamic e-commerce solution using WordPress and
+                        WooCommerce. Seamlessly integrating CSV imports and
+                        translation plugins to ensure smooth operations.
+                      </p>
+                      <div className="bg-zinc-800 flex w-full justify-center rounded-[1rem] py-2">
+                        <Image
+                          as={NextImage}
+                          width={200}
+                          height={300}
+                          src="/bgrHome-mobile.webp"
+                          alt="A mobile screenshot of www.bgrsolutions.net homepage"
+                        ></Image>
+                      </div>
+                      <p className="text-zinc-300">
+                        With a knack for customization, I have added bespoke
+                        HTML,CSS and JavaScript, elements when necessary,
+                        enhancing functionality and aesthetics.
+                      </p>
+                      <div className="bg-zinc-800 flex w-full justify-center rounded-[1rem] p-2">
+                        <Image
+                          as={NextImage}
+                          width={400}
+                          height={300}
+                          src="/bgrSamsung.webp"
+                          alt="A mobile screenshot of www.bgrsolutions.net homepage"
+                        ></Image>
+                      </div>
+
+                      <p className="text-zinc-300">
+                        Designing promotional and in-store graphics. From
+                        eye-catching posters to captivating digital displays, I
+                        excel in crafting visually appealing assets that elevate
+                        brand presence and drive engagement both online and
+                        offline.
+                      </p>
+                      <Image
+                        as={NextImage}
+                        width={400}
+                        height={300}
+                        src="/bgr-media.webp"
+                        alt="A graphic of a multimedia banner for an ecommerce"
+                      ></Image>
+                      <Image
+                        as={NextImage}
+                        width={400}
+                        height={300}
+                        src="/bgr-phones.webp"
+                        alt="A graphic of a smartphone banner for an ecommerce"
+                      ></Image>
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button fullWidth={true} color="primary">
+                        <Link
+                          href="https://bgrsolutions.net"
+                          className="text-white flex gap-2"
+                        >
+                          Check it out
+                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        </Link>
+                      </Button>
+                      <Button
+                        isIconOnly={true}
+                        variant="faded"
+                        onPress={onClose}
+                      >
+                        X
+                      </Button>
+                    </ModalFooter>
+                  </>
+                )}
+              </ModalContent>
+            </Modal>
+
             <Link
               href="https://casamagictenerife.com"
               className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
