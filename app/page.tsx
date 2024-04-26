@@ -10,7 +10,7 @@ import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import NavBar from "./navBar";
 import NextImage from "next/image";
 
-import { Card, Link, Image, Button } from "@nextui-org/react";
+import { Card, Chip, Link, Image, Button } from "@nextui-org/react";
 import { useDisclosure } from "@nextui-org/react";
 import {
   Modal,
@@ -22,7 +22,7 @@ import {
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [scrollBehavior, setScrollBehavior] = useState("outside");
+  const [scrollBehavior, setScrollBehavior] = useState("inside");
 
   return (
     <>
@@ -52,14 +52,14 @@ export default function Home() {
         {/* Work section */}
         <section
           id="work"
-          className="mx-4 flex scroll-mt-[5rem] flex-col gap-10  rounded-[1rem] bg-[#d5d5d5] p-5 pb-10 text-[#000]"
+          className="bg-zinc-800 mx-4 flex scroll-mt-[5rem] flex-col  gap-10 rounded-[1rem] p-5 pb-10"
         >
           <div className="flex flex-col gap-5">
             <h3 className=" flex justify-between text-[2rem] font-[600] leading-[1.1em]">
               Recent Work <span> 🔨</span>
             </h3>
 
-            <span className=" max-w-[294px] leading-[1.4em] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
+            <span className="max-w-[294px] leading-[1.4em] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
               Discover my portfolio of diverse projects, highlighting my
               expertise in web development and design.
             </span>
@@ -77,24 +77,33 @@ export default function Home() {
               </div>
               <div className=" flex min-h-full w-full flex-col gap-2 ">
                 <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.webp')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
-                <span className=" w-fit rounded-xl bg-[#a1a1a1] px-2 text-sm text-[#fff]">
-                  WooCommerce
-                </span>
+                <div className="flex items-center justify-between">
+                  <Chip color="default" radius="md">
+                    WooCommerce
+                  </Chip>
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    className="text-primary"
+                  />
+                </div>
               </div>
             </Card>
             <Modal
               isOpen={isOpen}
+              backdrop="opaque"
+              hideCloseButton={true}
               onOpenChange={onOpenChange}
               scrollBehavior={scrollBehavior}
+              className=""
             >
               {/* PASS isOpen STATE FROM  useDisclosure HOOK*/}
               <ModalContent>
                 {(onClose) => (
                   <>
-                    <ModalHeader className="text-[2rem]">
-                      BGRSolutions
-                    </ModalHeader>
                     <ModalBody className="gap-8">
+                      <header className="flex flex-initial py-4 text-[2rem] font-semibold">
+                        BGRSolutions
+                      </header>
                       <p className="text-zinc-300">
                         A dynamic e-commerce solution using WordPress and
                         WooCommerce. Seamlessly integrating CSV imports and
@@ -146,7 +155,7 @@ export default function Home() {
                         alt="A graphic of a smartphone banner for an ecommerce"
                       ></Image>
                     </ModalBody>
-                    <ModalFooter>
+                    <ModalFooter className="">
                       <Button fullWidth={true} color="primary">
                         <Link
                           href="https://bgrsolutions.net"
