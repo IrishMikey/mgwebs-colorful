@@ -1,0 +1,46 @@
+[
+  {
+    "company_name": "BGRSolutions",
+    "img": [
+      {
+        "src": "/bgrsolutions.webp",
+        "height": 300,
+        "width": 400
+      }
+    ],
+    "built_with": ["WooCommerce"]
+  },
+  {
+    "company_name": "Casa Magic",
+    "img": [
+      {
+        "src": "/casamagic.png",
+        "height": 300,
+        "width": 400
+      }
+    ],
+    "built_with": ["NextJS"]
+  },
+  {
+    "company_name": "Cloud Nine",
+    "img": [
+      {
+        "src": "/cloudninetenerife.webp",
+        "height": 300,
+        "width": 400
+      }
+    ],
+    "built_with": ["NextJS"]
+  },
+  {
+    "company_name": "IWantItFast",
+    "img": [
+      {
+        "src": "/iwantitfast.webp",
+        "height": 300,
+        "width": 400
+      }
+    ],
+    "built_with": ["WooCommerce"]
+  }
+]

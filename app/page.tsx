@@ -20,6 +20,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "@nextui-org/modal";
+import WorksCard from "./worksCard";
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -53,24 +54,25 @@ export default function Home() {
         {/* Work section */}
         <section
           id="work"
-          className="bg-zinc-900 flex scroll-mt-[5rem] flex-col gap-10 rounded-[1rem] px-3 py-5 pb-10"
+          className="flex scroll-mt-[5rem] flex-col gap-10 rounded-[1rem] bg-zinc-900 px-3 py-5 pb-10"
         >
           <div className="flex flex-col gap-5">
             <h3 className=" flex justify-between text-[2rem] font-[600] leading-[1.1em]">
               Recent Work <span> 🔨</span>
             </h3>
 
-            <span className="text-zinc-400 max-w-[40ch] ">
+            <span className="max-w-[40ch] text-zinc-400 ">
               Discover my portfolio of diverse projects, highlighting my
               knowledge in web development and design.
             </span>
           </div>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
-            <Card
+            <WorksCard />
+            {/* <Card
               onPress={onOpen}
               isPressable={true}
-              className="bg-zinc-500 flex w-full flex-col gap-2 rounded-[1rem] bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
+              className="flex w-full flex-col gap-2 rounded-[1rem] bg-zinc-500 bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 "
             >
               <div className="flex w-full items-center justify-between py-[13px] ">
                 <h4 className=" text-[1.125rem] font-semibold">BGRSolutions</h4>
@@ -97,7 +99,7 @@ export default function Home() {
               scrollBehavior={scrollBehavior}
               className=""
             >
-              {/* PASS isOpen STATE FROM  useDisclosure HOOK*/}
+              
               <ModalContent>
                 {(onClose) => (
                   <>
@@ -110,7 +112,7 @@ export default function Home() {
                         WooCommerce. Seamlessly integrating CSV imports and
                         translation plugins to ensure smooth operations.
                       </p>
-                      <div className="bg-zinc-800 flex w-full justify-center rounded-[1rem] py-2">
+                      <div className="flex w-full justify-center rounded-[1rem] bg-zinc-800 py-2">
                         <Image
                           as={NextImage}
                           width={200}
@@ -124,7 +126,7 @@ export default function Home() {
                         HTML,CSS and JavaScript, elements when necessary,
                         enhancing functionality and aesthetics.
                       </p>
-                      <div className="bg-zinc-800 flex w-full justify-center rounded-[1rem] p-2">
+                      <div className="flex w-full justify-center rounded-[1rem] bg-zinc-800 p-2">
                         <Image
                           as={NextImage}
                           width={400}
@@ -160,7 +162,7 @@ export default function Home() {
                       <Button fullWidth={true} color="primary">
                         <Link
                           href="https://bgrsolutions.net"
-                          className="text-white flex gap-2"
+                          className="flex gap-2 text-white"
                         >
                           Check it out
                           <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -210,7 +212,7 @@ export default function Home() {
                   NextJS
                 </span>
               </div>
-            </Link>
+            </Link> */}
           </div>
         </section>
         {/* About section */}
@@ -218,7 +220,7 @@ export default function Home() {
           id="about"
           className="mx-4 my-[1rem] flex scroll-m-[5rem] flex-col gap-5"
         >
-          <h3 className="dark:text-white  text-4xl font-bold ">About me</h3>
+          <h3 className="text-4xl  font-bold dark:text-white ">About me</h3>
           <div className="flex flex-col gap-5 xl:flex-1 xl:flex-row xl:items-center xl:gap-12">
             <div className="flex w-full flex-col gap-4 text-[1.1875rem] xl:text-[1.6rem] ">
               <span className="  sm:text-center md:text-start xl:max-w-[580px] ">
