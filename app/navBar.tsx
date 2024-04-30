@@ -1,40 +1,53 @@
+"use client";
+import { useEffect, useState } from "react";
+import { Link, Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
+
 export default function NavBar() {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const sectionIds = ["home", "work", "about", "contact"];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      let activeSection = "home";
+
+      for (let i = 1; i < sectionIds.length; i++) {
+        const section = document.getElementById(sectionIds[i]);
+        if (section && scrollPosition >= section.offsetTop) {
+          activeSection = sectionIds[i];
+        }
+      }
+
+      setActiveSection(activeSection);
+      console.log("Active section: " + activeSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed left-0 right-0 top-5 z-50 m-auto w-full px-3 sm:w-fit">
-      <ul className="bg-white flex h-12 grow items-center rounded-[1.125rem] bg-opacity-80 px-[0.5rem] py-1 shadow backdrop-blur-lg backdrop-filter sm:gap-4 dark:bg-[rgb(83,77,77)] dark:bg-opacity-45">
-        <li className="grow text-center">
-          <a
-            className="active:bg-blue-500 active:text-white rounded-lg px-2 py-1 text-[1.25rem] font-semibold transition-all hover:font-semibold "
-            href="#"
-          >
-            Home
-          </a>
-        </li>
-        <li className="grow text-center">
-          <a
-            className="active:bg-blue-500 active:text-white rounded-lg px-2 py-1 text-[1.25rem] transition-all hover:font-semibold"
-            href="#work"
-          >
-            Work
-          </a>
-        </li>
-        <li className="grow text-center">
-          <a
-            className="active:bg-blue-500 active:text-white rounded-lg px-2 py-1 text-[1.25rem] transition-all hover:font-semibold"
-            href="#about"
-          >
-            About
-          </a>
-        </li>
-        <li className="grow text-center">
-          <a
-            className="active:bg-blue-500 active:text-white rounded-lg px-2 py-1 text-[1.25rem] transition-all hover:font-semibold"
-            href="#contact"
-          >
-            Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <Navbar
+      position="sticky"
+      className="top-4 z-20 h-10 w-fit rounded-[1.125rem] bg-opacity-80 px-[0.5rem] shadow backdrop-blur-lg backdrop-filter sm:gap-4 dark:bg-[rgb(139,139,139)] dark:bg-opacity-45"
+    >
+      <NavbarContent>
+        <NavbarItem isActive={true}>
+          <Link href="#home">Home</Link>
+        </NavbarItem>
+        <NavbarItem isActive={activeSection === "work"}>
+          <Link href="#work">Work</Link>
+        </NavbarItem>
+        <NavbarItem isActive={activeSection === "about"}>
+          <Link href="#about">About</Link>
+        </NavbarItem>
+        <NavbarItem isActive={activeSection === "contact"}>
+          <Link href="#contact">Contact</Link>
+        </NavbarItem>
+      </NavbarContent>
+    </Navbar>
   );
 }

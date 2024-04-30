@@ -8,8 +8,6 @@ import NavBar from "./navBar";
 export default function Home() {
   return (
     <>
-      <NavBar />
-
       <main className=" flex min-h-screen flex-col gap-16 font-poppins lg:m-auto xl:w-[1080px]">
         <section
           id="home"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "./navBar";
+import Navbar from "./navBar";
 import Footer from "./footer";
 
 const inter = Inter({
@@ -28,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} flex flex-col items-center lg:m-auto lg:items-start`}
+        className={`${inter.variable} relative flex flex-col items-center lg:m-auto lg:items-start`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>
