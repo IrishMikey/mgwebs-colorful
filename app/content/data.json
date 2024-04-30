@@ -4,8 +4,8 @@
     "card": {
       "img": {
         "src": "/bgrsolutions.webp",
-        "height": 250,
-        "width": 350
+        "height": 3840,
+        "width": 2161
       },
       "built_with": ["WooCommerce"]
     },
@@ -13,8 +13,8 @@
       {
         "img": "/bgrSamsung.webp",
         "desc": "A dynamic e-commerce solution using WordPress and  WooCommerce Seamlessly integrating CSV imports and translation plugins to ensure smooth operations.",
-        "height": 200,
-        "width": 300,
+        "height": 3840,
+        "width": 2161,
         "alt": "A screenshot of bgrsolutions.net"
       },
       {

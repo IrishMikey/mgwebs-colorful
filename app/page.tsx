@@ -1,37 +1,14 @@
-"use client";
-import { useState } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExpand,
-  faArrowUpRightFromSquare,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import NavBar from "./navBar";
 import NextImage from "next/image";
 
-import {
-  Card,
-  Chip,
-  Link,
-  Image,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "@nextui-org/modal";
+import { Image } from "@nextui-org/react";
+
 import WorksCards from "./content/worksCards";
 
 export default function Home() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [scrollBehavior, setScrollBehavior] = useState("inside" as "inside");
-
   return (
     <>
       <NavBar />
