@@ -3,21 +3,14 @@
 import worksData from "./data.json";
 
 import { useState, useEffect } from "react";
-import {
-  Card,
-  Image,
-  Chip,
-  useDisclosure,
-  Link,
-  Button,
-} from "@nextui-org/react";
+import { Card, Chip, useDisclosure, Link, Button } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExpand,
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
-import NextImage from "next/image";
+import Image from "next/image";
 
 import { Modal, ModalContent, ModalBody, ModalFooter } from "@nextui-org/modal";
 
@@ -73,14 +66,17 @@ const WorkCard = ({ work }: { work: Work }) => {
           <h4 className="text-[1.125rem] font-semibold">{work.company_name}</h4>
           <FontAwesomeIcon icon={faExpand} />
         </div>
-        <Image
-          as={NextImage}
-          layout="responsive"
-          src={work.card.img.src}
-          height={work.card.img.height}
-          width={work.card.img.width}
-          alt={`Desktop screenshot of ${work.company_name}`}
-        />
+        <div className="relative h-[200px] w-full rounded-[1rem] bg-zinc-800 ">
+          <Image
+            className="rounded-[1rem] "
+            src={work.card.img.src}
+            fill
+            sizes="100vw"
+            // height={work.card.img.height}
+            // width={work.card.img.width}
+            alt={`Desktop screenshot of ${work.company_name}`}
+          />
+        </div>
         <div className="flex items-center justify-between">
           {work.card.built_with.map((tech, index) => (
             <Chip key={index} color="default" radius="md">
@@ -106,7 +102,6 @@ const WorkCard = ({ work }: { work: Work }) => {
               <div className="flex flex-col items-center gap-2" key={index}>
                 <div className="flex w-full justify-center rounded-[1rem] bg-zinc-800 py-2">
                   <Image
-                    as={NextImage}
                     width={modal.width}
                     height={modal.height}
                     src={modal.img}

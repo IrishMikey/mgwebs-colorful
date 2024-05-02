@@ -38,8 +38,8 @@
     "card": {
       "img": {
         "src": "/casamagic.webp",
-        "height": 250,
-        "width": 350
+        "height": 2122,
+        "width": 1277
       },
       "built_with": ["NextJS"]
     },
