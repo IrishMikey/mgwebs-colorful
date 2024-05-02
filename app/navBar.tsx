@@ -32,7 +32,7 @@ export default function NavBar() {
   return (
     <Navbar
       position="sticky"
-      className="top-4 z-20 h-10 w-fit rounded-[1.125rem] bg-opacity-80 px-[0.5rem] shadow backdrop-blur-lg backdrop-filter sm:gap-4 dark:bg-[rgb(139,139,139)] dark:bg-opacity-45"
+      className="top-4 z-20 h-10 w-fit rounded-[1.125rem] bg-[rgb(139,139,139)] bg-opacity-80 px-[0.5rem] shadow backdrop-blur-lg backdrop-filter "
     >
       <NavbarContent>
         <NavbarItem isActive={true}>
