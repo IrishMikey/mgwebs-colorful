@@ -66,14 +66,13 @@ const WorkCard = ({ work }: { work: Work }) => {
           <h4 className="text-[1.125rem] font-semibold">{work.company_name}</h4>
           <FontAwesomeIcon icon={faExpand} />
         </div>
-        <div className="relative h-[200px] w-full rounded-[1rem] bg-zinc-800 ">
+        <div className=" w-full max-w-[850px] rounded-[1rem] bg-zinc-800 ">
           <Image
-            className="rounded-[1rem] "
+            className="h-auto w-full rounded-[1rem]"
             src={work.card.img.src}
-            fill
             sizes="100vw"
-            // height={work.card.img.height}
-            // width={work.card.img.width}
+            height={work.card.img.height}
+            width={work.card.img.width}
             alt={`Desktop screenshot of ${work.company_name}`}
           />
         </div>
