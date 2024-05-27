@@ -7,7 +7,8 @@
         "height": 3840,
         "width": 2161
       },
-      "built_with": ["WooCommerce"]
+      "built_with": ["WooCommerce"],
+      "link": "https://bgrsolutions.net"
     },
     "modal": [
       {
@@ -41,15 +42,16 @@
         "height": 2122,
         "width": 1277
       },
-      "built_with": ["NextJS"]
+      "built_with": ["NextJS"],
+      "link": "https://casamagictenerife.com"
     },
     "modal": [
       {
         "img": "/casamagic.webp",
-        "desc": "A casamagic.",
+        "desc": "Casamagic. A holiday rental in Tenerife Sur. Made with NextJs & tailwind",
         "height": 200,
         "width": 300,
-        "alt": "A screenshot of bgrsolutions.net"
+        "alt": "A screenshot of Casamagictenerife.com"
       }
     ]
   },
@@ -61,15 +63,16 @@
         "height": 250,
         "width": 350
       },
-      "built_with": ["NextJS"]
+      "built_with": ["NextJS"],
+      "link": "https://cloudninetenerife.es"
     },
     "modal": [
       {
         "img": "/cloudninietenerife.webp",
-        "desc": "A casamagic.",
+        "desc": "Cloud Nine Tenerife is a beauty & education salon in the south of tenerife.",
         "height": 200,
         "width": 300,
-        "alt": "A screenshot of bgrsolutions.net"
+        "alt": "A screenshot of cloudninetenerife.es"
       }
     ]
   },
@@ -81,15 +84,16 @@
         "height": 250,
         "width": 350
       },
-      "built_with": ["WordPress", "WooCommerce"]
+      "built_with": ["WordPress", "WooCommerce"],
+      "link": "https://iwantitfast.es"
     },
     "modal": [
       {
         "img": "/iwantitfast.webp",
-        "desc": "A iwantitfast.",
+        "desc": "iWantItFast España. Coming soon",
         "height": 200,
         "width": 300,
-        "alt": "A screenshot of bgrsolutions.net"
+        "alt": "A screenshot of iwantitfast"
       }
     ]
   }

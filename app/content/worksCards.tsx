@@ -24,6 +24,7 @@ type Work = {
       width: number;
     };
     built_with: string[];
+    link: string;
   };
   modal: {
     img: string;
