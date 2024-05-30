@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import NavBar from "./navBar";
+import NavBar from "../components/navBar";
 import { Image } from "@nextui-org/react";
 import WorksCards from "./content/worksCards";
 

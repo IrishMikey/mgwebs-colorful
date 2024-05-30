@@ -6,6 +6,28 @@ import bgrsolutionsImg from "@/public/bgrsolutions.webp";
 import casamagicImg from "@/public/casamagic.webp";
 import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
 
+export const links = [
+  {
+    name: "Home",
+    hash: "#home",
+  },
+  {
+    name: "About",
+    hash: "#about",
+  },
+  {
+    name: "Projects",
+    hash: "#projects",
+  },
+  {
+    name: "Experience",
+    hash: "#experience",
+  },
+  {
+    name: "Contact",
+    hash: "#contact",
+  },
+] as const;
 export const projectsData = [
   {
     title: "BGRSolutions",
