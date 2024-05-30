@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} flex flex-col items-center lg:m-auto lg:items-start`}
+        className={`${inter.variable} flex flex-col items-center lg:mx-auto lg:max-w-screen-lg`}
       >
         <Providers>
           {children}
