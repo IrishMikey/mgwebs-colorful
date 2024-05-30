@@ -1,9 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import NavBar from "./navBar";
+
+import { Image } from "@nextui-org/react";
+
+import WorksCards from "./content/worksCards";
 
 export default function Home() {
   return (
@@ -11,12 +13,12 @@ export default function Home() {
       <main className=" flex min-h-screen flex-col gap-16 font-poppins lg:m-auto xl:w-[1080px]">
         <section
           id="home"
-          className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] xl:gap-[7rem]"
+          className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh] "
         >
           {/* Corner glow */}
           {/* <div className="rounded-[0 0 150px 150px] absolute -right-16 top-0 -z-10 h-[15rem] w-[10rem] bg-royal-blue-300 blur-2xl"></div> */}
-          <div className="flex flex-grow flex-col justify-between xl:gap-[5rem] ">
-            <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#9ba1a5] xl:text-[3.125rem]">
+          <div className="flex flex-grow flex-col justify-between">
+            <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#9ba1a5] ">
               Hey, I&apos;m Michael 👋
             </h4>
 
@@ -32,67 +34,21 @@ export default function Home() {
         {/* Work section */}
         <section
           id="work"
-          className="mx-4 flex scroll-mt-[5rem] flex-col gap-10  rounded-[1rem] bg-[#f2f2f2] p-5 pb-10 text-[#000]"
+          className="flex scroll-mt-[5rem] flex-col gap-10 rounded-[1rem] bg-zinc-900 px-3 py-5 pb-10"
         >
           <div className="flex flex-col gap-5">
             <h3 className=" flex justify-between text-[2rem] font-[600] leading-[1.1em]">
               Recent Work <span> 🔨</span>
             </h3>
 
-            <span className=" max-w-[294px] leading-[1.4em] sm:text-center md:max-w-fit md:text-start xl:max-w-[60%] xl:text-[1.375rem]">
+            <span className="max-w-[40ch] text-zinc-400 ">
               Discover my portfolio of diverse projects, highlighting my
-              expertise in web development and design.
+              knowledge in web development and design.
             </span>
           </div>
 
           <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
-            <Link
-              href="https://bgrsolutions.net"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
-            >
-              <div className="flex items-center justify-between py-[13px] ">
-                <h4 className=" text-[1.125rem] font-semibold">BGRSolutions</h4>
-                <span className=" text-sm text-[#5c5c5c]">e-commerce</span>
-              </div>
-              <div className=" flex min-h-full w-full flex-col gap-2 ">
-                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.webp')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
-                <span className=" w-fit rounded-xl bg-[#a1a1a1] px-2 text-sm text-[#fff]">
-                  woo commerce
-                </span>
-              </div>
-            </Link>
-            <Link
-              href="https://casamagictenerife.com"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff]  bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow  backdrop-blur-lg backdrop-filter transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
-            >
-              <div className="flex items-center justify-between py-[13px] ">
-                <h4 className=" text-[1.125rem] font-semibold">Casa Magic</h4>
-                <span className=" text-sm text-[#5c5c5c]">Holiday rental</span>
-              </div>
-              <div className=" flex min-h-full w-full flex-col gap-2 ">
-                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/casamagic.png')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
-                <span className=" w-fit rounded-xl bg-[#a1a1a1] px-2 text-sm text-[#fff]">
-                  NextJS
-                </span>
-              </div>
-            </Link>
-            <Link
-              href="https://cloudninetenerife.es"
-              className="flex w-full flex-col rounded-[1rem] bg-[#fff] bg-opacity-30 px-[0.625rem] pb-[0.625rem] shadow transition-all hover:scale-[1.01] active:scale-100 xl:h-[750px]"
-            >
-              <div className="flex items-center justify-between py-[13px] ">
-                <h4 className=" text-[1.125rem] font-semibold">Cloud Nine</h4>
-                <span className="text-sm text-[#5c5c5c]">
-                  Beauty & Education
-                </span>
-              </div>
-              <div className=" flex min-h-full w-full flex-col gap-2 ">
-                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/cloudninetenerife.webp')] bg-cover bg-no-repeat md:h-[305px]  xl:h-[685px]"></div>
-                <span className=" w-fit rounded-xl bg-[#a1a1a1] px-2 text-sm text-[#fff]">
-                  NextJS
-                </span>
-              </div>
-            </Link>
+            <WorksCards />
           </div>
         </section>
         {/* About section */}
@@ -100,7 +56,7 @@ export default function Home() {
           id="about"
           className="mx-4 my-[1rem] flex scroll-m-[5rem] flex-col gap-5"
         >
-          <h3 className="dark:text-white  text-4xl font-bold ">About me</h3>
+          <h3 className="text-4xl  font-bold dark:text-white ">About me</h3>
           <div className="flex flex-col gap-5 xl:flex-1 xl:flex-row xl:items-center xl:gap-12">
             <div className="flex w-full flex-col gap-4 text-[1.1875rem] xl:text-[1.6rem] ">
               <span className="  sm:text-center md:text-start xl:max-w-[580px] ">

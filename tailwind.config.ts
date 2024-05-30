@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss";
 import type { PluginAPI } from "tailwindcss/types/config";
+const { nextui } = require("@nextui-org/react");
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     colors: {
@@ -29,7 +32,11 @@ const config: Config = {
       },
     },
   },
+  darkMode: "class",
   plugins: [
+    nextui({
+      addCommonColors: true,
+    }),
     function ({ addUtilities }: PluginAPI) {
       const newUtilities = {
         ".text-stroke": {
