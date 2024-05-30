@@ -1,32 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import NavBar from "../components/navBar";
 import { Image } from "@nextui-org/react";
 import WorksCards from "./content/worksCards";
+import Hero from "@/components/hero";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
-      <main className="gap-18 flex min-h-screen flex-col font-poppins lg:mx-auto xl:w-[1080px]">
-        <section
-          id="home"
-          className="relative mb-20 flex min-h-[70vh] scroll-mt-[7rem] flex-col overflow-hidden px-4 pt-[7rem] xl:min-h-[90vh]"
-        >
-          <div className="flex flex-grow flex-col justify-between">
-            <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#c6c8c9]">
-              Hey, I&apos;m Michael 👋
-            </h4>
-            <h1 className="max-w-[8ch] text-6xl  font-bold leading-[3.75rem] lg:text-[7.4375rem] lg:leading-[6.75rem]">
-              Web Developer <span className="texStroke">& Designer</span>
-            </h1>
-            <span className="text-2xl text-[#F2E9E9] md:w-auto xl:max-w-[80%] xl:text-3xl">
-              I&apos;m on a mission to create captivating, enjoyable, and
-              user-oriented digital experiences
-            </span>
-          </div>
-        </section>
+      <main className="flex flex-col items-center px-4">
+        <Hero />
         <WorksCards />
         <section
           id="about"

@@ -4,7 +4,7 @@ import { projectsData } from "@/lib/data";
 
 export default function WorksCards() {
   return (
-    <section className="m-4">
+    <section id="work" className="m-4 w-full scroll-mt-[8rem] ">
       <div className="flex flex-col gap-5">
         <h3 className="flex justify-between text-2xl font-semibold lg:text-4xl">
           Recent Work <span>🔨</span>

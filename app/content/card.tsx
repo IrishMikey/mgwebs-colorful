@@ -29,7 +29,7 @@ export default function WorkCard({ title, card, desc, modal }: WorkProps) {
       className="group"
     >
       <Card className=" relative max-w-[42rem] overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
-        <div className="flex h-full flex-col px-6 pb-8 pt-4 group-even:ml-[20rem] sm:max-w-[50%] sm:pl-8 sm:pr-2 sm:pt-8">
+        <div className="flex h-full flex-col px-6 pb-8 pt-4 sm:max-w-[50%] sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
           <h3 className="text-2xl font-semibold">{title}</h3>
           <p className="text-gray-700 mt-2 leading-relaxed">{desc}</p>
           <ul className="flex flex-wrap gap-2 sm:mt-auto">
@@ -46,7 +46,7 @@ export default function WorkCard({ title, card, desc, modal }: WorkProps) {
           src={card.imageUrl}
           alt={card.alt}
           quality={95}
-          className="group-even:-right-inital shadow-black-800 group-hover:scale-[1.04 absolute -right-40 top-10 w-[28.25rem] rounded-t-lg shadow-md transition group-even:-left-40 group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2    group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3       group-even:group-hover:rotate-2"
+          className="group-even:-right-inital shadow-black-800 group-hover:scale-[1.04 absolute -right-40 top-10 hidden w-[28.25rem] rounded-t-lg shadow-md transition group-even:-left-40 group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2 sm:block"
         ></Image>
       </Card>
     </motion.div>

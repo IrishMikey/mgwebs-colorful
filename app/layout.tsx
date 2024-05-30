@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NavBar from "../components/navBar";
+
 import Footer from "./footer";
 import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["200", "400", "500", "600"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
 });
 
 // Font awesome
@@ -26,11 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} flex flex-col items-center lg:mx-auto lg:max-w-screen-lg`}
-      >
+    <html lang="en" className="!scroll-smooth dark">
+      <body className={`${inter.variable} `}>
         <Providers>
+          <NavBar />
           {children}
           <Footer />
         </Providers>
