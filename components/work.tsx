@@ -1,20 +1,29 @@
+"use client";
 import React, { useRef } from "react";
 import Card from "./card";
 import { projectsData } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export default function WorksCards() {
   return (
-    <section id="work" className="m-4 w-full scroll-mt-[8rem] ">
-      <div className="flex flex-col gap-5">
-        <h3 className="flex justify-between text-2xl font-semibold lg:text-4xl">
+    <section
+      id="work"
+      className="m-4 mb-28 w-full scroll-mt-[7rem]"
+    >
+      <motion.div
+        className="mb-10 flex flex-col gap-5"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h2 className=" text-3xl font-medium ">
           Recent Work <span>🔨</span>
-        </h3>
-        <span className="max-w-[40ch] text-zinc-400">
+        </h2>
+        <span className="max-w-[50ch] text-xl text-zinc-300">
           Discover my portfolio of diverse projects, highlighting my knowledge
           in web development and design.
         </span>
-      </div>
-      <div className="mt-5 flex w-full flex-1 flex-col justify-center gap-8 md:gap-12">
+      </motion.div>
+      <div className="mt-5 flex w-full flex-1 flex-col items-center gap-8 md:gap-12">
         {projectsData.map((project, index) => (
           <React.Fragment key={index}>
             <Card {...project} />

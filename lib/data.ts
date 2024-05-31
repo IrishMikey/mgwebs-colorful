@@ -5,6 +5,7 @@ import bgrsolutionsImg from "@/public/bgrsolutions.webp";
 
 import casamagicImg from "@/public/casamagic.webp";
 import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
+import manclubImg from "@/public/tenerifemanclub.png";
 
 export const links = [
   {
@@ -12,12 +13,12 @@ export const links = [
     hash: "#home",
   },
   {
-    name: "About",
-    hash: "#about",
-  },
-  {
     name: "Work",
     hash: "#work",
+  },
+  {
+    name: "About",
+    hash: "#about",
   },
   {
     name: "Contact",
@@ -66,6 +67,25 @@ export const projectsData = [
         imageUrl: casamagicImg,
         desc: "Casa Magic. A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
         alt: "A screenshot of Casamagictenerife.com",
+      },
+    ],
+  },
+
+  {
+    title: "Tenerife Man Club",
+    desc: "A space for men of Tenerife to talk in a non-judgemental atmosphere improving their mental health.",
+    sponsored: "Sponsored",
+    card: {
+      imageUrl: manclubImg,
+      built_with: ["WordPress"],
+      link: "https://tenerifeman.club",
+      alt: "A screenshot of tenerifeman.club",
+    },
+    modal: [
+      {
+        imageUrl: cloudninetenerifeImg,
+        desc: "Cloud Nine Tenerife is a beauty & education salon in the south of Tenerife.",
+        alt: "A screenshot of cloudninetenerife.es",
       },
     ],
   },

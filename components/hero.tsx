@@ -1,31 +1,78 @@
+"use client";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
+import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="mb-28 mt-[7.5rem] flex min-h-[45svh] w-full max-w-[50rem] flex-grow scroll-mt-[100rem] flex-col justify-around gap-5"
+      className="mb-28 mt-[7.5rem] flex min-h-[50svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
     >
-      <h4 className="w-full rounded-lg px-4 py-1 text-center text-[1.25rem] text-[#c6c8c9]">
+      <motion.h4
+        className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] text-[#c6c8c9]"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.1,
+        }}
+      >
         Hey, I&apos;m Michael 👋
-      </h4>
-      <div className="flex flex-col gap-8">
-        <h1 className="mb-3 max-w-[13ch] text-6xl font-bold">
+      </motion.h4>
+      <div className="flex flex-col gap-10">
+        <motion.h1
+          className="mb-3 max-w-[10ch] text-6xl font-bold sm:max-w-[13ch] sm:text-7xl"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           Web Developer <span className="texStroke">& Designer</span>
-        </h1>
-        <span className="text-neutral-200 max-w-[40ch] text-3xl ">
+        </motion.h1>
+        <motion.p
+          className="text-neutral-200 max-w-[40ch] text-3xl "
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           I&apos;m on a mission to create captivating, enjoyable, and
           user-oriented digital experiences
-        </span>
-        <div className="flex">
+        </motion.p>
+        <motion.div
+          className="flex gap-2"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.1,
+          }}
+        >
           <Button color="primary" size="lg" radius="md">
-            <Link href="#contact" className="text-[1.428rem] text-medium">
-              Contact me
+            <Link href="#contact" className="text-lg font-medium">
+              Contact me <FontAwesomeIcon icon={faChevronRight} />
             </Link>
           </Button>
-        </div>
+          <Button
+            href="https://twitter.com/MGWebss"
+            radius="md"
+            isIconOnly
+            className="h-[48px] w-[48px]"
+          >
+            <Link href="#contact" className="text-lg ">
+              <FontAwesomeIcon icon={faXTwitter} size="1x" />
+            </Link>
+          </Button>
+          <Button
+            href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+            radius="md"
+            isIconOnly
+            className="h-[48px] w-[48px]"
+          >
+            <Link href="#contact" className="text-lg ">
+              <FontAwesomeIcon icon={faLinkedin} size="1x" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
