@@ -7,9 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
+import { useSectionInView } from "@/lib/hooks";
+import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Hero() {
+  const { ref } = useSectionInView("Home", 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
   return (
     <section
+      ref={ref}
       id="home"
       className="mb-28 mt-[7.5rem] flex min-h-[50svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
     >
@@ -58,7 +64,14 @@ export default function Hero() {
             isIconOnly
             className="h-[48px] w-[48px]"
           >
-            <Link href="#contact" className="text-lg ">
+            <Link
+              href="#contact"
+              className="text-lg "
+              onClick={() => {
+                setActiveSection("Contact");
+                setTimeOfLastClick(Date.now());
+              }}
+            >
               <FontAwesomeIcon icon={faXTwitter} size="1x" />
             </Link>
           </Button>

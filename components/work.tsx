@@ -3,13 +3,13 @@ import React, { useRef } from "react";
 import Card from "./card";
 import { projectsData } from "@/lib/data";
 import { motion } from "framer-motion";
+import { useSectionInView } from "@/lib/hooks";
 
 export default function WorksCards() {
+  const { ref } = useSectionInView("Work", 0.5);
+
   return (
-    <section
-      id="work"
-      className="m-4 mb-28 w-full scroll-mt-[7rem]"
-    >
+    <section id="work" ref={ref} className="m-4 mb-28 w-full scroll-mt-[7rem]">
       <motion.div
         className="mb-10 flex flex-col gap-5"
         initial={{ opacity: 0, y: 100 }}

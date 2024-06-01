@@ -15,6 +15,7 @@ const inter = Inter({
 // Font awesome
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -31,8 +32,10 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth dark">
       <body className={`${inter.variable} `}>
         <Providers>
-          <NavBar />
-          {children}
+          <ActiveSectionContextProvider>
+            <NavBar />
+            {children}
+          </ActiveSectionContextProvider>
           <Footer />
         </Providers>
       </body>

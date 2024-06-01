@@ -4,23 +4,19 @@ import { Avatar } from "@nextui-org/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import avatarImg from "@/public/headshot.jpg";
+import { useSectionInView } from "@/lib/hooks";
+
 export default function About() {
-  const ref = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.33 1 "],
-  });
-
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const { ref } = useSectionInView("About");
 
   return (
     <motion.section
       ref={ref}
       id="about"
       className="mb-28 min-h-[45vh] scroll-mt-[7rem] leading-8 sm:mb-40 "
-      style={{ scale: scaleProgress, opacity: opacityProgress }}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.175 }}
     >
       <div className="flex items-baseline justify-between">
         <h3 className="mb-[1.25rem] text-3xl font-medium">About Me</h3>
