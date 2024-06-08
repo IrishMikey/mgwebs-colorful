@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./navBar";
-import Footer from "./footer";
+import NavBar from "../components/navBar";
+
+import Footer from "../components/footer";
 import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["200", "400", "500", "600"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
 });
 
 // Font awesome
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -27,15 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} relative flex flex-col items-center `}
-      >
-        <Navbar />
-        {children}
-        <Footer />
+    <html lang="en" className="!scroll-smooth dark">
+      <body className={`${inter.variable} `}>
         <Providers>
-          {children}
+          <ActiveSectionContextProvider>
+            <NavBar />
+            {children}
+          </ActiveSectionContextProvider>
           <Footer />
         </Providers>
       </body>

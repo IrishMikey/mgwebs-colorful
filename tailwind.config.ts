@@ -28,7 +28,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         poppins: ["var(--font-poppins)"],
-        montserrat: ["var(--font-montserrat)"],
       },
     },
   },
