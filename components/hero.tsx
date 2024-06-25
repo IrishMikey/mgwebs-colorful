@@ -58,30 +58,20 @@ export default function Hero() {
               Contact me <FontAwesomeIcon icon={faChevronRight} />
             </Link>
           </Button>
-          <Button
-            href="https://twitter.com/MGWebss"
-            radius="md"
-            isIconOnly
-            className="h-[48px] w-[48px]"
-          >
+          <Button radius="md" isIconOnly className="h-[48px] w-[48px]">
             <Link
-              href="#contact"
-              className="text-lg "
-              onClick={() => {
-                setActiveSection("Contact");
-                setTimeOfLastClick(Date.now());
-              }}
+              href="https://twitter.com/MGWebss"
+              className="text-lg "             
             >
               <FontAwesomeIcon icon={faXTwitter} size="1x" />
             </Link>
           </Button>
-          <Button
-            href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+          <Button           
             radius="md"
             isIconOnly
             className="h-[48px] w-[48px]"
           >
-            <Link href="#contact" className="text-lg ">
+            <Link href="https://www.linkedin.com/in/michaeldanielgeraghty/" className="text-lg ">
               <FontAwesomeIcon icon={faLinkedin} size="1x" />
             </Link>
           </Button>
