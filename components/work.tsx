@@ -18,8 +18,8 @@ export default function WorksCards() {
         <h2 className=" text-3xl font-medium ">
           Recent Work <span>🔨</span>
         </h2>
-        <span className="max-w-[50ch] text-xl text-zinc-300">
-          Discover my portfolio of diverse projects, highlighting my knowledge
+        <span className="text-lg text-zinc-300">
+          Discover my portfolio of diverse projects, <br/> highlighting my knowledge
           in web development and design.
         </span>
       </motion.div>

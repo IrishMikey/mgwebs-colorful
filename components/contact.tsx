@@ -43,7 +43,7 @@ export default function Contact() {
           LinkedIn
         </LinkUI>{" "}
         <LinkUI
-          className="text-md text-zinc-300"
+          className="text-md text-zinc-300 bg-royal-blue-400"
           isBlock
           href="https://twitter.com/MGWebss"
         >
@@ -64,7 +64,7 @@ export default function Contact() {
           isDisabled
           className="h-50 my-3 mt-5"
         ></Textarea>
-        <Button color="success" className="text-lg font-bold" size="lg">
+        <Button color="default" isDisabled className=" text-lg font-bold" size="lg">
           Send
           <FontAwesomeIcon icon={faChevronRight} />
         </Button>

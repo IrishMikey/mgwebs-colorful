@@ -36,10 +36,10 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
           <div className="flex justify-between">
           <h3 className="text-2xl font-semibold">{title}</h3>
           <Link href={card.link} className="text-lg font-medium">
-              <FontAwesomeIcon icon={faUpRightFromSquare} className="text-[#006FEE] hover:bg-[#006FEE] active:scale-95 hover:text-white hover:rounded-full transition-all p-2" />
+              <FontAwesomeIcon icon={faUpRightFromSquare} className="hover:text-[#006FEE] active:scale-95 hover:rounded-full transition-all p-2" />
             </Link>
           </div>
-          <div className="flex flex-col gap-2 sm:flex-col-reverse">
+          <div className="flex flex-col gap-2 sm:flex-col-reverse sm:flex-grow sm:justify-between">
           <ul className="flex flex-wrap gap-2 ">
             {card.built_with.map((tag, i) => (
               <li key={i}>
@@ -53,7 +53,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
                 color="default"
                 content="This webpage was a no-profit job "
               >
-                <Chip color="warning" variant="dot" radius="sm" className="text-xs p-0º">
+                <Chip color="warning" variant="dot" radius="sm" className="text-xs p-0">
                   {sponsored}
                 </Chip>
               </Tooltip>
