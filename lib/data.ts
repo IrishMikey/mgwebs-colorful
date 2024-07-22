@@ -8,6 +8,10 @@ import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
 import manclubImg from "@/public/tenerifemanclub.png";
 import villaChloeImg from "@/public/villachloe.png";
 
+import impresorasBanner from "@/public/gallery/impresorasBanner.png"
+import eurosBanner from "@/public/gallery/eurosBanner.png"
+import componentesBanner from "@/public/gallery/componentesBanner.png"
+
 export const links = [
   {
     name: "Home",
@@ -134,3 +138,9 @@ export const projectsData = [
     ],
   },
 ] as const;
+
+export const galleryImgs = [
+ { imageUrl: impresorasBanner},
+ { imageUrl: eurosBanner},
+ { imageUrl: componentesBanner}
+] as const
