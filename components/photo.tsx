@@ -7,13 +7,16 @@ import Image from "next/image";
 import { Card } from "@nextui-org/react";
 
 export default function Photo({ imageUrl }: GalleryProps) {
+  const photoWidth = imageUrl.width
+  console.log("photowid: "+photoWidth)
   return (
-    <Card className="max-h-[20.5rem] max-w-[42rem] overflow-hidden px-4 py-2 last:mb-0 sm:mb-2 sm:h-[18rem]">
+    <Card className={'min-w-fit p4'}>
       <Image
         src={imageUrl}
         alt=""
         quality={95}
-        className="shadow-black-800 rounded-lg"
+        objectFit="contain"
+        className="shadow-black-800 rounded-lg h-[10rem] w-auto"
       ></Image>
     </Card>
   );

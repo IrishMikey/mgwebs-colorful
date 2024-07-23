@@ -43,7 +43,7 @@ export default function Contact() {
           LinkedIn
         </LinkUI>{" "}
         <LinkUI
-          className="text-md text-zinc-300 bg-royal-blue-400"
+          className="text-md text-zinc-300 "
           isBlock
           href="https://twitter.com/MGWebss"
         >

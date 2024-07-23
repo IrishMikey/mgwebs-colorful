@@ -13,7 +13,7 @@ export default function WorksCards() {
   const { ref } = useSectionInView("Work", 0.5);
 
   return (
-    <section id="work" ref={ref} className="m-4 mb-28 w-full scroll-mt-[7rem]">
+    <section id="work" ref={ref} className="m-4 mb-20 w-full scroll-mt-[7rem]">
       <motion.div
         className="mb-10 flex flex-col gap-5"
         initial={{ opacity: 0, y: 100 }}
@@ -38,11 +38,11 @@ export default function WorksCards() {
         ))}
       </div>
 
-      <div id="Graphics" className="mt-4 w-full">
+      <div id="Graphics" className="mt-10 w-full">
         <h3 className=" text-xl font-medium ">
           Graphics <span>🎨</span>
         </h3>
-        <div className="flex ">
+        <div className="flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5">
           {galleryImgs.map((photo, index) => (
             <React.Fragment key={index}>
               <Photo {...photo} />

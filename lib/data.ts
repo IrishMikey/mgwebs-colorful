@@ -60,7 +60,7 @@ export const projectsData = [
   },
   {
     title: "Casa Magic",
-    desc: "Casa Magic. A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
+    desc: "A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
     card: {
       imageUrl: casamagicImg,
       built_with: ["NextJS"],
@@ -70,14 +70,14 @@ export const projectsData = [
     modal: [
       {
         imageUrl: casamagicImg,
-        desc: "Casa Magic. A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
+        desc: "A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
         alt: "A screenshot of Casamagictenerife.com",
       },
     ],
   },
   {
     title: "Villa Chloé",
-    desc: "Villa Chloé is the perfect villa rental in Tenerife Sur for golfers. Neighbouring 2 golf courses, Golf del Sur & Amarilla Golf.",
+    desc: "The perfect villa rental in Tenerife Sur for golfers. Neighbouring 2 golf courses, Golf del Sur & Amarilla Golf.",
     card: {
       imageUrl: villaChloeImg,
       built_with: ["WordPress"],
@@ -142,5 +142,5 @@ export const projectsData = [
 export const galleryImgs = [
  { imageUrl: impresorasBanner},
  { imageUrl: eurosBanner},
- { imageUrl: componentesBanner}
+ { imageUrl: componentesBanner},
 ] as const
