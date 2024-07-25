@@ -15,7 +15,6 @@ export default function Photo({ imageUrl }: GalleryProps) {
         src={imageUrl}
         alt=""
         quality={95}
-        objectFit="contain"
         className="shadow-black-800 rounded-lg h-[10rem] w-auto"
       ></Image>
     </Card>
