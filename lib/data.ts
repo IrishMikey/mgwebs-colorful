@@ -1,7 +1,6 @@
 import bgrPhonesImg from "@/public/bgr-phones.webp";
-import bgrSamsungImg from "@/public/bgrSamsung.webp";
 import bgrMediaImg from "@/public/bgr-media.webp";
-import bgrsolutionsImg from "@/public/bgrsolutions.webp";
+import bgrsolutionsImg from "@/public/bgrsolutions.png";
 
 import casamagicImg from "@/public/casamagic.webp";
 import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
@@ -42,7 +41,7 @@ export const projectsData = [
     },
     modal: [
       {
-        imageUrl: bgrSamsungImg,
+        imageUrl: bgrsolutionsImg,
         desc: "A dynamic e-commerce solution using WordPress and WooCommerce. Seamlessly integrating CSV imports and translation plugins to ensure smooth operations.",
         alt: "A screenshot of bgrsolutions.net",
       },
@@ -86,7 +85,7 @@ export const projectsData = [
     },
     modal: [
       {
-        imageUrl: bgrSamsungImg,
+        imageUrl: bgrsolutionsImg,
         desc: "A dynamic e-commerce solution using WordPress and WooCommerce. Seamlessly integrating CSV imports and translation plugins to ensure smooth operations.",
         alt: "A screenshot of bgrsolutions.net",
       },
