@@ -1,10 +1,12 @@
 "use client";
-import { Input, Textarea, Button, Link as LinkUI } from "@nextui-org/react";
+import { Input, Textarea, Button, Link } from "@nextui-org/react";
 import React from "react";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+
+
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
 
@@ -27,28 +29,28 @@ export default function Contact() {
       <span className="mb-3 text-zinc-300 sm:max-w-[75ch] sm:text-xl">
         Connect with me for collaborations, questions, or just to say hello!
       </span>
-      <span className=" mb-3  sm:max-w-[75ch] sm:text-xl">
-        <LinkUI
-          className="text-md text-zinc-300"
+      <span className=" mb-3 gap-2 sm:text-xl flex">
+        <Link
+          className="text-md text-zinc-300 bg-zinc-800 rounded-xl"
           isBlock
           href="mailto:mikeygeraghty@gmail.com"
         >
           Email
-        </LinkUI>{" "}
-        <LinkUI
-          className="text-md text-zinc-300"
+        </Link>
+        <Link
+          className="text-md text-zinc-300 bg-zinc-800 rounded-xl"
           isBlock
           href="https://www.linkedin.com/in/michaeldanielgeraghty/"
         >
           LinkedIn
-        </LinkUI>{" "}
-        <LinkUI
-          className="text-md text-zinc-300 "
+        </Link>
+        <Link
+          className="text-md text-zinc-300  bg-zinc-800 rounded-xl"
           isBlock
           href="https://twitter.com/MGWebss"
         >
           X
-        </LinkUI>
+        </Link>
       </span>
       <form className="mt-10">
         <Input
