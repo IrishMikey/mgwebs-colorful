@@ -11,7 +11,7 @@ export default function Photo({ imageUrl }: GalleryProps) {
   console.log("photowid: "+photoWidth)
   return (
     <Card className="py-4 mt-5">
-      <CardBody className="overflow-visible py-2 ">
+      <CardBody className="overflow-visible py-2  ">
       <Image
         src={imageUrl}
         alt=""
