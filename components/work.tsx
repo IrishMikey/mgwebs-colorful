@@ -30,7 +30,7 @@ export default function WorksCards() {
       <h3 className=" text-xl font-medium ">
         Webpages <span>🌐</span>
       </h3>
-      <div className="mt-5 flex w-full flex-1 flex-col items-center gap-8 md:gap-12">
+      <div className="mt-8 flex w-full flex-1 flex-col items-center gap-8 md:gap-12">
         {projectsData.map((project, index) => (
           <React.Fragment key={index}>
             <Card {...project} />
