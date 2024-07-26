@@ -42,7 +42,8 @@ export default function WorksCards() {
         <h3 className=" text-xl font-medium ">
           Graphics <span>🎨</span>
         </h3>
-        <div className="flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5">
+        {/* flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5 */}
+        <div className="">
           {galleryImgs.map((photo, index) => (
             <React.Fragment key={index}>
               <Photo {...photo} />
