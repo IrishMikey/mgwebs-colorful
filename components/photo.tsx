@@ -8,7 +8,6 @@ import { Card, CardBody } from "@nextui-org/react";
 
 export default function Photo({ imageUrl }: GalleryProps) {
   const photoWidth = imageUrl.width
-  console.log("photowid: "+photoWidth)
   return (
     <Card className="">
       <CardBody className=" ">

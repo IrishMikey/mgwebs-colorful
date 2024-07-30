@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar } from "@nextui-org/react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion} from "framer-motion";
 import React, { useRef } from "react";
 import avatarImg from "@/public/headshot.jpg";
 import { useSectionInView } from "@/lib/hooks";

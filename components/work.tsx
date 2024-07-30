@@ -26,10 +26,10 @@ export default function WorksCards() {
           Discover my portfolio of diverse projects, <br /> highlighting my
           knowledge in web development and design.
         </span>
-      </motion.div>
       <h3 className=" text-xl font-medium ">
         Webpages <span>🌐</span>
       </h3>
+      </motion.div>
       <div className="mt-8 flex w-full flex-1 flex-col items-center gap-16 md:gap-12">
         {projectsData.map((project, index) => (
           <React.Fragment key={index}>
@@ -37,7 +37,11 @@ export default function WorksCards() {
           </React.Fragment>
         ))}
       </div>
-
+      <motion.div
+        className="mb-10 flex flex-col gap-5"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
       <div id="Graphics" className="mt-10 w-full">
         <h3 className=" text-xl font-medium ">
           Graphics <span>🎨</span>
@@ -51,6 +55,8 @@ export default function WorksCards() {
           ))}
         </div>
       </div>
+      </motion.div>
+
     </section>
   );
 }
