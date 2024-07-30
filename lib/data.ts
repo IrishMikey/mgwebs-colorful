@@ -7,7 +7,8 @@ import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
 import manclubImg from "@/public/tenerifemanclub.png";
 import villaChloeImg from "@/public/villachloe.png";
 
-import impresorasBanner from "@/public/gallery/impresorasBanner.png"
+import gamingBanner from "@/public/gallery/gamingBanner.png"
+import tvBanner from "@/public/gallery/tvBanner.png"
 import eurosBanner from "@/public/gallery/eurosBanner.png"
 import componentesBanner from "@/public/gallery/componentesBanner.png"
 
@@ -139,7 +140,8 @@ export const projectsData = [
 ] as const;
 
 export const galleryImgs = [
- { imageUrl: impresorasBanner},
+ { imageUrl: gamingBanner},
  { imageUrl: eurosBanner},
  { imageUrl: componentesBanner},
+ { imageUrl: tvBanner},
 ] as const

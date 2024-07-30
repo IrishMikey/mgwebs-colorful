@@ -59,7 +59,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
               </Tooltip>
             )}
           </ul>
-          <p className="my-2 leading-relaxed text-zinc-200">{desc}</p>
+          <p className="my-2 text-zinc-200">{desc}</p>
           </div>
           
             

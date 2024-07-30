@@ -30,7 +30,7 @@ export default function WorksCards() {
       <h3 className=" text-xl font-medium ">
         Webpages <span>🌐</span>
       </h3>
-      <div className="mt-8 flex w-full flex-1 flex-col items-center gap-8 md:gap-12">
+      <div className="mt-8 flex w-full flex-1 flex-col items-center gap-16 md:gap-12">
         {projectsData.map((project, index) => (
           <React.Fragment key={index}>
             <Card {...project} />
@@ -43,7 +43,7 @@ export default function WorksCards() {
           Graphics <span>🎨</span>
         </h3>
         {/* flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5 */}
-        <div className="">
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
           {galleryImgs.map((photo, index) => (
             <React.Fragment key={index}>
               <Photo {...photo} />
