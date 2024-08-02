@@ -10,7 +10,7 @@ import { useSectionInView } from "@/lib/hooks";
 import Photo from "./photo";
 
 export default function WorksCards() {
-  const { ref } = useSectionInView("Work", 0.5);
+  const { ref } = useSectionInView("Work", 0.2);
 
   return (
     <section id="work" ref={ref} className="m-4 mb-20 w-full scroll-mt-[7rem]">
