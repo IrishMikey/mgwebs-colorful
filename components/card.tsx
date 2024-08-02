@@ -36,7 +36,10 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
           <div className="flex justify-between">
           <h3 className="text-2xl font-semibold">{title}</h3>
           <Link href={card.link} className="text-lg font-medium">
+          <Tooltip>
+
               <FontAwesomeIcon icon={faUpRightFromSquare} className="hover:text-[#006FEE] active:scale-95 hover:rounded-full transition-all p-2" />
+          </Tooltip>
             </Link>
           </div>
           <div className="flex flex-col gap-2 sm:flex-col-reverse sm:flex-grow sm:justify-between">

@@ -15,8 +15,9 @@ export default function About() {
       id="about"
       className="mb-28 min-h-[45vh] scroll-mt-[7rem] leading-6 sm:mb-40 "
       initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
+      
     >
       <div className="flex items-baseline justify-between">
         <h3 className="mb-[1.25rem] text-3xl font-medium">About Me</h3>

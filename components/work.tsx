@@ -17,7 +17,7 @@ export default function WorksCards() {
       <motion.div
         className="mb-10 flex flex-col gap-5"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
       >
         <h2 className=" text-3xl font-medium ">
           Recent Work <span>🔨</span>
@@ -43,9 +43,13 @@ export default function WorksCards() {
         animate={{ opacity: 1, y: 0 }}
       >
       <div id="Graphics" className="mt-10 w-full">
-        <h3 className=" text-xl font-medium ">
+        <motion.h3 className=" text-xl font-medium "
+        initial={{opacity: 0, y:-100}}
+        whileInView={{opacity: 1, y:0}}
+        transition={{delay:0.5}}
+        >
           Graphics <span>🎨</span>
-        </h3>
+        </motion.h3>
         {/* flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5 */}
         <div className="flex flex-wrap justify-center gap-10 sm:gap-4 mt-8">
           {galleryImgs.map((photo, index) => (
