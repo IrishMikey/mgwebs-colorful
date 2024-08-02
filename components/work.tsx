@@ -42,7 +42,7 @@ export default function WorksCards() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-      <div id="Graphics" className="mt-[3rem  ] w-full">
+      <div id="Graphics" className="mt-[3rem] w-full">
         <motion.h3 className=" text-xl font-medium "
         initial={{opacity: 0, y:-100}}
         whileInView={{opacity: 1, y:0}}

@@ -13,7 +13,7 @@ export default function About() {
     <motion.section
       ref={ref}
       id="about"
-      className="mb-28 min-h-[45vh] scroll-mt-[7rem] leading-6 sm:mb-40 "
+      className="mb-28 min-h-[45vh] scroll-mt-[10rem] leading-6 sm:mb-40 "
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
