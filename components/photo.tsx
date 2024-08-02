@@ -8,7 +8,6 @@ import { Card, CardBody } from "@nextui-org/react";
 import { animate, motion } from "framer-motion";
 
 export default function Photo({ imageUrl }: GalleryProps) {
-  const photoWidth = imageUrl.width
   return (
     <motion.div
     initial={{opacity:0, y:-100}}  animate={{opacity:1, y:0}} transition={{delay:0.2}} whileHover={{scale:1.1}}>
