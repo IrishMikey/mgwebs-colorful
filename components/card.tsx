@@ -21,7 +21,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-
+//figure out how to remove animation after current val of scroll is 1
   return (
     <motion.div
       ref={ref}
@@ -34,9 +34,9 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
       <Card className=" relative max-w-[42rem] overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem] max-h-[20.5rem]">
         <div className="flex h-full flex-col px-6 py-4 sm:max-w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
           <div className="flex justify-between">
-          <h3 className="text-2xl font-semibold">{title}</h3>
+          <h4 className="text-2xl font-semibold">{title}</h4>
           <Link href={card.link} className="text-lg font-medium">
-          <Tooltip>
+          <Tooltip color="default" content="Check it out!">
 
               <FontAwesomeIcon icon={faUpRightFromSquare} className="hover:text-[#006FEE] active:scale-95 hover:rounded-full transition-all p-2" />
           </Tooltip>
@@ -55,6 +55,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
               <Tooltip
                 color="default"
                 content="This webpage was a no-profit job "
+                
               >
                 <Chip color="warning" variant="dot" radius="sm" className="text-xs p-0">
                   {sponsored}
@@ -71,7 +72,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
           src={card.imageUrl}
           alt={card.alt}
           quality={95}
-          className="group-even:sm:-right-inital shadow-black-800  sm:absolute sm:-right-40 top-10  sm:w-[28.25rem] rounded-t-lg shadow-md transition group-even:sm:-left-40 group-hover:sm:-translate-x-3 group-hover:sm:translate-y-3 group-hover:sm:-rotate-2 group-even:group-hover:sm:translate-x-3 group-even:group-hover:sm:translate-y-3 group-even:group-hover:sm:rotate-2"
+          className="rounded-lg group-even:sm:-right-inital shadow-black-800  sm:absolute sm:-right-40 top-10  sm:w-[28.25rem] rounded-t-lg shadow-md transition group-even:sm:-left-40 group-hover:sm:-translate-x-3 group-hover:sm:translate-y-3 group-hover:sm:-rotate-2 group-even:group-hover:sm:translate-x-3 group-even:group-hover:sm:translate-y-3 group-even:group-hover:sm:rotate-2"
         ></Image>
         
       </Card>
