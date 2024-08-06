@@ -18,7 +18,7 @@ export default function Photo({ imageUrl }: GalleryProps) {
         src={imageUrl}
         alt=""
         quality={95}
-        className="object-cover rounded-xl max-w-[364px] sm:max-w-[300px]"
+        className="object-cover rounded-xl sm:max-w-[300px]"
         ></Image>
       </CardBody>
     </Card>
