@@ -31,21 +31,21 @@ export default function Contact() {
       </span>
       <span className=" mb-3 flex gap-2 sm:text-xl">
         <Link
-          className="text-md rounded-xl bg-zinc-800 text-zinc-300"
+          className="text-md min-w-[4.812rem] justify-center rounded-xl  bg-zinc-800 text-zinc-300"
           isBlock
           href="mailto:mikeygeraghty@gmail.com"
         >
           Email
         </Link>
         <Link
-          className="text-md rounded-xl bg-zinc-800 text-zinc-300"
+          className="text-md min-w-[4.812rem] justify-center rounded-xl  bg-zinc-800 text-zinc-300"
           isBlock
           href="https://www.linkedin.com/in/michaeldanielgeraghty/"
         >
           LinkedIn
         </Link>
         <Link
-          className="text-md rounded-xl  bg-zinc-800 text-zinc-300"
+          className="text-md min-w-[4.812rem] justify-center rounded-xl bg-zinc-800 text-zinc-300"
           isBlock
           href="https://twitter.com/MGWebss"
         >
