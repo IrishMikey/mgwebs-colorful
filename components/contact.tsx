@@ -13,7 +13,8 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40 relative"
+      className="relative mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
+      viewport={{ once: true }}
       initial={{
         opacity: 0,
       }}
@@ -51,32 +52,27 @@ export default function Contact() {
           X
         </Link>
       </span>
-      <div className="bg-[#222222] flex justify-center items-center z-10  bg-opacity-75 shadow-lg w-full shadow-black/[0.03] backdrop-blur-[0.05rem] h-[276px] absolute bottom-[-20px] rounded-lg">
-      <span className="">Coming soon</span></div>
-        <form className="mt-10 mx-4">
-          <Input
-            type="email"
-            label="Email"
-            isDisabled
-            className="h-14"
-          />
-          <Textarea
-            label="Message"
-            placeholder=""
-            isDisabled
-            className="h-50 my-3 mt-5"
-          ></Textarea>
-          <Button
-            color="default"
-            isDisabled
-            className=" text-lg font-bold"
-            size="lg"
-          >
-            Send
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Button>
-        </form>
-      
+      <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
+        <span className="">Coming soon</span>
+      </div>
+      <form className="mx-4 mt-10">
+        <Input type="email" label="Email" isDisabled className="h-14" />
+        <Textarea
+          label="Message"
+          placeholder=""
+          isDisabled
+          className="h-50 my-3 mt-5"
+        ></Textarea>
+        <Button
+          color="default"
+          isDisabled
+          className=" text-lg font-bold"
+          size="lg"
+        >
+          Send
+          <FontAwesomeIcon icon={faChevronRight} />
+        </Button>
+      </form>
     </motion.section>
   );
 }

@@ -16,6 +16,7 @@ export default function WorksCards() {
     <section id="work" ref={ref} className="m-4 mb-20 w-full scroll-mt-[7rem]">
       <motion.div
         className="mb-10 flex flex-col gap-5"
+        viewport={{ once: true }}
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
@@ -26,9 +27,9 @@ export default function WorksCards() {
           Discover my portfolio of diverse projects, <br /> highlighting my
           knowledge in web development and design.
         </span>
-      <h3 className=" text-xl font-medium ">
-        Webpages <span>🌐</span>
-      </h3>
+        <h3 className=" text-xl font-medium ">
+          Webpages <span>🌐</span>
+        </h3>
       </motion.div>
       <div className="mt-8 flex w-full flex-1 flex-col items-center gap-16 md:gap-12">
         {projectsData.map((project, index) => (
@@ -42,25 +43,26 @@ export default function WorksCards() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-      <div id="Graphics" className="mt-[3rem] w-full">
-        <motion.h3 className=" text-xl font-medium "
-        initial={{opacity: 0, y:-100}}
-        whileInView={{opacity: 1, y:0}}
-        transition={{delay:0.5}}
-        >
-          Graphics <span>🎨</span>
-        </motion.h3>
-        {/* flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5 */}
-        <div className="flex flex-wrap justify-center gap-10 sm:gap-4 mt-8">
-          {galleryImgs.map((photo, index) => (
-            <React.Fragment key={index}>
-              <Photo {...photo} />
-            </React.Fragment>
-          ))}
+        <div id="Graphics" className="mt-[3rem] w-full">
+          <motion.h3
+            className=" text-xl font-medium "
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Graphics <span>🎨</span>
+          </motion.h3>
+          {/* flex overflow-x-scroll pr-2 pb-3 sm:overflow-x-none sm:flex-wrap gap-8 mt-5 */}
+          <div className="mt-8 flex flex-wrap justify-center gap-10 sm:gap-4">
+            {galleryImgs.map((photo, index) => (
+              <React.Fragment key={index}>
+                <Photo {...photo} />
+              </React.Fragment>
+            ))}
+          </div>
         </div>
-      </div>
       </motion.div>
-
     </section>
   );
 }
