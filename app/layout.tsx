@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/navBar";
-
+import { Toaster } from '@pheralb/toast';
 import Footer from "../components/footer";
 import { Providers } from "./providers";
 
@@ -35,6 +35,7 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <NavBar />
             {children}
+            <Toaster/>
           </ActiveSectionContextProvider>
           <Footer />
         </Providers>

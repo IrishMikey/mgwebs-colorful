@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/app/api/send/route";
 import SubmitBtn from "./submit-btn";
+import { toast } from "@pheralb/toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -60,8 +61,14 @@ export default function Contact() {
         action={async (formData) => {
           const { data, error } = await sendEmail(formData);
           if (error) {
-            console.error(error);
+            toast.error({
+              text: error
+            })
+            return
           }
+          toast.success({
+            text: 'Message sent!🫡'
+          })
         }}
       >
         <Input type="email" label="Email" className="h-14" name="senderEmail" />
