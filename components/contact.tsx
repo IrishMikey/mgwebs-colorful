@@ -1,11 +1,10 @@
 "use client";
-import { Input, Textarea, Link } from "@nextui-org/react";
+import Link from "@nextui-org/react";
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/app/api/send/route";
-import SubmitBtn from "./submit-btn";
-import { toast } from "@pheralb/toast";
+import ContactForum from "./contact-forum";
+
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -56,29 +55,9 @@ export default function Contact() {
       {/* <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
         <span className="">Coming soon</span>
       </div> */}
-      <form
-        className=" mt-10"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-          if (error) {
-            toast.error({
-              text: error
-            })
-            return
-          }
-          toast.success({
-            text: 'Message sent!🫡'
-          })
-        }}
-      >
-        <Input type="email" label="Email" className="h-14" name="senderEmail" />
-        <Textarea
-          label="Leave a messsage"
-          name="message"
-          className="h-50 mb-5 mt-3"
-        ></Textarea>
-        <SubmitBtn />
-      </form>
+      <ContactForum/>
+
+     
     </motion.section>
   );
 }
