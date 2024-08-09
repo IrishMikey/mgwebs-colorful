@@ -1,10 +1,10 @@
 "use client";
-import { Input, Textarea, Button, Link } from "@nextui-org/react";
+import { Input, Textarea, Link } from "@nextui-org/react";
 import React from "react";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+import { sendEmail } from "@/app/api/send/route";
+import SubmitBtn from "./submit-btn";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -13,7 +13,7 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="relative mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
+      className="min-h-[35rem] relative mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
       viewport={{ once: true }}
       initial={{
         opacity: 0,
@@ -52,26 +52,25 @@ export default function Contact() {
           X
         </Link>
       </span>
-      <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
+      {/* <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
         <span className="">Coming soon</span>
-      </div>
-      <form className="mx-4 mt-10">
-        <Input type="email" label="Email" isDisabled className="h-14" />
+      </div> */}
+      <form
+        className=" mt-10"
+        action={async (formData) => {
+          const { data, error } = await sendEmail(formData);
+          if (error) {
+            console.error(error);
+          }
+        }}
+      >
+        <Input type="email" label="Email" className="h-14" name="senderEmail" />
         <Textarea
-          label="Message"
-          placeholder=""
-          isDisabled
-          className="h-50 my-3 mt-5"
+          label="Leave a messsage"
+          name="message"
+          className="h-50 mb-5 mt-3"
         ></Textarea>
-        <Button
-          color="default"
-          isDisabled
-          className=" text-lg font-bold"
-          size="lg"
-        >
-          Send
-          <FontAwesomeIcon icon={faChevronRight} />
-        </Button>
+        <SubmitBtn />
       </form>
     </motion.section>
   );

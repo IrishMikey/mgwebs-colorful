@@ -1,23 +1,47 @@
-import { EmailTemplate } from '../../../components/email-template';
-import { Resend } from 'resend';
+"use server";
+
+import React from "react";
+import { Resend } from "resend";
+import { validateString, getErrorMessage } from "@/lib/utils";
+import ContactFormEmail from "@/components/email-template";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function GET() {
-  try {
-    const { data, error } = await resend.emails.send({
-      from: 'email@mgwebs.com',
-      to: ['mikeygeraghty@gmail.com'],
-      subject: 'Hello world',
-      react: EmailTemplate({ firstName: 'John' }),
-    });
+export const sendEmail = async (formData: FormData) => {
+  const senderEmail = formData.get("senderEmail");
+  const message = formData.get("message");
 
-    if (error) {
-      return Response.json({ error }, { status: 500 });
-    }
-
-    return Response.json({status: "ok"});
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
+  // simple server-side validation
+  if (!validateString(senderEmail, 500)) {
+    return {
+      error: "Invalid sender email",
+    };
   }
-}
+  if (!validateString(message, 5000)) {
+    return {
+      error: "Invalid message",
+    };
+  }
+
+  let data;
+  try {
+    data = await resend.emails.send({
+      from: "Contact Form <noreply@mgwebs.com>",
+      to: "mikeygeraghty@gmail.com",
+      subject: "Message from contact form",
+      reply_to: senderEmail,
+      react: React.createElement(ContactFormEmail, {
+        message: message,
+        senderEmail: senderEmail,
+      }),
+    });
+  } catch (error: unknown) {
+    return {
+      error: getErrorMessage(error),
+    };
+  }
+
+  return {
+    data,
+  };
+};
