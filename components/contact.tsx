@@ -14,7 +14,7 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="min-h-[35rem] relative mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
+      className="relative mb-28 flex min-h-[35rem] w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
       viewport={{ once: true }}
       initial={{
         opacity: 0,
@@ -57,18 +57,23 @@ export default function Contact() {
         <span className="">Coming soon</span>
       </div> */}
       <form
-        className=" mt-10"
-        action={async (formData) => {
+        className="mt-10"
+        action="/api/send" // This is the correct way to specify the action
+        method="POST"
+        onSubmit={async (event: React.FormEvent<HTMLFormElement>) => {
+          event.preventDefault();
+          const formData = new FormData(event.currentTarget);
           const { data, error } = await sendEmail(formData);
+
           if (error) {
             toast.error({
-              text: error
-            })
-            return
+              text: error,
+            });
+            return;
           }
           toast.success({
-            text: 'Message sent!🫡'
-          })
+            text: "Message sent!🫡",
+          });
         }}
       >
         <Input type="email" label="Email" className="h-14" name="senderEmail" />
