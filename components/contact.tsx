@@ -1,10 +1,10 @@
 "use client";
-import Link from "@nextui-org/react";
+
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import ContactForum from "./contact-forum";
-
+import { Link } from "@nextui-org/react";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -13,7 +13,7 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="min-h-[35rem] relative mb-28 flex w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
+      className="relative mb-28 flex min-h-[35rem] w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
       viewport={{ once: true }}
       initial={{
         opacity: 0,
@@ -55,9 +55,7 @@ export default function Contact() {
       {/* <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
         <span className="">Coming soon</span>
       </div> */}
-      <ContactForum/>
-
-     
+      <ContactForum />
     </motion.section>
   );
 }
