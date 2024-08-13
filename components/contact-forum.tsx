@@ -8,26 +8,20 @@ import { toast } from "@pheralb/toast";
 function ContactForm() {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const data = {
-      email: event.target.senderEmail.value,
-      message: event.target.message.value,
-    };
 
-    const JSONdata = JSON.stringify(data);
+    const formData = new FormData(event.currentTarget);
 
-    const endpoint = "api/send";
-
-    const options = {
+    const response = await fetch("/api/send", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
+      body: formData,
+    });
 
     const result = await response.json();
+
+    if (response.ok) {
+      console.log("Email sent succesfully!: ", result);
+      console.log("Email not sent: ", result.error);
+    }
   };
 
   return (
