@@ -43,7 +43,7 @@ export const sendEmail = async (formData: FormData) => {
   };
 };
 
-export default async function POST(req: NextRequest) {
+async function POST(req: NextRequest) {
   const formData = await req.formData();
   const { data, error } = await sendEmail(formData);
 
