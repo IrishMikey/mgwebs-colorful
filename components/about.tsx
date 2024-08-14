@@ -19,29 +19,31 @@ export default function About() {
       viewport={{ once: true }}
       transition={{ delay: 0.175 }}
     >
-      <div className="flex items-baseline justify-between">
+      <div className="flex w-full items-baseline justify-between">
         <h3 className="mb-[1.25rem] text-3xl font-medium">About Me</h3>
         <Avatar src={avatarImg.src} className="h-16 w-16 text-large" />
       </div>
-      <p className="mb-3 leading-6 text-zinc-400 sm:max-w-[75ch] sm:text-xl">
-        Hello! I&apos;m Michael Geraghty, a dedicated{" "}
-        <span className="font-medium text-zinc-100">Web Developer</span> based
-        in the Canary Islands. I have completed vocational courses in
-        <span className="font-medium text-zinc-100">
-          {" "}
-          Microcomputer Systems and Networks
-        </span>
-        , and{" "}
-        <span className="font-medium text-zinc-100">
-          Web Application Development
-        </span>
-        , providing me with a solid foundation in both hardware and software.
-      </p>
-      <p className="mb-3 text-zinc-400 sm:max-w-[75ch] sm:text-xl">
-        Skilled in UI design and Next.Js, I focus on building intuitive,
-        user-driven websites. I thrive on feedback and detail, ensuring every
-        project is a step towards digital excellence.
-      </p>
+      <div className="flex flex-col justify-center ">
+        <p className="mb-3 leading-6 text-zinc-400 sm:w-[33rem] sm:text-xl">
+          Hello! I&apos;m Michael Geraghty, a dedicated{" "}
+          <span className="font-medium text-zinc-100">Web Developer</span> based
+          in the Canary Islands. I have completed vocational courses in
+          <span className="font-medium text-zinc-100">
+            {" "}
+            Microcomputer Systems and Networks
+          </span>
+          , and{" "}
+          <span className="font-medium text-zinc-100">
+            Web Application Development
+          </span>
+          , providing me with a solid foundation in both hardware and software.
+        </p>
+        <p className="mb-3 text-zinc-400 sm:w-[33rem] sm:text-xl">
+          Skilled in UI design and Next.Js, I focus on building intuitive,
+          user-driven websites. I thrive on feedback and detail, ensuring every
+          project is a step towards digital excellence.
+        </p>
+      </div>
     </motion.section>
   );
 }

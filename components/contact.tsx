@@ -55,27 +55,34 @@ export default function Contact() {
         </Link>
       </span>
 
-      <form
-        className="mt-10"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+      <div className="mt-10 flex justify-center ">
+        <form
+          className="rounded-xl bg-zinc-900 px-3 py-4 sm:w-[31rem]"
+          action={async (formData) => {
+            const { data, error } = await sendEmail(formData);
 
-          if (error) {
-            toast.error({ text: "error" });
-            return;
-          }
+            if (error) {
+              toast.error({ text: "error" });
+              return;
+            }
 
-          toast.success({ text: "message sent" });
-        }}
-      >
-        <Input type="email" label="Email" className="h-14" name="senderEmail" />
-        <Textarea
-          label="Leave a messsage"
-          name="message"
-          className="h-50 mb-5 mt-3"
-        ></Textarea>
-        <SubmitBtn />
-      </form>
+            toast.success({ text: "message sent" });
+          }}
+        >
+          <Input
+            type="email"
+            label="Email"
+            className="h-14"
+            name="senderEmail"
+          />
+          <Textarea
+            label="Leave a messsage"
+            name="message"
+            className="h-50 mb-5 mt-3"
+          ></Textarea>
+          <SubmitBtn />
+        </form>
+      </div>
     </motion.section>
   );
 }
