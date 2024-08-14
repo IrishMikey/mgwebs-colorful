@@ -55,7 +55,9 @@ export default function Contact() {
       {/* <div className="absolute bottom-[-20px] z-10 flex h-[276px]  w-full items-center justify-center rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.05rem]">
         <span className="">Coming soon</span>
       </div> */}
-      <ContactForum />
+      <div className="mt-10 flex justify-center  ">
+        <ContactForum />
+      </div>
     </motion.section>
   );
 }
