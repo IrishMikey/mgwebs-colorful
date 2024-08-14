@@ -10,6 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
+    console.log("Formdata: " + formData.get("email")?.toString());
 
     const senderEmail = formData.get("email");
     const message = formData.get("messsage");
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
     if (!senderEmail || !message) {
       return NextResponse.json(
         { error: "Email and message fields are required." },
-        { status: 200 },
+        { status: 400 },
       );
     }
 
