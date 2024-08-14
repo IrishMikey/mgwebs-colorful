@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/components/email-template";
-import { NextRequest, NextResponse } from "next/server";
+// import { NextRequest, NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -42,14 +42,3 @@ export const sendEmail = async (formData: FormData) => {
     data,
   };
 };
-
-async function POST(req: NextRequest) {
-  const formData = await req.formData();
-  const { data, error } = await sendEmail(formData);
-
-  if (error) {
-    return NextResponse.json({ error }, { status: 400 });
-  }
-
-  return NextResponse.json(data);
-}
