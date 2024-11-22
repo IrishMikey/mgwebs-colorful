@@ -6,7 +6,9 @@ import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import { toast, Toaster } from "@pheralb/toast";
-import { text } from "stream/consumers";
+import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -31,33 +33,45 @@ export default function Contact() {
       <span className="mb-3 text-zinc-300 sm:max-w-[75ch] sm:text-xl">
         Connect with me for collaborations, questions, or just to say hello!
       </span>
-      <span className=" mb-3 flex gap-2 sm:text-xl">
-        <Link
-          className="text-md min-w-[4.812rem] justify-center rounded-xl  bg-zinc-800 text-zinc-300"
-          isBlock
-          href="mailto:mikeygeraghty@gmail.com"
-        >
-          Email
-        </Link>
-        <Link
-          className="text-md min-w-[4.812rem] justify-center rounded-xl  bg-zinc-800 text-zinc-300"
-          isBlock
-          href="https://www.linkedin.com/in/michaeldanielgeraghty/"
-        >
-          LinkedIn
-        </Link>
-        <Link
-          className="text-md min-w-[4.812rem] justify-center rounded-xl bg-zinc-800 text-zinc-300"
-          isBlock
-          href="https://twitter.com/MGWebss"
-        >
-          X
-        </Link>
-      </span>
 
-      <div className="mt-10 flex justify-center ">
+      <div className="mt-10 flex w-full flex-col items-center ">
+        <div className="mb-4 flex w-[43rem] gap-3 sm:text-xl">
+          <Link
+            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            isBlock
+            href="mailto:mikeygeraghty@gmail.com"
+          >
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              size="2x"
+              title="Link to send an email"
+            />
+          </Link>
+          <Link
+            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            isBlock
+            href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+          >
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              size="2x"
+              title="Link to LinkedIn"
+            />
+          </Link>
+          <Link
+            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            isBlock
+            href="https://twitter.com/MGWebss"
+          >
+            <FontAwesomeIcon
+              icon={faXTwitter}
+              size="2x"
+              title="Link to X (Twitter)"
+            />
+          </Link>
+        </div>
         <form
-          className="rounded-xl bg-zinc-900 px-3 py-4 sm:w-[31rem]"
+          className="w-[43rem] rounded-xl bg-zinc-900 px-6 py-4 sm:px-6 sm:pb-8 sm:pt-8 "
           action={async (formData) => {
             const { data, error } = await sendEmail(formData);
 
