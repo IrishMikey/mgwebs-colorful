@@ -7,10 +7,10 @@ import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
 import manclubImg from "@/public/tenerifemanclub.png";
 import villaChloeImg from "@/public/villachloe.png";
 
-import gamingBanner from "@/public/gallery/gamingBanner.png"
-import tvBanner from "@/public/gallery/tvBanner.png"
-import eurosBanner from "@/public/gallery/eurosBanner.png"
-import componentesBanner from "@/public/gallery/componentesBanner.png"
+import gamingBanner from "@/public/gallery/gamingBanner.png";
+import tvBanner from "@/public/gallery/tvBanner.png";
+import eurosBanner from "@/public/gallery/eurosBanner.png";
+import componentesBanner from "@/public/gallery/componentesBanner.png";
 
 export const links = [
   {
@@ -36,7 +36,10 @@ export const projectsData = [
     desc: "A dynamic e-commerce solution using WordPress and WooCommerce. Seamlessly integrating CSV imports and translation plugins to ensure smooth operations.",
     card: {
       imageUrl: bgrsolutionsImg,
-      built_with: ["WooCommerce"],
+      built_with: {
+        tech: "WooCommerce",
+        colour: "secondary",
+      },
       link: "https://bgrsolutions.net",
       alt: "A screenshot of bgrsolutions.net",
     },
@@ -63,7 +66,10 @@ export const projectsData = [
     desc: "A holiday rental in Tenerife Sur. Made with NextJs & Tailwind.",
     card: {
       imageUrl: casamagicImg,
-      built_with: ["NextJS"],
+      built_with: {
+        tech: "Next.js",
+        colour: "default",
+      },
       link: "https://casamagictenerife.com",
       alt: "A screenshot of Casamagictenerife.com",
     },
@@ -80,7 +86,10 @@ export const projectsData = [
     desc: "The perfect villa rental in Tenerife Sur for golfers. Neighbouring 2 golf courses, Golf del Sur & Amarilla Golf.",
     card: {
       imageUrl: villaChloeImg,
-      built_with: ["WordPress"],
+      built_with: {
+        tech: "WordPress",
+        colour: "primary",
+      },
       link: "https://villachloe135.com",
       alt: "A screenshot of villa chloé, holiday villa in tenerife",
     },
@@ -107,7 +116,10 @@ export const projectsData = [
     desc: "Cloud Nine Tenerife is a beauty & education salon in the south of Tenerife.",
     card: {
       imageUrl: cloudninetenerifeImg,
-      built_with: ["NextJS"],
+      built_with: {
+        tech: "Next.js",
+        colour: "default",
+      },
       link: "https://cloudninetenerife.es",
       alt: "A screenshot of cloudninetenerife.es",
     },
@@ -125,7 +137,10 @@ export const projectsData = [
     sponsored: "Sponsored",
     card: {
       imageUrl: manclubImg,
-      built_with: ["WordPress"],
+      built_with: {
+        tech: "WordPress",
+        colour: "primary",
+      },
       link: "https://tenerifeman.club",
       alt: "A screenshot of tenerifeman.club",
     },
@@ -140,8 +155,8 @@ export const projectsData = [
 ] as const;
 
 export const galleryImgs = [
- { imageUrl: gamingBanner},
- { imageUrl: eurosBanner},
- { imageUrl: componentesBanner},
- { imageUrl: tvBanner},
-] as const
+  { imageUrl: gamingBanner },
+  { imageUrl: eurosBanner },
+  { imageUrl: componentesBanner },
+  { imageUrl: tvBanner },
+] as const;
