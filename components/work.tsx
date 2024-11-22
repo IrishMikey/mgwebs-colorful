@@ -15,14 +15,21 @@ export default function WorksCards() {
   return (
     <section id="work" ref={ref} className="m-4 mb-20 w-full scroll-mt-[7rem]">
       <motion.div
+        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 100, y: 0 }}
+      >
+        <h2 className=" text-3xl font-medium ">
+          Recent Work <span>🔨</span>
+        </h2>
+      </motion.div>
+
+      <motion.div
         className="mb-10 flex flex-col gap-5"
         viewport={{ once: true }}
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <h2 className=" text-3xl font-medium ">
-          Recent Work <span>🔨</span>
-        </h2>
         <span className="text-lg text-zinc-300">
           Discover my portfolio of diverse projects, <br /> highlighting my
           knowledge in web development and design.

@@ -17,7 +17,7 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 mt-[7.5rem] flex min-h-[50svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
+      className="mb-28 mt-[7.5rem] flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
     >
       <motion.h4
         className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] text-[#c6c8c9]"
@@ -59,19 +59,15 @@ export default function Hero() {
             </Link>
           </Button>
           <Button radius="md" isIconOnly className="h-[48px] w-[48px]">
-            <Link
-              href="https://twitter.com/MGWebss"
-              className="text-lg "             
-            >
+            <Link href="https://twitter.com/MGWebss" className="text-lg ">
               <FontAwesomeIcon icon={faXTwitter} size="1x" />
             </Link>
           </Button>
-          <Button           
-            radius="md"
-            isIconOnly
-            className="h-[48px] w-[48px]"
-          >
-            <Link href="https://www.linkedin.com/in/michaeldanielgeraghty/" className="text-lg ">
+          <Button radius="md" isIconOnly className="h-[48px] w-[48px]">
+            <Link
+              href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+              className="text-lg "
+            >
               <FontAwesomeIcon icon={faLinkedin} size="1x" />
             </Link>
           </Button>
