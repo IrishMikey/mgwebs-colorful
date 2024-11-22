@@ -35,7 +35,7 @@ export default function Contact() {
       </span>
 
       <div className="mt-10 flex w-full flex-col items-center ">
-        <div className="mb-4 flex w-[43rem] gap-3 sm:text-xl">
+        <div className="mb-4 flex w-full gap-3 sm:w-[43rem] sm:text-xl">
           <Link
             className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
             isBlock
@@ -71,7 +71,7 @@ export default function Contact() {
           </Link>
         </div>
         <form
-          className="w-[43rem] rounded-xl bg-zinc-900 px-6 py-4 sm:px-6 sm:pb-8 sm:pt-8 "
+          className="w-full rounded-xl bg-zinc-900 px-6 py-4 sm:w-[43rem] sm:px-6 sm:pb-8 sm:pt-8 "
           action={async (formData) => {
             const { data, error } = await sendEmail(formData);
 

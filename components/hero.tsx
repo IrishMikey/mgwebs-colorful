@@ -38,7 +38,7 @@ export default function Hero() {
           Web Developer <span className="texStroke">& Designer</span>
         </motion.h1>
         <motion.p
-          className="text-neutral-200 max-w-[40ch] text-3xl "
+          className="text-neutral-200 max-w-[40ch] text-xl sm:text-3xl"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >

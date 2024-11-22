@@ -23,7 +23,7 @@ export default function About() {
         <h3 className="mb-[1.25rem] text-3xl font-medium">About Me</h3>
         <Avatar src={avatarImg.src} className="h-16 w-16 text-large" />
       </div>
-      <Card className="relative mt-8 flex max-h-[20.5rem] w-[42rem] flex-1 overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
+      <Card className="relative mt-8 flex flex-1 overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem] sm:w-[42rem]">
         <div className="flex h-full flex-col items-center px-6 py-4 sm:px-6 sm:pb-8 sm:pt-8 ">
           <p className="mb-3 leading-6 text-zinc-300 sm:w-[33rem] sm:text-xl">
             Hello! I&apos;m Michael Geraghty, a dedicated{" "}
