@@ -33,6 +33,26 @@ export const links = [
 ] as const;
 export const projectsData = [
   {
+    title: "PremSim",
+    desc: "Interactive Premier League table simulator.",
+    card: {
+      imageUrl: premSimImg,
+      built_with: {
+        tech: "Vite + React",
+        colour: "default",
+      },
+      link: "https://premsim.com",
+      alt: "A screenshot of premsim.com",
+    },
+    modal: [
+      {
+        imageUrl: premSimImg,
+        desc: "Interactive Premier League table simulator, based on users' predictions.",
+        alt: "A screenshot of premsim.com",
+      },
+    ],
+  },
+  {
     title: "BGRSolutions",
     desc: "A dynamic e-commerce solution using WordPress and WooCommerce. Seamlessly integrating CSV imports and translation plugins to ensure smooth operations.",
     card: {
@@ -61,6 +81,7 @@ export const projectsData = [
         alt: "A graphic of a smartphone banner for an ecommerce",
       },
     ],
+    date: "Mar 2023 - Nov 2024",
   },
   {
     title: "Casa Magic",
@@ -150,26 +171,6 @@ export const projectsData = [
         imageUrl: cloudninetenerifeImg,
         desc: "Cloud Nine Tenerife is a beauty & education salon in the south of Tenerife.",
         alt: "A screenshot of cloudninetenerife.es",
-      },
-    ],
-  },
-  {
-    title: "PremSim",
-    desc: "Interactive Premier League table simulator.",
-    card: {
-      imageUrl: premSimImg,
-      built_with: {
-        tech: "Vite + React",
-        colour: "default",
-      },
-      link: "https://premsim.com",
-      alt: "A screenshot of premsim.com",
-    },
-    modal: [
-      {
-        imageUrl: premSimImg,
-        desc: "Interactive Premier League table simulator, based on users' predictions.",
-        alt: "A screenshot of premsim.com",
       },
     ],
   },

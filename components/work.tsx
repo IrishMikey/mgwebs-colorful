@@ -38,7 +38,7 @@ export default function WorksCards() {
           Webpages <span>🌐</span>
         </h3>
       </motion.div>
-      <div className="mt-8 flex w-full flex-1 flex-col items-center gap-16 md:gap-12">
+      <div className="mt-8 flex w-full flex-1 flex-col gap-16 md:gap-12">
         {projectsData.map((project, index) => (
           <React.Fragment key={index}>
             <Card {...project} />

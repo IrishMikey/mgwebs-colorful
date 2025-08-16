@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button, Card, Chip, Tooltip } from "@nextui-org/react";
+import { Card, Chip, Tooltip } from "@nextui-org/react";
 
 type WorkProps = (typeof projectsData)[number] & { sponsored?: string };
 import { projectsData } from "@/lib/data";
@@ -12,7 +12,13 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
+export default function WorkCard({
+  title,
+  card,
+  desc,
+  sponsored,
+  ...rest
+}: WorkProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -31,8 +37,8 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
       }}
       className="group"
     >
-      <Card className=" relative max-h-[20.5rem] max-w-[42rem] overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
-        <div className="flex h-full flex-col px-6 py-4 sm:max-w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
+      <Card className=" relative max-h-[20.5rem] w-full overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
+        <div className="flex h-full flex-col px-6 py-4 sm:w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
           <div className="flex justify-between">
             <h4 className="text-2xl font-semibold">{title}</h4>
             <Link href={card.link} className="text-lg font-medium">
@@ -44,6 +50,7 @@ export default function WorkCard({ title, card, desc, sponsored }: WorkProps) {
               </Tooltip>
             </Link>
           </div>
+          {"date" in rest && <span className="text-zinc-200">{rest.date}</span>}
           <div className="flex flex-col gap-2 sm:flex-grow sm:flex-col-reverse sm:justify-between">
             <ul className="flex flex-wrap gap-2 ">
               <li>
