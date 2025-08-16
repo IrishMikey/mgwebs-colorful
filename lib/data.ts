@@ -1,6 +1,7 @@
 import bgrPhonesImg from "@/public/bgr-phones.webp";
 import bgrMediaImg from "@/public/bgr-media.webp";
 import bgrsolutionsImg from "@/public/bgrsolutions.png";
+import premSimImg from "@/public/premsim.png";
 
 import casamagicImg from "@/public/casamagic.webp";
 import cloudninetenerifeImg from "@/public/cloudninetenerife.webp";
@@ -149,6 +150,26 @@ export const projectsData = [
         imageUrl: cloudninetenerifeImg,
         desc: "Cloud Nine Tenerife is a beauty & education salon in the south of Tenerife.",
         alt: "A screenshot of cloudninetenerife.es",
+      },
+    ],
+  },
+  {
+    title: "PremSim",
+    desc: "Interactive Premier League table simulator.",
+    card: {
+      imageUrl: premSimImg,
+      built_with: {
+        tech: "Vite + React",
+        colour: "default",
+      },
+      link: "https://premsim.com",
+      alt: "A screenshot of premsim.com",
+    },
+    modal: [
+      {
+        imageUrl: premSimImg,
+        desc: "Interactive Premier League table simulator, based on users' predictions.",
+        alt: "A screenshot of premsim.com",
       },
     ],
   },

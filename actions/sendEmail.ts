@@ -29,7 +29,7 @@ export const sendEmail = async (formData: FormData) => {
       from: "Contact Form <noreply@mgwebs.com>",
       to: "mikeygeraghty@gmail.com",
       subject: "Message from contact form",
-      reply_to: senderEmail,
+      replyTo: senderEmail,
       react: ContactFormEmail({ message: message, senderEmail: senderEmail }),
     });
   } catch (error: unknown) {

@@ -43,6 +43,7 @@ const config: Config = {
           "text-stroke": "1px black", // Standard syntax (not widely supported)
         },
       };
+      addUtilities(newUtilities);
     },
   ],
 };

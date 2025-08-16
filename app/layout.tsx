@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/navBar";
-import { Toaster } from '@pheralb/toast';
+import { Toaster } from "@pheralb/toast";
 import Footer from "../components/footer";
 import { Providers } from "./providers";
 
@@ -21,6 +21,14 @@ config.autoAddCss = false;
 export const metadata: Metadata = {
   title: "MGWebs",
   description: "Web development by Michael Geraghty",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,12 +38,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="!scroll-smooth dark">
-      <body className={`${inter.variable} `}>
+      <body className={`${inter.variable} `} suppressHydrationWarning={true}>
         <Providers>
           <ActiveSectionContextProvider>
             <NavBar />
             {children}
-            <Toaster/>
+            <Toaster />
           </ActiveSectionContextProvider>
           <Footer />
         </Providers>
