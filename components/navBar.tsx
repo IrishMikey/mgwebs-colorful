@@ -13,7 +13,7 @@ export default function NavBar() {
   return (
     <header className="relative z-[999]">
       <motion.div
-        className="fixed left-1/2 top-7 h-[3.75rem] w-[22rem] rounded-lg bg-[#222222] bg-opacity-75 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[4.285rem] sm:w-[31rem]"
+        className="glass fixed left-1/2 top-7 h-[3.75rem] w-[22rem] rounded-lg shadow-lg sm:top-6 sm:h-[4.285rem] sm:w-[31rem]"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
@@ -29,9 +29,9 @@ export default function NavBar() {
             >
               <Link
                 className={clsx(
-                  " text-gray-500 hover:text-gray-300 flex w-full items-center justify-center px-3 py-3 text-[20px] transition",
+                  " flex w-full items-center justify-center px-3 py-3 text-[20px] text-white transition hover:text-purple-300",
                   {
-                    "text-gray-200": activeSection === link.name,
+                    "text-purple-200": activeSection === link.name,
                   },
                 )}
                 href={link.hash}
@@ -44,7 +44,7 @@ export default function NavBar() {
 
                 {link.name === activeSection && (
                   <motion.span
-                    className="absolute inset-0 -z-10 rounded-lg bg-[#353535]"
+                    className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20"
                     layoutId="activeSection"
                     transition={{
                       type: "spring",

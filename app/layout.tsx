@@ -39,6 +39,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth dark">
       <body className={`${inter.variable} `} suppressHydrationWarning={true}>
+        {/* Abstract background shapes */}
+        <div className="abstract-shape"></div>
+        <div className="abstract-shape"></div>
+        <div className="abstract-shape"></div>
+
         <Providers>
           <ActiveSectionContextProvider>
             <NavBar />

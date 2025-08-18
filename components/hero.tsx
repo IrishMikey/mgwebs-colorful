@@ -20,7 +20,7 @@ export default function Hero() {
       className="mb-28 mt-[7.5rem] flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
     >
       <motion.h4
-        className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] text-[#c6c8c9]"
+        className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] text-purple-300"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -35,10 +35,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Web Developer <span className="texStroke">& Designer</span>
+          <span className="gradient-text">Web Developer</span>{" "}
+          <span className="texStroke">& Designer</span>
         </motion.h1>
         <motion.p
-          className="text-neutral-200 max-w-[40ch] text-xl sm:text-3xl"
+          className="text-gray-300 max-w-[40ch] text-xl sm:text-3xl"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -53,17 +54,21 @@ export default function Hero() {
             delay: 0.1,
           }}
         >
-          <Button color="primary" size="lg" radius="md">
+          <Button
+            className="bg-gradient-to-r from-purple-500 to-pink-500 font-medium text-white"
+            size="lg"
+            radius="md"
+          >
             <Link href="#contact" className="text-lg font-medium">
               Contact me <FontAwesomeIcon icon={faChevronRight} />
             </Link>
           </Button>
-          <Button radius="md" isIconOnly className="h-[48px] w-[48px]">
+          <Button radius="md" isIconOnly className="glass h-[48px] w-[48px]">
             <Link href="https://twitter.com/MGWebss" className="text-lg ">
               <FontAwesomeIcon icon={faXTwitter} size="1x" />
             </Link>
           </Button>
-          <Button radius="md" isIconOnly className="h-[48px] w-[48px]">
+          <Button radius="md" isIconOnly className="glass h-[48px] w-[48px]">
             <Link
               href="https://www.linkedin.com/in/michaeldanielgeraghty/"
               className="text-lg "

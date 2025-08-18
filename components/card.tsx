@@ -37,7 +37,7 @@ export default function WorkCard({
       }}
       className="group"
     >
-      <Card className=" relative max-h-[20.5rem] w-full overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
+      <Card className=" glass relative max-h-[20.5rem] w-full overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
         <div className="flex h-full flex-col px-6 py-4 sm:w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
           <div className="flex justify-between">
             <h4 className="text-2xl font-semibold">{title}</h4>
@@ -50,7 +50,9 @@ export default function WorkCard({
               </Tooltip>
             </Link>
           </div>
-          {"date" in rest && <span className="text-zinc-200">{rest.date}</span>}
+          {"date" in rest && (
+            <span className="text-purple-300">{rest.date}</span>
+          )}
           <div className="flex flex-col gap-2 sm:flex-grow sm:flex-col-reverse sm:justify-between">
             <ul className="flex flex-wrap gap-2 ">
               <li>
@@ -78,7 +80,7 @@ export default function WorkCard({
                 </Tooltip>
               )}
             </ul>
-            <p className="my-2 text-zinc-200">{desc}</p>
+            <p className="text-gray-300 my-2">{desc}</p>
           </div>
         </div>
         <Image
