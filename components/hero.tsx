@@ -17,10 +17,10 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 mt-[7.5rem] flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around gap-5 sm:mb-[11rem] sm:min-h-[60svh]"
+      className="hero-spacing flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around sm:min-h-[60svh]"
     >
       <motion.h4
-        className="w-full rounded-lg px-4 py-1 text-center text-[1.5rem] text-purple-300"
+        className="text-responsive-lg w-full rounded-lg px-4 py-1 text-center text-purple-300"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -29,9 +29,9 @@ export default function Hero() {
       >
         Hey, I&apos;m Michael 👋
       </motion.h4>
-      <div className="flex flex-col gap-10">
+      <div className="element-gap flex flex-col">
         <motion.h1
-          className="mb-3 max-w-[10ch] text-6xl font-bold sm:max-w-[13ch] sm:text-7xl"
+          className="text-responsive-xl mb-3 max-w-[10ch] font-bold sm:max-w-[13ch] sm:text-7xl"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -39,7 +39,7 @@ export default function Hero() {
           <span className="texStroke">& Designer</span>
         </motion.h1>
         <motion.p
-          className="text-gray-300 max-w-[40ch] text-xl sm:text-3xl"
+          className="text-gray-300 text-responsive-base max-w-[40ch] sm:text-3xl"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -47,7 +47,7 @@ export default function Hero() {
           user-oriented digital experiences
         </motion.p>
         <motion.div
-          className="flex gap-2"
+          className="small-gap flex flex-wrap sm:flex-nowrap"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{

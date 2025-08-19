@@ -138,11 +138,44 @@ body::before {
 
 /* Responsive spacing utilities */
 .section-padding {
-  padding: clamp(2rem, 6vw, 4rem) 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
 }
 
 .section-margin {
-  margin: clamp(2rem, 6vw, 4rem) 0;
+  margin: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.section-gap {
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.element-gap {
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.small-gap {
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Hero section specific spacing */
+.hero-spacing {
+  margin-top: clamp(6rem, 12vw, 8rem);
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+/* Section header spacing */
+.section-header {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+/* Card spacing */
+.card-gap {
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+/* Form spacing */
+.form-spacing {
+  gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 /* Prevent overflow on mobile */

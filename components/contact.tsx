@@ -17,7 +17,7 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="relative mb-28 flex min-h-[35rem] w-full scroll-mt-[7rem] flex-col leading-8 sm:mb-40"
+      className="section-margin flex min-h-[35rem] w-full scroll-mt-[7rem] flex-col leading-8"
       viewport={{ once: true }}
       initial={{
         opacity: 0,
@@ -29,15 +29,17 @@ export default function Contact() {
         duration: 1,
       }}
     >
-      <h3 className="mb-[1.25rem] text-3xl font-medium">Contact</h3>
-      <span className="mb-3 text-zinc-300 sm:max-w-[75ch] sm:text-xl">
-        Connect with me for collaborations, questions, or just to say hello!
-      </span>
+      <div className="section-header">
+        <h3 className="text-responsive-xl font-medium">Contact</h3>
+        <span className="text-sm text-zinc-300 sm:max-w-[75ch] sm:text-xl">
+          Connect with me for collaborations, questions, or just to say hello!
+        </span>
+      </div>
 
-      <div className="mt-10 flex w-full flex-col items-center ">
-        <div className="mb-4 flex w-full gap-3 sm:w-[43rem] sm:text-xl">
+      <div className="form-spacing flex w-full flex-col items-center">
+        <div className="flex w-full gap-3 sm:w-[43rem] sm:text-xl">
           <Link
-            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
             isBlock
             href="mailto:mikeygeraghty@gmail.com"
           >
@@ -48,7 +50,7 @@ export default function Contact() {
             />
           </Link>
           <Link
-            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
             isBlock
             href="https://www.linkedin.com/in/michaeldanielgeraghty/"
           >
@@ -59,7 +61,7 @@ export default function Contact() {
             />
           </Link>
           <Link
-            className=" text-gray-500 hover:text-gray-300 flex items-center justify-center  rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
             isBlock
             href="https://twitter.com/MGWebss"
           >
@@ -71,7 +73,7 @@ export default function Contact() {
           </Link>
         </div>
         <form
-          className="w-full rounded-xl bg-zinc-900 px-6 py-4 sm:w-[43rem] sm:px-6 sm:pb-8 sm:pt-8 "
+          className="w-full rounded-xl bg-zinc-900 px-4 py-6 sm:w-[43rem] sm:px-6 sm:pb-8 sm:pt-8"
           action={async (formData) => {
             const { data, error } = await sendEmail(formData);
 

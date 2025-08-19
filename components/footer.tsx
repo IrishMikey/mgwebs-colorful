@@ -2,13 +2,14 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="m-auto flex max-w-[50rem] flex-col items-center px-4">
-      <div className="flex w-full rounded-t-lg bg-zinc-800 shadow min-h-20 px-4">
-
-      <ul className="flex justify-around items-center flex-grow flex-col sm:flex-row ">
-        <li className="text-zinc-400">MGWebs. 2024</li>
-        <li className="text-zinc-400">This webpage is a work-in-progress</li>
-      </ul>
+    <footer className="container-responsive flex flex-col items-center">
+      <div className="flex min-h-20 w-full rounded-t-lg bg-zinc-800 px-4 shadow">
+        <ul className="flex flex-grow flex-col items-center justify-around gap-2 py-6 sm:flex-row sm:gap-0">
+          <li className="text-sm text-zinc-400 sm:text-base">MGWebs. 2024</li>
+          <li className="text-sm text-zinc-400 sm:text-base">
+            This webpage is a work-in-progress
+          </li>
+        </ul>
       </div>
     </footer>
   );
