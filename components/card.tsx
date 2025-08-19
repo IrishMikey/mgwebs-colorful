@@ -37,29 +37,33 @@ export default function WorkCard({
       }}
       className="group"
     >
-      <Card className=" glass relative max-h-[20.5rem] w-full overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
-        <div className="flex h-full flex-col px-6 py-4 sm:w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
+      <Card className="glass relative max-h-[20.5rem] w-full overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem]">
+        <div className="flex h-full flex-col px-4 py-4 sm:w-[50%] sm:px-6 sm:pb-8 sm:pl-8 sm:pr-2 sm:pt-8 sm:group-even:ml-[20rem]">
           <div className="flex justify-between">
-            <h4 className="text-2xl font-semibold">{title}</h4>
+            <h4 className="text-xl font-bold text-primary sm:text-2xl">
+              {title}
+            </h4>
             <Link href={card.link} className="text-lg font-medium">
               <Tooltip color="default" content="Check it out!">
                 <FontAwesomeIcon
                   icon={faUpRightFromSquare}
-                  className="p-2 transition-all hover:rounded-full hover:text-[#006FEE] active:scale-95"
+                  className="hover:text-accent p-2 transition-all hover:rounded-full active:scale-95"
                 />
               </Tooltip>
             </Link>
           </div>
           {"date" in rest && (
-            <span className="text-purple-300">{rest.date}</span>
+            <span className="text-accent-light text-sm font-medium sm:text-base">
+              {rest.date}
+            </span>
           )}
           <div className="flex flex-col gap-2 sm:flex-grow sm:flex-col-reverse sm:justify-between">
-            <ul className="flex flex-wrap gap-2 ">
+            <ul className="flex flex-wrap gap-2">
               <li>
                 <Chip
                   color={card.built_with.colour}
                   radius="sm"
-                  className="text-xs"
+                  className="text-xs font-medium"
                 >
                   {card.built_with.tech}
                 </Chip>
@@ -73,21 +77,23 @@ export default function WorkCard({
                     color="warning"
                     variant="dot"
                     radius="sm"
-                    className="p-0 text-xs"
+                    className="p-0 text-xs font-medium"
                   >
                     {sponsored}
                   </Chip>
                 </Tooltip>
               )}
             </ul>
-            <p className="text-gray-300 my-2">{desc}</p>
+            <p className="text-muted my-2 text-sm font-normal leading-relaxed sm:text-base">
+              {desc}
+            </p>
           </div>
         </div>
         <Image
           src={card.imageUrl}
           alt={card.alt}
           quality={95}
-          className="group-even:sm:-right-inital shadow-black-800 top-10  rounded-lg rounded-t-lg shadow-md  transition sm:absolute sm:-right-40 sm:w-[28.25rem] group-even:sm:-left-40 group-hover:sm:-translate-x-3 group-hover:sm:translate-y-3 group-hover:sm:-rotate-2 group-even:group-hover:sm:translate-x-3 group-even:group-hover:sm:translate-y-3 group-even:group-hover:sm:rotate-2"
+          className="group-even:sm:-right-inital shadow-black-800 top-10 rounded-lg rounded-t-lg shadow-md transition sm:absolute sm:-right-40 sm:w-[28.25rem] group-even:sm:-left-40 group-hover:sm:-translate-x-3 group-hover:sm:translate-y-3 group-hover:sm:-rotate-2 group-even:group-hover:sm:translate-x-3 group-even:group-hover:sm:translate-y-3 group-even:group-hover:sm:rotate-2"
         ></Image>
       </Card>
     </motion.div>

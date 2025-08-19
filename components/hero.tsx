@@ -20,7 +20,7 @@ export default function Hero() {
       className="hero-spacing flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around sm:min-h-[60svh]"
     >
       <motion.h4
-        className="text-responsive-lg w-full rounded-lg px-4 py-1 text-center text-purple-300"
+        className="text-responsive-lg text-accent-light w-full rounded-lg px-4 py-1 text-center tracking-wide"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -31,7 +31,7 @@ export default function Hero() {
       </motion.h4>
       <div className="element-gap flex flex-col">
         <motion.h1
-          className="text-responsive-xl mb-3 max-w-[10ch] font-bold sm:max-w-[13ch] sm:text-7xl"
+          className="text-responsive-xl mb-3 max-w-[10ch] font-bold tracking-tight sm:max-w-[13ch]"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -39,7 +39,7 @@ export default function Hero() {
           <span className="texStroke">& Designer</span>
         </motion.h1>
         <motion.p
-          className="text-gray-300 text-responsive-base max-w-[40ch] sm:text-3xl"
+          className="text-responsive-base max-w-[40ch] font-normal leading-relaxed text-secondary"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -55,23 +55,34 @@ export default function Hero() {
           }}
         >
           <Button
-            className="bg-gradient-to-r from-purple-500 to-pink-500 font-medium text-white"
+            className="from-accent bg-gradient-to-r to-pink-500 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
             size="lg"
             radius="md"
           >
-            <Link href="#contact" className="text-lg font-medium">
+            <Link href="#contact" className="text-responsive-sm font-medium">
               Contact me <FontAwesomeIcon icon={faChevronRight} />
             </Link>
           </Button>
-          <Button radius="md" isIconOnly className="glass h-[48px] w-[48px]">
-            <Link href="https://twitter.com/MGWebss" className="text-lg ">
+          <Button
+            radius="md"
+            isIconOnly
+            className="glass h-[48px] w-[48px] transition-transform hover:scale-105"
+          >
+            <Link
+              href="https://twitter.com/MGWebss"
+              className="hover:text-accent-light text-lg text-primary transition-colors"
+            >
               <FontAwesomeIcon icon={faXTwitter} size="1x" />
             </Link>
           </Button>
-          <Button radius="md" isIconOnly className="glass h-[48px] w-[48px]">
+          <Button
+            radius="md"
+            isIconOnly
+            className="glass h-[48px] w-[48px] transition-transform hover:scale-105"
+          >
             <Link
               href="https://www.linkedin.com/in/michaeldanielgeraghty/"
-              className="text-lg "
+              className="hover:text-accent-light text-lg text-primary transition-colors"
             >
               <FontAwesomeIcon icon={faLinkedin} size="1x" />
             </Link>

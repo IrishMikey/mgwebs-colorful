@@ -30,8 +30,10 @@ export default function Contact() {
       }}
     >
       <div className="section-header">
-        <h3 className="text-responsive-xl font-medium">Contact</h3>
-        <span className="text-sm text-zinc-300 sm:max-w-[75ch] sm:text-xl">
+        <h3 className="text-responsive-xl font-bold tracking-tight text-primary">
+          Contact
+        </h3>
+        <span className="text-responsive-base text-muted font-normal leading-relaxed sm:max-w-[75ch]">
           Connect with me for collaborations, questions, or just to say hello!
         </span>
       </div>
@@ -39,7 +41,7 @@ export default function Contact() {
       <div className="form-spacing flex w-full flex-col items-center">
         <div className="flex w-full gap-3 sm:w-[43rem] sm:text-xl">
           <Link
-            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-muted hover:text-accent-light flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition-colors duration-300"
             isBlock
             href="mailto:mikeygeraghty@gmail.com"
           >
@@ -50,7 +52,7 @@ export default function Contact() {
             />
           </Link>
           <Link
-            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-muted hover:text-accent-light flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition-colors duration-300"
             isBlock
             href="https://www.linkedin.com/in/michaeldanielgeraghty/"
           >
@@ -61,7 +63,7 @@ export default function Contact() {
             />
           </Link>
           <Link
-            className="text-gray-500 hover:text-gray-300 flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition"
+            className="text-muted hover:text-accent-light flex items-center justify-center rounded-lg bg-zinc-900 px-3 py-3 text-[20px] transition-colors duration-300"
             isBlock
             href="https://twitter.com/MGWebss"
           >

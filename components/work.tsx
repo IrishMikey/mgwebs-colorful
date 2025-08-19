@@ -24,8 +24,8 @@ export default function WorksCards() {
         whileInView={{ opacity: 100, y: 0 }}
         className="section-header"
       >
-        <h2 className="text-responsive-xl font-medium">
-          Recent Work <span>🔨</span>
+        <h2 className="text-responsive-xl font-bold tracking-tight text-primary">
+          Recent Work <span className="text-accent">🔨</span>
         </h2>
       </motion.div>
 
@@ -35,13 +35,13 @@ export default function WorksCards() {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <span className="text-responsive-base text-zinc-300">
+        <span className="text-responsive-base text-muted font-normal leading-relaxed">
           Discover my portfolio of diverse projects,{" "}
           <br className="hidden sm:block" /> highlighting my knowledge in web
           development and design.
         </span>
-        <h3 className="text-responsive-lg font-medium">
-          Webpages <span>🌐</span>
+        <h3 className="text-responsive-lg font-semibold tracking-wide text-secondary">
+          Webpages <span className="text-accent-light">🌐</span>
         </h3>
       </motion.div>
       <div className="card-gap mt-8 flex w-full flex-1 flex-col">
@@ -58,13 +58,13 @@ export default function WorksCards() {
       >
         <div id="Graphics" className="mt-12 w-full sm:mt-[3rem]">
           <motion.h3
-            className="text-responsive-lg font-medium"
+            className="text-responsive-lg font-semibold tracking-wide text-secondary"
             initial={{ opacity: 0, y: -100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             viewport={{ once: true }}
           >
-            Graphics <span>🎨</span>
+            Graphics <span className="text-accent-light">🎨</span>
           </motion.h3>
           <div className="element-gap mt-8 flex flex-wrap justify-center">
             {galleryImgs.map((photo, index) => (

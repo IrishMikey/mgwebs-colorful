@@ -92,17 +92,130 @@ body::before {
   }
 }
 
-.texStroke {
-  -webkit-text-stroke: 1px #ffffff;
-  color: transparent;
+/* Responsive text utilities */
+.text-responsive-xl {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 700;
 }
 
-/* Modern gradient text */
+.text-responsive-lg {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.text-responsive-base {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text-responsive-sm {
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-responsive-xs {
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Color system */
+.text-primary {
+  color: #ffffff;
+}
+
+.text-secondary {
+  color: #e2e8f0;
+}
+
+.text-muted {
+  color: #94a3b8;
+}
+
+.text-accent {
+  color: #a855f7;
+}
+
+.text-accent-light {
+  color: #c084fc;
+}
+
+.text-accent-dark {
+  color: #7c3aed;
+}
+
+.text-success {
+  color: #10b981;
+}
+
+.text-warning {
+  color: #f59e0b;
+}
+
+.text-error {
+  color: #ef4444;
+}
+
+/* Enhanced gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #7877c6, #ff77c6, #78dbff);
+  background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
+}
+
+/* Enhanced text stroke */
+.texStroke {
+  -webkit-text-stroke: 1px #ffffff;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Typography utilities */
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+/* Letter spacing utilities */
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 /* Glass morphism effect */
@@ -121,19 +234,6 @@ body::before {
   max-width: min(90rem, 95vw);
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2rem);
-}
-
-/* Responsive text utilities */
-.text-responsive-xl {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-}
-
-.text-responsive-lg {
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
-}
-
-.text-responsive-base {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
 }
 
 /* Responsive spacing utilities */
