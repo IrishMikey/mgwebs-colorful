@@ -10,7 +10,7 @@ export default function SubmitBtn() {
   return (
     <Button
       type="submit"
-      color="default"
+      color="primary"
       size="lg"
       className="text-lg font-bold"
       isDisabled={pending}
