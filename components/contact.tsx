@@ -62,12 +62,16 @@ export default function Contact() {
             <Link
               className="glass hover:text-accent-light flex h-16 w-16 items-center justify-center rounded-xl text-2xl transition-all duration-300 hover:scale-110"
               href="https://www.linkedin.com/in/michaeldanielgeraghty/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faLinkedin} title="Connect on LinkedIn" />
             </Link>
             <Link
               className="glass hover:text-accent-light flex h-16 w-16 items-center justify-center rounded-xl text-2xl transition-all duration-300 hover:scale-110"
               href="https://twitter.com/MGWebss"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FontAwesomeIcon
                 icon={faXTwitter}

@@ -8,19 +8,17 @@ import { motion } from "framer-motion";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Hero() {
   const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
       ref={ref}
       id="home"
-      className="hero-spacing flex min-h-[40svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around sm:min-h-[60svh]"
+      className="hero-spacing flex min-h-[60svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around sm:min-h-[60svh]"
     >
       <motion.h4
-        className="text-responsive-lg text-accent-light w-full rounded-lg px-4 py-1 text-center tracking-wide"
+        className="text-accent-light w-full rounded-lg px-4 py-1 text-center text-[1.25rem] tracking-wide"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -31,7 +29,7 @@ export default function Hero() {
       </motion.h4>
       <div className="element-gap flex flex-col">
         <motion.h1
-          className="text-responsive-xl mb-3 max-w-[10ch] font-bold tracking-tight sm:max-w-[13ch]"
+          className="mb-3 max-w-[10ch] text-[3rem] font-bold leading-[1.1] tracking-tight sm:max-w-[13ch]"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -55,7 +53,7 @@ export default function Hero() {
           }}
         >
           <Button
-            className="from-accent bg-gradient-to-r to-pink-500 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
+            className="bg-[#52a9ff] font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
             size="lg"
             radius="md"
           >

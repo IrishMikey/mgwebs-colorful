@@ -33,22 +33,20 @@ export default function About() {
           <p className="text-muted mb-4 text-sm font-normal leading-relaxed sm:w-[33rem] sm:text-base">
             Hello! I&apos;m Michael Geraghty, a dedicated{" "}
             <span className="font-semibold text-primary">Web Developer</span>{" "}
-            based in the Canary Islands. I have completed vocational courses in
-            <span className="font-semibold text-primary">
-              {" "}
-              Microcomputer Systems and Networks
-            </span>
-            , and{" "}
-            <span className="font-semibold text-primary">
-              Web Application Development
-            </span>
-            , providing me with a solid foundation in both hardware and
-            software.
+            based in{" "}
+            <span className="font-semibold text-primary"> Ireland 🍀</span> . I
+            love building things, whether it’s a new app, a little side project,
+            or just experimenting with ideas to see where they go.
           </p>
           <p className="text-muted text-sm font-normal leading-relaxed sm:w-[33rem] sm:text-base">
-            Skilled in UI design and Next.Js, I focus on building intuitive,
-            user-driven websites. I thrive on feedback and detail, ensuring
-            every project is a step towards digital excellence.
+            For me, creating is all about{" "}
+            <span className="font-semibold text-primary">
+              {" "}
+              making experiences
+            </span>{" "}
+            that people can enjoy and connect with. I get a real kick out of
+            trying new things, tweaking the details, and watching an idea grow
+            into something real.
           </p>
         </div>
       </Card>

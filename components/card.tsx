@@ -43,7 +43,12 @@ export default function WorkCard({
             <h4 className="text-xl font-bold text-primary sm:text-2xl">
               {title}
             </h4>
-            <Link href={card.link} className="text-lg font-medium">
+            <Link
+              href={card.link}
+              className="text-lg font-medium"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Tooltip color="default" content="Check it out!">
                 <FontAwesomeIcon
                   icon={faUpRightFromSquare}
