@@ -30,6 +30,10 @@ export const links = [
     name: "Contact",
     hash: "#contact",
   },
+  {
+    name: "Links",
+    hash: "/links",
+  },
 ] as const;
 export const projectsData = [
   {

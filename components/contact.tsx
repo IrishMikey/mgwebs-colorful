@@ -35,8 +35,8 @@ export default function Contact() {
         </h3>
         <span className="text-responsive-base text-muted mx-auto max-w-[60ch] font-normal leading-relaxed">
           Connect with me for collaborations, questions, or just to say hello!
-          I'm always excited to hear about new opportunities and interesting
-          projects.
+          I&apos;m always excited to hear about new opportunities and
+          interesting projects.
         </span>
       </div>
 
@@ -50,7 +50,7 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <h4 className="text-responsive-lg font-semibold tracking-wide text-secondary">
-            Let's Connect
+            Let&apos;s Connect
           </h4>
           <div className="flex gap-4">
             <Link

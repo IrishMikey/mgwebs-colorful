@@ -40,13 +40,15 @@ export default function NavBar() {
                   )}
                   href={link.hash}
                   onClick={() => {
-                    setActiveSection(link.name);
-                    setTimeOfLastClick(Date.now());
+                    if (link.hash.startsWith("#")) {
+                      setActiveSection(link.name);
+                      setTimeOfLastClick(Date.now());
+                    }
                   }}
                 >
                   {link.name}
 
-                  {link.name === activeSection && (
+                  {link.name === activeSection && link.hash.startsWith("#") && (
                     <motion.span
                       className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm"
                       layoutId="activeSection"
