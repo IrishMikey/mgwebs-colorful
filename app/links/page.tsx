@@ -18,7 +18,7 @@ import avatarImg from "@/public/headshot.jpg";
 const socialLinks = [
   {
     name: "TikTok",
-    url: "https://tiktok.com/@mgwebs",
+    url: "https://tiktok.com/@mikxyg",
     icon: faTiktok,
     color: "from-pink-500 to-purple-600",
     bgColor: "bg-gradient-to-r from-pink-500/20 to-purple-600/20",
@@ -26,7 +26,7 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/mgwebs",
+    url: "https://instagram.com/mikxyg",
     icon: faInstagram,
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-gradient-to-r from-purple-500/20 to-pink-500/20",
@@ -34,7 +34,7 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    url: "https://youtube.com/@mgwebs",
+    url: "https://youtube.com/@mikeygeraghty",
     icon: faYoutube,
     color: "from-red-500 to-red-600",
     bgColor: "bg-gradient-to-r from-red-500/20 to-red-600/20",
@@ -42,7 +42,7 @@ const socialLinks = [
   },
   {
     name: "Development",
-    url: "https://mgwebs.dev",
+    url: "/",
     icon: faCode,
     color: "from-blue-500 to-cyan-500",
     bgColor: "bg-gradient-to-r from-blue-500/20 to-cyan-500/20",
@@ -50,7 +50,7 @@ const socialLinks = [
   },
   {
     name: "GitHub",
-    url: "https://github.com/mgwebs",
+    url: "https://github.com/IrishMikey",
     icon: faGithub,
     color: "from-gray-600 to-gray-800",
     bgColor: "bg-gradient-to-r from-gray-600/20 to-gray-800/20",
@@ -58,7 +58,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/mgwebs",
+    url: "https://www.linkedin.com/in/michaeldanielgeraghty/",
     icon: faLinkedin,
     color: "from-blue-600 to-blue-700",
     bgColor: "bg-gradient-to-r from-blue-600/20 to-blue-700/20",

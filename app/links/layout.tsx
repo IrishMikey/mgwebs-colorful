@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import NavBar from "../../components/navBar";
+import { Toaster } from "@pheralb/toast";
+import Footer from "../../components/footer";
+import { Providers } from "../providers";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 export const metadata: Metadata = {
   title: "Links - MGWebs",
@@ -23,5 +28,23 @@ export default function LinksLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <html lang="en" className="!scroll-smooth dark">
+      <body suppressHydrationWarning={true}>
+        {/* Abstract background shapes */}
+        <div className="abstract-shape"></div>
+        <div className="abstract-shape"></div>
+        <div className="abstract-shape"></div>
+
+        <Providers>
+          <ActiveSectionContextProvider>
+            <NavBar />
+            {children}
+            <Toaster />
+          </ActiveSectionContextProvider>
+          <Footer />
+        </Providers>
+      </body>
+    </html>
+  );
 }

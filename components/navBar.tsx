@@ -6,10 +6,13 @@ import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function NavBar() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const router = useRouter();
+  const pathname = usePathname();
   return (
     <header className="relative z-[999]">
       <motion.div
@@ -41,14 +44,22 @@ export default function NavBar() {
                   href={link.hash}
                   onClick={() => {
                     if (link.hash.startsWith("#")) {
+                      // If we're on the links page, navigate back to main page first
+                      if (pathname === "/links") {
+                        router.push(link.hash);
+                      } else {
+                        setActiveSection(link.name);
+                        setTimeOfLastClick(Date.now());
+                      }
+                    } else {
+                      // For full page routes like /links
                       setActiveSection(link.name);
-                      setTimeOfLastClick(Date.now());
                     }
                   }}
                 >
                   {link.name}
 
-                  {link.name === activeSection && link.hash.startsWith("#") && (
+                  {link.name === activeSection && (
                     <motion.span
                       className="absolute inset-0 -z-10 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm"
                       layoutId="activeSection"
