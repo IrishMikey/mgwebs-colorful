@@ -2,7 +2,7 @@
 
 import { Avatar, Card } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import React from "react";
 import avatarImg from "@/public/headshot.jpg";
 import { useSectionInView } from "@/lib/hooks";
 

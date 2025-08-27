@@ -13,10 +13,16 @@ export default function NavBar() {
     useActiveSectionContext();
   const router = useRouter();
   const pathname = usePathname();
+
+  // Hide navbar on links page
+  if (pathname === "/links") {
+    return null;
+  }
+
   return (
     <header className="relative z-[999]">
       <motion.div
-        className="fixed left-1/2 top-4 h-[3rem] w-[95vw] max-w-[26rem] rounded-xl shadow-2xl backdrop-blur-xl sm:top-6 sm:h-[4.285rem] sm:w-[32rem]"
+        className="fixed left-1/2 top-4 h-[3rem] w-[95vw] max-w-[28rem] rounded-xl shadow-2xl backdrop-blur-xl sm:top-6 sm:h-[4.285rem] sm:w-[34rem]"
         style={{
           background: "rgba(255, 255, 255, 0.08)",
           border: "1px solid rgba(255, 255, 255, 0.15)",
@@ -26,7 +32,7 @@ export default function NavBar() {
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       >
         <nav className="top-4 flex h-[3rem] items-center justify-center sm:top-[1.7rem] sm:h-[4.285rem]">
-          <ul className="flex w-[95vw] max-w-[26rem] items-center justify-between px-4 text-[0.85rem] font-medium sm:w-[32rem] sm:px-6 sm:text-[0.9rem]">
+          <ul className="flex w-[95vw] max-w-[28rem] items-center justify-between px-1 text-[0.85rem] font-medium sm:w-[34rem] sm:px-2 sm:text-[0.9rem]">
             {links.map((link) => (
               <motion.li
                 className="relative flex h-3/4 items-center justify-center"
@@ -36,7 +42,7 @@ export default function NavBar() {
               >
                 <Link
                   className={clsx(
-                    "flex w-full items-center justify-center px-3 py-2 text-[16px] text-white transition-all duration-300 hover:text-purple-300 sm:px-4 sm:py-3 sm:text-[20px]",
+                    "flex w-full items-center justify-center px-1 py-2 text-[14px] text-white transition-all duration-300 hover:text-purple-300 sm:px-2 sm:py-3 sm:text-[16px]",
                     {
                       "text-purple-200": activeSection === link.name,
                     },

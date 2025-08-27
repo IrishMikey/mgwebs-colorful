@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import NavBar from "../../components/navBar";
 import { Toaster } from "@pheralb/toast";
-import Footer from "../../components/footer";
 import { Providers } from "../providers";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 
@@ -42,7 +41,6 @@ export default function LinksLayout({
             {children}
             <Toaster />
           </ActiveSectionContextProvider>
-          <Footer />
         </Providers>
       </body>
     </html>

@@ -66,7 +66,7 @@ const socialLinks = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/mgwebs",
+    url: "https://twitter.com/mgwebss",
     icon: faTwitter,
     color: "from-blue-400 to-blue-500",
     bgColor: "bg-gradient-to-r from-blue-400/20 to-blue-500/20",
