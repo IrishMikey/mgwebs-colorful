@@ -5,6 +5,7 @@ import NavBar from "../components/navBar";
 import { Toaster } from "@pheralb/toast";
 import Footer from "../components/footer";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <NavBar />
             {children}
+            <Analytics />
             <Toaster />
           </ActiveSectionContextProvider>
           <Footer />
