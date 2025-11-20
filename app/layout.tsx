@@ -6,6 +6,7 @@ import { Toaster } from "@pheralb/toast";
 import Footer from "../components/footer";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,6 +19,8 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 config.autoAddCss = false;
+
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 export const metadata: Metadata = {
   title: "MGWebs",
@@ -40,6 +43,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth dark">
       <body className={`${inter.variable} `} suppressHydrationWarning={true}>
+        {recaptchaSiteKey ? (
+          <Script
+            id="google-recaptcha"
+            src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+            strategy="afterInteractive"
+          />
+        ) : null}
         {/* Abstract background shapes */}
         <div className="abstract-shape"></div>
         <div className="abstract-shape"></div>

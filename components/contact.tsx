@@ -1,17 +1,93 @@
 "use client";
 import { Input, Textarea, Link } from "@nextui-org/react";
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
-import { sendEmail } from "@/actions/sendEmail";
-import SubmitBtn from "./submit-btn";
-import { toast, Toaster } from "@pheralb/toast";
+import { motion } from "framer-motion";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSectionInView } from "@/lib/hooks";
+import { sendEmail } from "@/actions/sendEmail";
+import SubmitBtn from "./submit-btn";
+import { toast } from "@pheralb/toast";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (
+        siteKey: string,
+        options: {
+          action: string;
+        },
+      ) => Promise<string>;
+    };
+  }
+}
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const tokenInputRef = React.useRef<HTMLInputElement>(null);
+  const bypassSubmitRef = React.useRef(false);
+  const [isVerifyingCaptcha, setIsVerifyingCaptcha] = React.useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    if (bypassSubmitRef.current) {
+      bypassSubmitRef.current = false;
+      return;
+    }
+
+    if (!recaptchaSiteKey) {
+      event.preventDefault();
+      toast.error({ text: "reCAPTCHA misconfigured." });
+      return;
+    }
+
+    event.preventDefault();
+
+    if (isVerifyingCaptcha) {
+      return;
+    }
+
+    const grecaptcha = window?.grecaptcha;
+
+    if (!grecaptcha) {
+      toast.error({ text: "Unable to load reCAPTCHA." });
+      return;
+    }
+
+    try {
+      setIsVerifyingCaptcha(true);
+
+      const token = await new Promise<string>((resolve, reject) => {
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute(recaptchaSiteKey, {
+              action: "contact_form",
+            })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+
+      if (!token) {
+        throw new Error("No token returned from reCAPTCHA");
+      }
+
+      if (tokenInputRef.current) {
+        tokenInputRef.current.value = token;
+      }
+
+      bypassSubmitRef.current = true;
+      formRef.current?.requestSubmit();
+    } catch (error) {
+      console.error(error);
+      toast.error({ text: "reCAPTCHA validation failed. Please try again." });
+    } finally {
+      setIsVerifyingCaptcha(false);
+    }
+  };
 
   return (
     <motion.section
@@ -99,6 +175,8 @@ export default function Contact() {
             </h4>
             <form
               className="flex flex-col gap-6"
+              ref={formRef}
+              onSubmit={handleSubmit}
               action={async (formData) => {
                 const { data, error } = await sendEmail(formData);
 
@@ -110,6 +188,13 @@ export default function Contact() {
                 toast.success({ text: "message sent" });
               }}
             >
+              <input
+                type="hidden"
+                name="recaptchaToken"
+                ref={tokenInputRef}
+                defaultValue=""
+                aria-hidden="true"
+              />
               <div className="flex flex-col gap-2">
                 <label className="text-responsive-sm font-medium text-secondary">
                   Email Address
@@ -137,7 +222,7 @@ export default function Contact() {
                 />
               </div>
 
-              <SubmitBtn />
+              <SubmitBtn isVerifying={isVerifyingCaptcha} />
             </form>
           </div>
         </motion.div>

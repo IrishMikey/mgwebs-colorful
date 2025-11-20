@@ -20,6 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Environment Variables
+
+Create a `.env.local` file in the project root and provide the following keys:
+
+```
+RESEND_API_KEY=your_resend_api_key
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+```
+
+The reCAPTCHA keys should be generated for an Invisible (v3) integration. The site key is injected on the client to request tokens, and the secret key is used on the server to verify each submission before sending emails.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

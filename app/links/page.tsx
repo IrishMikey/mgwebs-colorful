@@ -34,7 +34,7 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    url: "https://youtube.com/@mikeygeraghty",
+    url: "https://youtube.com/@mikxyg",
     icon: faYoutube,
     color: "from-red-500 to-red-600",
     bgColor: "bg-gradient-to-r from-red-500/20 to-red-600/20",

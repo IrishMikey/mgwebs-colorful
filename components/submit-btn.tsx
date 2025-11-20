@@ -4,7 +4,11 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@nextui-org/react";
 
-export default function SubmitBtn() {
+type SubmitBtnProps = {
+  isVerifying?: boolean;
+};
+
+export default function SubmitBtn({ isVerifying = false }: SubmitBtnProps) {
   const { pending } = useFormStatus();
 
   return (
@@ -13,9 +17,9 @@ export default function SubmitBtn() {
       color="primary"
       size="lg"
       className="text-lg font-bold"
-      isDisabled={pending}
+      isDisabled={pending || isVerifying}
     >
-      {pending ? (
+      {pending || isVerifying ? (
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
       ) : (
         <>
