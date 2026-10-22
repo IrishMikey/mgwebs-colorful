@@ -10,7 +10,6 @@ import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "400", "500", "600"],
   variable: "--font-inter",
 });
 
