@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, Chip, Tooltip } from "@nextui-org/react";
+import { Card, Chip, Tooltip } from "@heroui/react";
 
 type WorkProps = (typeof projectsData)[number] & { sponsored?: string };
 import { projectsData } from "@/lib/data";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Card } from "@nextui-org/react";
+import { Avatar, Card } from "@heroui/react";
 import { motion } from "framer-motion";
 import React from "react";
 import avatarImg from "@/public/headshot.jpg";

@@ -3,12 +3,10 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import NavBar from "./navBarES";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
       <main className="flex min-h-screen flex-col gap-16 font-poppins md:w-[575px] lg:m-auto xl:w-[1080px]">
         <section
           id="inicio"
@@ -54,7 +52,7 @@ export default function Home() {
                 <span className="text-sm">e-commerce</span>
               </div>
               <div className="flex min-h-full w-full">
-                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.webp')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
+                <div className="h-[200px] w-full rounded-[1rem] bg-[url('/bgrsolutions.png')] bg-cover bg-center bg-no-repeat md:h-[305px] xl:h-[685px]"></div>
               </div>
             </Link>
             <Link

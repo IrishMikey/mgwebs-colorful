@@ -1,5 +1,5 @@
 "use client";
-import { Input, Textarea, Link } from "@nextui-org/react";
+import { Input, Textarea, Link } from "@heroui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";

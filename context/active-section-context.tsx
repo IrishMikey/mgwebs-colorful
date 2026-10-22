@@ -24,15 +24,18 @@ export default function ActiveSectionContextProvider({
   const [activeSection, setActiveSection] = useState<SectionName>("Home");
   const [timeOfLastClick, setTimeOfLastClick] = useState(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Set active section based on current pathname
-  React.useEffect(() => {
+  // Set active section based on current pathname, adjusted during render
+  // rather than in an effect (avoids a cascading re-render on navigation).
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     if (pathname === "/links") {
       setActiveSection("Links");
     } else if (pathname === "/") {
       setActiveSection("Home");
     }
-  }, [pathname]);
+  }
 
   return (
     <ActiveSectionContext.Provider

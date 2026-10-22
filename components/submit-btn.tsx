@@ -2,7 +2,7 @@ import React from "react";
 import { useFormStatus } from "react-dom";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 
 type SubmitBtnProps = {
   isVerifying?: boolean;

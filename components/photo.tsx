@@ -4,7 +4,7 @@ type GalleryProps = (typeof galleryImgs)[number];
 
 import { galleryImgs } from "@/lib/data";
 import Image from "next/image";
-import { Card, CardBody } from "@nextui-org/react";
+import { Card, CardBody } from "@heroui/react";
 import { animate, motion } from "framer-motion";
 
 export default function Photo({ imageUrl }: GalleryProps) {
