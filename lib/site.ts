@@ -4,7 +4,5 @@ export const siteUrl = (
 
 export const siteName = "MGWebs";
 
-export const siteDescription = {
-  en: "Hand-built websites for small businesses in Ireland and Tenerife — real design and development, not AI-generated templates.",
-  es: "Páginas web hechas a mano para pequeños negocios en Tenerife — diseño y desarrollo real, no plantillas generadas por IA.",
-};
+export const siteDescription =
+  "Hand-built websites for small businesses in Ireland and Tenerife — real design and development, not AI-generated templates.";

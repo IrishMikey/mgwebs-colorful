@@ -6,8 +6,9 @@ Date: 2026-10-22
 ```
 /                   — single page: Hero, Work (cards + gallery), About, Contact
 /links              — link-in-bio page (keep as-is; not an SEO page, serves social traffic)
-/es                 — orphaned Spanish landing page (not in any nav, not in sitemap, no hreflang)
 ```
+
+> **Update (2026-10-22):** the Spanish `/es` landing page has been removed by decision — the site is English-only going forward. Tenerife remains a real client market (several existing case studies are Tenerife-based) and stays in scope for `COMPETITOR-ANALYSIS.md`, but it's served by the English site rather than a dedicated translation. All bilingual/`hreflang` recommendations below are retired accordingly.
 
 Everything under "Work" lives as anonymous `<div>` sections inside one page — no case study has its own URL, so none of it is independently indexable or shareable.
 
@@ -28,19 +29,10 @@ Everything under "Work" lives as anonymous `<div>` sections inside one page — 
 /blog                       — Thought-leadership + "anti-AI-slop" content (see CONTENT-CALENDAR.md)
   /blog/[slug]
 /links                       — unchanged
-
-/es                           — Home (ES), properly linked from a language switcher, not orphaned
-  /es/trabajo (or /es/proyectos) — mirrors /work
-  /es/sobre-mi
-  /es/contacto
-  /es/blog (can lag English blog; doesn't need 1:1 parity from day one)
 ```
 
 ### Why split `/work` into real pages
 Each of the 6 existing projects already has: a title, a one-line description, a tech-stack tag, a live URL, and (for 3 of them) multiple supporting images already in `lib/data.ts`'s `modal` arrays. That's already most of a case-study page's raw material — it's currently trapped inside a card component's props instead of being its own crawlable URL. This is the single highest-leverage, lowest-new-content-cost move available.
-
-### hreflang
-Once `/es` stops being orphaned, pair it with `/` via `alternates.languages` in Next.js metadata (`en` ↔ `es`), so Google understands these are the same business in two languages rather than two unrelated sites competing with each other.
 
 ### URL/slug conventions
 - Lowercase, hyphenated, no trailing slash (matches current `app/links` convention).
@@ -55,7 +47,7 @@ Once `/es` stops being orphaned, pair it with `/` via `alternates.languages` in 
 
 ## Sitemap & robots
 
-Add `app/sitemap.ts` and `app/robots.ts` (Next.js App Router native support — no static XML file needed). Sitemap should include `/`, `/work`, every `/work/[slug]`, `/services`, `/about`, `/contact`, `/blog`, every published post, and the `/es` tree. Exclude `/links` (social-traffic utility page, not a search-intent page) via `robots.ts` disallow or simply omitting from the sitemap.
+Add `app/sitemap.ts` and `app/robots.ts` (Next.js App Router native support — no static XML file needed; both now exist, see Phase 1 in `IMPLEMENTATION-ROADMAP.md`). Sitemap should include `/`, `/work`, every `/work/[slug]`, `/services`, `/about`, `/contact`, `/blog`, and every published post. Exclude `/links` (social-traffic utility page, not a search-intent page) via `robots.ts` disallow or simply omitting from the sitemap.
 
 ## Schema per page type
 

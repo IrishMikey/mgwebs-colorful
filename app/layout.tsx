@@ -28,35 +28,30 @@ export const metadata: Metadata = {
     default: `${siteName} — Hand-built websites, not AI slop`,
     template: `%s | ${siteName}`,
   },
-  description: siteDescription.en,
+  description: siteDescription,
   keywords: [
     "web developer",
     "web design Ireland",
     "web design Tenerife",
-    "diseño web Tenerife",
     "custom website design",
     "small business website",
   ],
   alternates: {
     canonical: "/",
-    languages: {
-      en: "/",
-      es: "/es",
-    },
   },
   openGraph: {
     type: "website",
     url: "/",
     siteName,
     title: `${siteName} — Hand-built websites, not AI slop`,
-    description: siteDescription.en,
+    description: siteDescription,
     images: [{ url: "/headshot.jpg" }],
     locale: "en_IE",
   },
   twitter: {
     card: "summary",
     title: `${siteName} — Hand-built websites, not AI slop`,
-    description: siteDescription.en,
+    description: siteDescription,
     images: ["/headshot.jpg"],
   },
   icons: {
@@ -76,7 +71,7 @@ const personJsonLd = {
   alternateName: siteName,
   url: siteUrl,
   jobTitle: "Web Developer & Designer",
-  description: siteDescription.en,
+  description: siteDescription,
   image: `${siteUrl}/headshot.jpg`,
   sameAs: [
     "https://github.com/IrishMikey",

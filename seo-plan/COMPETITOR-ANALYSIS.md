@@ -18,7 +18,7 @@ MGWebs operates in two markets that don't share an audience or search language, 
 | **dvesign** | Freelancer collective | Bundled web design + hosting + domains + SEO | Full-stack-service bundling |
 | **SEOLife** | Agency | Web design positioned under an SEO-services brand | SEO-first framing |
 
-**Gap:** every one of these leans on "custom," "exclusive," "adapted to your business" — language that AI website builders now use in their own marketing too. None stake a position on *how* the site gets made (human vs. AI-assisted-to-the-point-of-generic) or push bilingual (EN/ES) service as a specific advantage for property owners with international guests — which is exactly the Casa Magic / Villa Chloé / Cloud Nine client profile MGWebs already has.
+**Gap:** every one of these leans on "custom," "exclusive," "adapted to your business" — language that AI website builders now use in their own marketing too. None stake a position on *how* the site gets made (human vs. AI-assisted-to-the-point-of-generic), and all operate primarily in Spanish — leaving English-speaking, international-facing clients (exactly the Casa Magic / Villa Chloé / Cloud Nine profile MGWebs already serves) a less obvious fit for them than for MGWebs.
 
 ## Market 2: Ireland (English — "web design Ireland" / "web developer [county]")
 
@@ -39,7 +39,7 @@ MGWebs operates in two markets that don't share an audience or search language, 
 MGWebs is small enough, in both markets, to win on being specific and visibly handmade rather than trying to out-rank established multi-person agencies on broad terms like "web design [city]". The realistic SEO path is:
 1. Own long-tail, intent-specific terms (e.g., "holiday rental website Tenerife," "website for beauty salon Tenerife," "custom website Ireland small business") where competition is thinner.
 2. Lead with the "not AI slop" framing as a wedge — it's currently unclaimed by any competitor found in either market.
-3. Use bilingual EN/ES capability as a structural advantage the single-market competitors don't have.
+3. Lean on English-language service for Tenerife's international/expat client base (property owners, foreign-run local businesses) as a wedge the Spanish-only local agencies don't naturally serve.
 
 ## Re-running this analysis with real data
 

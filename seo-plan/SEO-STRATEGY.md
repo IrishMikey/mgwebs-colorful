@@ -4,7 +4,7 @@ Date: 2026-10-22
 
 ## 1. Discovery
 
-**Business:** MGWebs — Michael Geraghty, solo web developer/designer. Based in Ireland, with an active client base and an existing Spanish-language landing page targeting Tenerife ("diseño web tenerife"), so the practical market is two-sided: **Ireland (English)** and **Tenerife (Spanish)**.
+**Business:** MGWebs — Michael Geraghty, solo web developer/designer. Based in Ireland, with an active client base that includes several Tenerife-based businesses. The site is English-only (a Spanish `/es` landing page existed briefly during this planning pass and was removed by decision on 2026-10-22) — Tenerife clients are served in English.
 
 **What the portfolio shows today (`lib/data.ts`):**
 - E-commerce rebuild (WooCommerce) — BGRSolutions
@@ -20,50 +20,49 @@ Date: 2026-10-22
 **Goals (proposed, confirm with Michael):**
 - Generate qualified inbound leads via organic search (currently ~zero — see technical findings)
 - Build a durable case-study library that also functions as the sales portfolio
-- Establish MGWebs as the go-to "real, human-made" option in two underserved, low-competition niches (Ireland SMB web dev, Tenerife bilingual web dev) rather than competing broadly
+- Establish MGWebs as the go-to "real, human-made" option in two underserved, low-competition niches (Ireland SMB web dev, Tenerife web dev for English-speaking/international clients) rather than competing broadly
 
-## 2. Current Site Assessment (as of this repo, `refactor/tech-upgrades` branch)
+## 2. Site Assessment
 
-| Area | Finding |
-|---|---|
-| **Domain** | `noreply@mgwebs.com` is used as the contact-form sender in `actions/sendEmail.ts`, but a public search shows **mgwebs.com is a parked, for-sale domain** — not something MGWebs currently owns/operates. See **Phase 0** below; this blocks both SEO and (likely) contact-form email deliverability right now. |
-| **Indexation** | No organic footprint found in search. Baseline is effectively zero. |
-| **robots.txt / sitemap.xml** | Neither exists (`app/robots.ts` / `app/sitemap.ts` or `public/` equivalents are absent). |
-| **Metadata** | `app/layout.tsx` sets only a bare `title`/`description` and favicon icons. No `metadataBase`, no Open Graph, no Twitter card, no canonical URLs, no keywords. The `/links` page has OG/Twitter tags but the homepage — the page that matters — does not. |
-| **Structured data** | No JSON-LD anywhere (no `ProfessionalService`, `Person`, or `CreativeWork` schema on case studies). |
-| **Content depth** | Single page (`app/page.tsx`): Hero → Work → About → Contact. Each project gets one sentence. No dedicated, indexable URL per project/case study, no service pages, no blog. This is the single biggest limiter: there's almost nothing here for Google to rank beyond the homepage. |
-| **Bilingual setup** | `/es` exists but is unlinked from any nav, not in a sitemap, and (prior to this plan) had duplicate-navbar/broken-image bugs — now fixed at the code level, but it's still an orphaned page with no `hreflang` relationship to `/`, so Google has no signal these are language variants of the same business. |
-| **E-E-A-T signals** | Real author (Michael), real case studies with live client URLs — good raw material, but no bios, credentials, testimonials, or metrics currently surfaced on the site itself. |
+| Area | Finding at audit (2026-10-22) | Status |
+|---|---|---|
+| **Domain** | `noreply@mgwebs.com` is used as the contact-form sender in `actions/sendEmail.ts`, but a public search showed `mgwebs.com` as a parked, for-sale domain. | Michael is handling hosting/domain directly — not a blocker for this plan. |
+| **Indexation** | No organic footprint found in search. Baseline is effectively zero. | Unchanged — nothing to re-measure until the site is live on its final domain. |
+| **robots.txt / sitemap.xml** | Neither existed. | **Done.** `app/robots.ts` and `app/sitemap.ts` added (Phase 1). |
+| **Metadata** | Bare `title`/`description` only — no `metadataBase`, Open Graph, Twitter card, canonical URL, or keywords on the homepage. | **Done.** Added to `app/layout.tsx` (Phase 1). |
+| **Structured data** | No JSON-LD anywhere. | **Done** for the homepage (`Person` schema). Per-case-study `CreativeWork` schema is still Phase 2 work, once `/work/[slug]` pages exist. |
+| **Content depth** | Single page (`app/page.tsx`): Hero → Work → About → Contact. Each project gets one sentence. No dedicated, indexable URL per project/case study, no service pages, no blog. | **Still open — the single biggest limiter.** This is the Phase 2 priority. |
+| **Bilingual setup** | `/es` existed but was unlinked from any nav and had duplicate-navbar/broken-image bugs. | **Resolved by decision, not by fixing:** `/es` was removed entirely (2026-10-22). The site is English-only; see `SITE-STRUCTURE.md` and `CONTENT-CALENDAR.md` for the updated scope. |
+| **E-E-A-T signals** | Real author (Michael), real case studies with live client URLs — good raw material, but no bios, credentials, testimonials, or metrics surfaced on the site itself. | Still open — Phase 2 (`/about`, case studies). |
 
-This is a genuine blank slate: the technical foundation (build, lint, dependencies) was just modernized in a separate pass — this plan is the next layer on top of that.
+The technical foundation (build, lint, dependencies, and now Phase 1's metadata/robots/sitemap/schema) is in place. The remaining gap is content depth — Phase 2 is where this plan earns its keep.
 
 ## 3. Competitive Landscape (summary — full detail in `COMPETITOR-ANALYSIS.md`)
 
 Two separate competitive sets, because the two markets don't overlap:
-- **Tenerife (Spanish):** established local agencies (docemasuna, Prismalia, Efecto Newton, Akrolih, Webintenerife) and a strong freelance SEO specialist (Tony Reise) already ranking for `diseño web tenerife`.
+- **Tenerife:** established local agencies (docemasuna, Prismalia, Efecto Newton, Akrolih, Webintenerife) and a strong freelance SEO specialist (Tony Reise) already ranking for Spanish-language search terms — MGWebs isn't competing head-on for those terms without a Spanish page, but is well placed for English-language searches from international/expat property owners and businesses, which is the actual existing client profile (Casa Magic, Villa Chloé, Cloud Nine).
 - **Ireland (English):** a mix of freelancers/small studios (Logicode, Johny.ie, Cloveloop, Web Wizard, Webie) competing mostly on price and generic "custom website" messaging.
 
 **Key gap in both markets:** none of the identified competitors lead with an explicit "no AI, human-made" message — they all use generic "bespoke"/"custom" language that AI-website tools now use too. This is open positioning space, not a crowded one.
 
 ## 4. Site Architecture (summary — full detail in `SITE-STRUCTURE.md`)
 
-Evolve from one page into a small, real site: `/`, `/work/[case-study]`, `/services`, `/about`, `/contact`, with a proper `/es` mirror (not an orphan), plus `robots.txt`/`sitemap.xml` and JSON-LD.
+Evolve from one page into a small, real site: `/`, `/work/[case-study]`, `/services`, `/about`, `/contact`, `/blog`, plus `robots.txt`/`sitemap.xml` and JSON-LD (the last two now shipped — see Technical Foundation below). English-only.
 
 ## 5. Content Strategy (summary — full detail in `CONTENT-CALENDAR.md`)
 
-Priority 1 is turning the 6 existing projects into 6 real, indexable case-study pages with specifics (problem, approach, result) — that's "free" content that already exists as a sentence each today. Priority 2 is a handful of "anti-AI-slop" thought-leadership posts that stake the positioning claim directly. Priority 3 is bilingual parity for the Tenerife side.
+Priority 1 is turning the 6 existing projects into 6 real, indexable case-study pages with specifics (problem, approach, result) — that's "free" content that already exists as a sentence each today. Priority 2 is a handful of "anti-AI-slop" thought-leadership posts that stake the positioning claim directly.
 
 ## 6. Technical Foundation
 
-- `metadataBase`, Open Graph + Twitter cards on every route, canonical URLs
-- `app/robots.ts` and `app/sitemap.ts` (Next.js App Router supports both as code, no static files needed)
-- JSON-LD: `ProfessionalService` + `Person` on `/about`, `CreativeWork`/`Article`-style schema per case study
-- `hreflang` pairing between `/` and `/es` once `/es` is a real mirror, not an orphan
-- Core Web Vitals: re-baseline after the recent Next.js 16.4.2/Tailwind v4 upgrade (framework changes can shift CLS/LCP either way) — not measured yet in this plan, flagged for Phase 1
+- [x] `metadataBase`, Open Graph + Twitter cards, canonical URL — done on the homepage; extend to new routes as they're built in Phase 2
+- [x] `app/robots.ts` and `app/sitemap.ts` — done
+- [x] `Person` JSON-LD sitewide — done; add `CreativeWork` schema per case study once `/work/[slug]` pages exist
+- [ ] Core Web Vitals: re-baseline once the site is live on its final domain (framework changes from the recent Next.js 16.4.2/Tailwind v4 upgrade can shift CLS/LCP either way)
 
 ## 7. Implementation Roadmap
 
-See `IMPLEMENTATION-ROADMAP.md` for the full phased plan. Headline: **Phase 0 (this week) is resolving the domain question** — nothing else in this strategy is worth doing against a domain MGWebs doesn't own.
+See `IMPLEMENTATION-ROADMAP.md` for the full phased plan. Phase 1's technical foundation is done; Phase 2 (case studies, `/about`, `/services`, first blog posts) is next.
 
 ## 8. KPI Targets
 
@@ -81,6 +80,5 @@ These are directional targets for a brand-new, single-operator site in two low-t
 ## 9. Success Criteria & Risks
 
 - **Success** = organic leads that convert to paid client work, not vanity traffic. Track contact-form submissions tagged by source/page, not just session counts.
-- **Risk — domain.** Covered above; this is the one item that can invalidate the whole plan if not resolved first.
 - **Risk — single-operator bandwidth.** This plan assumes Michael is also the implementer. The roadmap is sequenced so each phase is shippable in spare hours around client work, not a full-time content operation.
 - **Risk — positioning drift.** "Not AI slop" only works if the site and case studies visibly *are* human-made (visible craft, specific details, real voice) — generic rewritten case-study copy would undercut the entire strategy. Treat the content calendar's specificity requirements as non-negotiable, not nice-to-have.
