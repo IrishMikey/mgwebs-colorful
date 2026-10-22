@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import NavBar from "../../components/navBar";
-import { Toaster } from "@pheralb/toast";
-import { Providers } from "../providers";
-import ActiveSectionContextProvider from "@/context/active-section-context";
 
 export const metadata: Metadata = {
-  title: "Links - MGWebs",
+  title: { absolute: "Links - MGWebs" },
   description:
     "Connect with Michael Geraghty on social media and explore his work",
+  alternates: {
+    canonical: "/links",
+  },
   openGraph: {
     title: "Links - MGWebs",
     description:
       "Connect with Michael Geraghty on social media and explore his work",
     type: "website",
+    url: "/links",
   },
   twitter: {
     card: "summary_large_image",
@@ -27,22 +27,5 @@ export default function LinksLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className="!scroll-smooth dark">
-      <body suppressHydrationWarning={true}>
-        {/* Abstract background shapes */}
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-
-        <Providers>
-          <ActiveSectionContextProvider>
-            <NavBar />
-            {children}
-            <Toaster />
-          </ActiveSectionContextProvider>
-        </Providers>
-      </body>
-    </html>
-  );
+  return children;
 }

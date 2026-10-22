@@ -28,9 +28,12 @@ Create a `.env.local` file in the project root and provide the following keys:
 RESEND_API_KEY=your_resend_api_key
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
 RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
 ```
 
 The reCAPTCHA keys should be generated for an Invisible (v3) integration. The site key is injected on the client to request tokens, and the secret key is used on the server to verify each submission before sending emails.
+
+`NEXT_PUBLIC_SITE_URL` is the canonical production URL, used to generate metadata (Open Graph, canonical/hreflang links), `robots.txt`, and `sitemap.xml`. Set it once the production domain is finalized; it falls back to `https://mgwebs.com` otherwise.
 
 ## Learn More
 

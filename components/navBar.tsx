@@ -79,6 +79,19 @@ export default function NavBar() {
                 </Link>
               </motion.li>
             ))}
+            <motion.li
+              className="relative flex h-3/4 items-center justify-center"
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+            >
+              <Link
+                className="flex w-full items-center justify-center px-1 py-2 text-[14px] text-white/70 transition-all duration-300 hover:text-purple-300 sm:px-2 sm:py-3 sm:text-[16px]"
+                href={pathname.startsWith("/es") ? "/" : "/es"}
+                hrefLang={pathname.startsWith("/es") ? "en" : "es"}
+              >
+                {pathname.startsWith("/es") ? "EN" : "ES"}
+              </Link>
+            </motion.li>
           </ul>
         </nav>
       </motion.div>

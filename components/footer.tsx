@@ -1,6 +1,16 @@
+"use client";
+
 import React from "react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // The links-in-bio page is a minimal, self-contained layout.
+  if (pathname === "/links") {
+    return null;
+  }
+
   return (
     <footer className="container-responsive flex flex-col items-center">
       <div className="flex min-h-20 w-full rounded-t-lg bg-zinc-800 px-4 shadow">

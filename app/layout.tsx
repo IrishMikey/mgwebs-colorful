@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
+import { siteUrl, siteName, siteDescription } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,8 +23,42 @@ config.autoAddCss = false;
 const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 export const metadata: Metadata = {
-  title: "MGWebs",
-  description: "Web development by Michael Geraghty",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} — Hand-built websites, not AI slop`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription.en,
+  keywords: [
+    "web developer",
+    "web design Ireland",
+    "web design Tenerife",
+    "diseño web Tenerife",
+    "custom website design",
+    "small business website",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: {
+      en: "/",
+      es: "/es",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName,
+    title: `${siteName} — Hand-built websites, not AI slop`,
+    description: siteDescription.en,
+    images: [{ url: "/headshot.jpg" }],
+    locale: "en_IE",
+  },
+  twitter: {
+    card: "summary",
+    title: `${siteName} — Hand-built websites, not AI slop`,
+    description: siteDescription.en,
+    images: ["/headshot.jpg"],
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -34,6 +69,29 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Michael Geraghty",
+  alternateName: siteName,
+  url: siteUrl,
+  jobTitle: "Web Developer & Designer",
+  description: siteDescription.en,
+  image: `${siteUrl}/headshot.jpg`,
+  sameAs: [
+    "https://github.com/IrishMikey",
+    "https://www.linkedin.com/in/michaeldanielgeraghty/",
+    "https://twitter.com/MGWebss",
+  ],
+  knowsAbout: [
+    "Web Development",
+    "Web Design",
+    "Next.js",
+    "WordPress",
+    "E-commerce",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -42,6 +100,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth dark">
       <body className={`${inter.variable} `} suppressHydrationWarning={true}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {recaptchaSiteKey ? (
           <Script
             id="google-recaptcha"
