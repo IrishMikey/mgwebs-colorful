@@ -25,15 +25,20 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 Create a `.env.local` file in the project root and provide the following keys:
 
 ```
-RESEND_API_KEY=your_resend_api_key
+SMTP_HOST=your_mail_server_hostname
+SMTP_PORT=587
+SMTP_USER=info@mgwebs.com
+SMTP_PASSWORD=your_mailbox_password
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
 RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
 NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
 ```
 
+The contact form sends mail via SMTP (through `nodemailer`) using a real mailbox — `info@mgwebs.com` — rather than a transactional email API. `SMTP_HOST`/`SMTP_PORT`/`SMTP_USER`/`SMTP_PASSWORD` are that mailbox's standard SMTP credentials (in cPanel: Email Accounts → Connect Devices, for the exact host/port). Port `465` is treated as implicit TLS; anything else (587, 25) negotiates STARTTLS.
+
 The reCAPTCHA keys should be generated for an Invisible (v3) integration. The site key is injected on the client to request tokens, and the secret key is used on the server to verify each submission before sending emails.
 
-`NEXT_PUBLIC_SITE_URL` is the canonical production URL, used to generate metadata (Open Graph, canonical/hreflang links), `robots.txt`, and `sitemap.xml`. Set it once the production domain is finalized; it falls back to `https://mgwebs.com` otherwise.
+`NEXT_PUBLIC_SITE_URL` is the canonical production URL, used to generate metadata (Open Graph links), `robots.txt`, and `sitemap.xml`. Set it once the production domain is finalized; it falls back to `https://mgwebs.com` otherwise.
 
 ## Learn More
 

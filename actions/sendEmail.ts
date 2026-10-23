@@ -1,11 +1,12 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
+import { render } from "react-email";
 import { validateString, getErrorMessage } from "@/lib/utils";
 import ContactFormEmail from "@/components/email-template";
-// import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const CONTACT_FROM_EMAIL = "MGWebs Contact Form <info@mgwebs.com>";
+const CONTACT_TO_EMAIL = "mikeygeraghty@gmail.com";
 
 type RecaptchaResponse = {
   success: boolean;
@@ -43,6 +44,24 @@ const verifyRecaptcha = async (token: string) => {
 
   const result = (await response.json()) as RecaptchaResponse;
   return result;
+};
+
+const getTransporter = () => {
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT ?? 587);
+  const user = process.env.SMTP_USER;
+  const password = process.env.SMTP_PASSWORD;
+
+  if (!host || !user || !password) {
+    throw new Error("Missing SMTP configuration");
+  }
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass: password },
+  });
 };
 
 export const sendEmail = async (formData: FormData) => {
@@ -87,12 +106,20 @@ export const sendEmail = async (formData: FormData) => {
 
   let data;
   try {
-    data = await resend.emails.send({
-      from: "Contact Form <noreply@mgwebs.com>",
-      to: "mikeygeraghty@gmail.com",
-      subject: "Message from contact form",
+    const transporter = getTransporter();
+    const emailElement = ContactFormEmail({ message, senderEmail });
+    const [html, text] = await Promise.all([
+      render(emailElement),
+      render(emailElement, { plainText: true }),
+    ]);
+
+    data = await transporter.sendMail({
+      from: CONTACT_FROM_EMAIL,
+      to: CONTACT_TO_EMAIL,
       replyTo: senderEmail,
-      react: ContactFormEmail({ message: message, senderEmail: senderEmail }),
+      subject: "Message from contact form",
+      html,
+      text,
     });
   } catch (error: unknown) {
     return {
