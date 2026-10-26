@@ -1,41 +1,30 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import NavBar from "../components/navBar";
-import { Toaster } from "@pheralb/toast";
-import Footer from "../components/footer";
-import { Providers } from "./providers";
+import type { Metadata, Viewport } from "next";
+import { Inter, Questrial } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
-import { siteUrl, siteName, siteDescription } from "@/lib/site";
+import "./globals.css";
+import { siteUrl, siteName, siteTitle, siteDescription } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
 });
 
-// Font awesome
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-config.autoAddCss = false;
-
-const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const questrial = Questrial({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-questrial",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} — Hand-built websites, not AI slop`,
+    default: siteTitle,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: [
-    "web developer",
-    "web design Ireland",
-    "web design Tenerife",
-    "custom website design",
-    "small business website",
-  ],
   alternates: {
     canonical: "/",
   },
@@ -43,48 +32,19 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName,
-    title: `${siteName} — Hand-built websites, not AI slop`,
+    title: siteTitle,
     description: siteDescription,
-    images: [{ url: "/headshot.jpg" }],
     locale: "en_IE",
   },
   twitter: {
-    card: "summary",
-    title: `${siteName} — Hand-built websites, not AI slop`,
+    card: "summary_large_image",
+    title: siteTitle,
     description: siteDescription,
-    images: ["/headshot.jpg"],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/apple-icon.png",
   },
 };
 
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Michael Geraghty",
-  alternateName: siteName,
-  url: siteUrl,
-  jobTitle: "Web Developer & Designer",
-  description: siteDescription,
-  image: `${siteUrl}/headshot.jpg`,
-  sameAs: [
-    "https://github.com/IrishMikey",
-    "https://www.linkedin.com/in/michaeldanielgeraghty/",
-    "https://twitter.com/MGWebss",
-  ],
-  knowsAbout: [
-    "Web Development",
-    "Web Design",
-    "Next.js",
-    "WordPress",
-    "E-commerce",
-  ],
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -93,33 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth dark">
-      <body className={`${inter.variable} `} suppressHydrationWarning={true}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-        {recaptchaSiteKey ? (
-          <Script
-            id="google-recaptcha"
-            src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
-            strategy="afterInteractive"
-          />
-        ) : null}
-        {/* Abstract background shapes */}
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-
-        <Providers>
-          <ActiveSectionContextProvider>
-            <NavBar />
-            {children}
-            <Analytics />
-            <Toaster />
-          </ActiveSectionContextProvider>
-          <Footer />
-        </Providers>
+    <html lang="en-IE" className={`${inter.variable} ${questrial.variable}`}>
+      <body>
+        {children}
+        <Analytics />
       </body>
     </html>
   );

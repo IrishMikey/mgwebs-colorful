@@ -1,80 +1,65 @@
-"use client";
+import { work, type WorkItem } from "@/lib/content";
+import HeartTile from "./heart-tile";
+import Placeholder from "./placeholder";
 
-import React, { useRef } from "react";
-import Card from "./card";
-import { projectsData } from "@/lib/data";
-import { galleryImgs } from "@/lib/data";
+function WorkCard({ item, offset }: { item: WorkItem; offset: boolean }) {
+  const media = (
+    <div className="relative h-60 overflow-hidden rounded-media border border-line">
+      <Placeholder label={`[${item.label.replace(/[[\]]/g, "")} screenshot]`} className="size-full" />
+      <span className="absolute bottom-4 left-4 rounded-full bg-white px-3 py-1.5 text-[13px] leading-none font-medium text-ink shadow-chip">
+        {item.label}
+      </span>
+    </div>
+  );
 
-import { motion } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
-import Photo from "./photo";
+  return (
+    <li className={offset ? "lg:mt-10" : undefined}>
+      {item.href ? (
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block rounded-media"
+        >
+          {media}
+          <p className="mt-4 text-[15px] text-muted group-hover:text-ink">
+            {item.caption}
+            <span className="sr-only"> (opens {item.label} in a new tab)</span>
+          </p>
+        </a>
+      ) : (
+        <>
+          {media}
+          <p className="mt-4 text-[15px] text-muted">{item.caption}</p>
+        </>
+      )}
+    </li>
+  );
+}
 
-export default function WorksCards() {
-  const { ref } = useSectionInView("Work", 0.2);
-
+export default function Work() {
   return (
     <section
       id="work"
-      ref={ref}
-      className="section-margin w-full scroll-mt-[7rem]"
+      className="section-y scroll-mt-4 rounded-t-[40px] bg-subtle"
     >
-      <motion.div
-        viewport={{ once: true }}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 100, y: 0 }}
-        className="section-header"
-      >
-        <h2 className="text-responsive-xl font-bold tracking-tight text-primary">
-          Recent Work <span className="text-accent">🔨</span>
-        </h2>
-      </motion.div>
-
-      <motion.div
-        className="section-header flex flex-col"
-        viewport={{ once: true }}
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-      >
-        <span className="text-responsive-base text-muted font-normal leading-relaxed">
-          Discover my portfolio of diverse projects,{" "}
-          <br className="hidden sm:block" /> highlighting my knowledge in web
-          development and design.
-        </span>
-        <h3 className="text-responsive-lg font-semibold tracking-wide text-secondary">
-          Webpages <span className="text-accent-light">🌐</span>
-        </h3>
-      </motion.div>
-      <div className="card-gap mt-8 flex w-full flex-1 flex-col">
-        {projectsData.map((project, index) => (
-          <React.Fragment key={index}>
-            <Card {...project} />
-          </React.Fragment>
-        ))}
-      </div>
-      <motion.div
-        className="section-header flex flex-col"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <div id="Graphics" className="mt-12 w-full sm:mt-[3rem]">
-          <motion.h3
-            className="text-responsive-lg font-semibold tracking-wide text-secondary"
-            initial={{ opacity: 0, y: -100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Graphics <span className="text-accent-light">🎨</span>
-          </motion.h3>
-          <div className="element-gap mt-8 flex flex-wrap justify-center">
-            {galleryImgs.map((photo, index) => (
-              <React.Fragment key={index}>
-                <Photo {...photo} />
-              </React.Fragment>
-            ))}
-          </div>
+      <div className="page-x">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="max-w-[640px] font-display text-[clamp(36px,4.2vw,52px)] leading-[1.1] tracking-[-0.02em]">
+            Websites <HeartTile /> I’ve built and fixed
+          </h2>
+          <p className="max-w-[380px] text-[17px] text-body">
+            Every project comes with before and after numbers, so you can see
+            exactly what changed.
+          </p>
         </div>
-      </motion.div>
+
+        <ul className="mt-12 grid gap-8 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+          {work.map((item, i) => (
+            <WorkCard key={item.label} item={item} offset={i === 1} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

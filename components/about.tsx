@@ -1,55 +1,38 @@
-"use client";
-
-import { Avatar, Card } from "@heroui/react";
-import { motion } from "framer-motion";
-import React from "react";
-import avatarImg from "@/public/headshot.jpg";
-import { useSectionInView } from "@/lib/hooks";
+import Image from "next/image";
+import portrait from "@/public/me_headshot.webp";
 
 export default function About() {
-  const { ref } = useSectionInView("About");
-
   return (
-    <motion.section
-      ref={ref}
-      id="about"
-      className="section-margin flex min-h-[45vh] w-full scroll-mt-[10rem] flex-col items-center leading-6"
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.175 }}
-    >
-      <div className="section-header flex w-full items-baseline justify-between">
-        <h3 className="text-responsive-xl font-bold tracking-tight text-primary">
-          About Me
-        </h3>
-        <Avatar
-          src={avatarImg.src}
-          className="h-12 w-12 text-large sm:h-16 sm:w-16"
-        />
-      </div>
-      <Card className="relative flex flex-1 overflow-hidden last:mb-0 sm:mb-2 sm:h-[18rem] sm:w-[42rem]">
-        <div className="flex h-full flex-col items-center px-4 py-6 sm:px-6 sm:pb-8 sm:pt-8">
-          <p className="text-muted mb-4 text-sm font-normal leading-relaxed sm:w-[33rem] sm:text-base">
-            Hello! I&apos;m Michael Geraghty, a dedicated{" "}
-            <span className="font-semibold text-primary">Web Developer</span>{" "}
-            based in{" "}
-            <span className="font-semibold text-primary"> Ireland 🍀</span> . I
-            love building things, whether it’s a new app, a little side project,
-            or just experimenting with ideas to see where they go.
+    <section aria-labelledby="about-heading" className="section-y">
+      <div className="page-x grid items-center gap-10 md:grid-cols-[minmax(0,340px)_1fr] md:gap-16 lg:gap-24">
+        <div className="relative mx-auto h-[380px] w-full max-w-[340px] overflow-hidden rounded-[30px] motion-safe:md:-rotate-2">
+          <Image
+            src={portrait}
+            alt="Mikey, smiling, standing at a mountain viewpoint"
+            fill
+            sizes="(min-width: 768px) 340px, calc(100vw - 40px)"
+            placeholder="blur"
+            className="object-cover object-[50%_30%]"
+          />
+        </div>
+        <div className="max-w-[560px]">
+          <h2
+            id="about-heading"
+            className="font-display text-[clamp(36px,4.2vw,52px)] leading-[1.1] tracking-[-0.02em]"
+          >
+            Hi, I’m Mikey.
+          </h2>
+          <p className="mt-6 text-lg text-body">
+            I’m a professional web developer based in Dublin. By day I build
+            websites in financial services. MGWebs is how I bring that same
+            standard to small businesses, at a fair, fixed price.
           </p>
-          <p className="text-muted text-sm font-normal leading-relaxed sm:w-[33rem] sm:text-base">
-            For me, creating is all about{" "}
-            <span className="font-semibold text-primary">
-              {" "}
-              making experiences
-            </span>{" "}
-            that people can enjoy and connect with. I get a real kick out of
-            trying new things, tweaking the details, and watching an idea grow
-            into something real.
+          <p className="mt-4 text-lg text-body">
+            You deal with me directly, in plain English. If you’d rather talk
+            than email, just ring.
           </p>
         </div>
-      </Card>
-    </motion.section>
+      </div>
+    </section>
   );
 }

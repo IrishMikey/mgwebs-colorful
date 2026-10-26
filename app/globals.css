@@ -1,311 +1,82 @@
-@config "../tailwind.config.ts";
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+@theme {
+  /* Colour */
+  --color-bg: #ffffff;
+  --color-subtle: #fafafc; /* bg-subtle — work section */
+  --color-muted-bg: #f5f5f7; /* bg-muted-bg — guarantee panel, pills */
+  --color-tint: #eef0ff; /* bg-tint — service card 01 */
+  --color-placeholder: #ececf1; /* bg-placeholder — image placeholders */
+  --color-line: #e2e2e7; /* border-line */
+  --color-line-strong: #d2d2d7; /* border-line-strong */
+  --color-input: #c7c7cc; /* border-input */
+
+  --color-ink: #1d1d1f; /* text-ink — primary text */
+  --color-body: #45454a; /* text-body — long-form body */
+  --color-muted: #5e5e63; /* text-muted — passes 4.5:1 on white AND #F5F5F7 */
+
+  --color-accent: #4338f2; /* indigo — buttons, links, step labels */
+  --color-accent-hover: #3529d9;
+  --color-coral: #d6363f; /* heart tile, card 03, glows. White text passes 4.5:1 */
+
+  /* Fonts (wired to next/font variables in app/layout.tsx) */
+  --font-sans: var(--font-body), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-questrial), var(--font-body), sans-serif;
+
+  /* Radius */
+  --radius-input: 14px; /* rounded-input — inputs, heart tile */
+  --radius-media: 22px; /* rounded-media — work images */
+  --radius-card: 26px; /* rounded-card — service cards */
+  --radius-panel: 36px; /* rounded-panel — guarantee panel */
+
+  /* Shadow */
+  --shadow-card: 0 18px 40px rgb(0 0 0 / 0.07);
+  --shadow-form: 0 24px 60px rgb(0 0 0 / 0.06);
+  --shadow-chip: 0 8px 20px rgb(0 0 0 / 0.08);
+
+  /* Layout */
+  --container-page: 1200px; /* max-w-page */
+  --container-narrow: 1100px; /* max-w-narrow */
+  --container-prose: 820px; /* max-w-prose (overrides default) */
 }
 
-html,
-body {
-  color: #ffffff;
-  min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  position: relative;
-}
+@custom-variant reduce-transparency (@media (prefers-reduced-transparency: reduce));
 
-/* Abstract glowing background elements */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background:
-    linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%),
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(120, 119, 198, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 119, 198, 0.3) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 60%,
-      rgba(120, 219, 255, 0.2) 0%,
-      transparent 50%
-    );
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* Floating abstract shapes - optimized for responsiveness */
-.abstract-shape {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.8;
-  animation: float 8s ease-in-out infinite;
-  z-index: -1;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.abstract-shape:nth-child(1) {
-  width: clamp(200px, 25vw, 400px);
-  height: clamp(200px, 25vw, 400px);
-  background: linear-gradient(45deg, #7877c6, #ff77c6);
-  top: 10%;
-  right: 5%;
-  animation-delay: 0s;
-}
-
-.abstract-shape:nth-child(2) {
-  width: clamp(150px, 20vw, 300px);
-  height: clamp(150px, 20vw, 300px);
-  background: linear-gradient(45deg, #78dbff, #7877c6);
-  top: 60%;
-  left: 5%;
-  animation-delay: 2.5s;
-}
-
-.abstract-shape:nth-child(3) {
-  width: clamp(180px, 22vw, 350px);
-  height: clamp(180px, 22vw, 350px);
-  background: linear-gradient(45deg, #ff77c6, #78dbff);
-  top: 30%;
-  left: 60%;
-  animation-delay: 5s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg);
+@layer base {
+  html {
+    @apply scroll-smooth bg-bg font-sans text-ink antialiased;
   }
-  25% {
-    transform: translateY(-15px) translateX(5px) rotate(90deg);
+  body {
+    @apply bg-bg text-[17px] leading-[1.65];
   }
-  50% {
-    transform: translateY(-20px) translateX(0px) rotate(180deg);
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal;
   }
-  75% {
-    transform: translateY(-10px) translateX(-5px) rotate(270deg);
+  :focus-visible {
+    @apply outline-2 outline-offset-3 outline-accent;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      @apply scroll-auto;
+    }
   }
 }
 
-/* Responsive text utilities */
-.text-responsive-xl {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.1;
-  font-weight: 700;
+@utility section-y {
+  padding-block: 72px;
+  @media (width >= 48rem) {
+    padding-block: 112px;
+  }
 }
 
-.text-responsive-lg {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.text-responsive-base {
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
-  line-height: 1.4;
-  font-weight: 400;
-}
-
-.text-responsive-sm {
-  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.text-responsive-xs {
-  font-size: clamp(0.75rem, 2vw, 1rem);
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-/* Color system */
-.text-primary {
-  color: #ffffff;
-}
-
-.text-secondary {
-  color: #e2e8f0;
-}
-
-.text-muted {
-  color: #c8c8c8;
-}
-
-.text-accent {
-  color: #a855f7;
-}
-
-.text-accent-light {
-  color: #c084fc;
-}
-
-.text-accent-dark {
-  color: #7c3aed;
-}
-
-.text-success {
-  color: #10b981;
-}
-
-.text-warning {
-  color: #f59e0b;
-}
-
-.text-error {
-  color: #ef4444;
-}
-
-/* Enhanced gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-}
-
-/* Enhanced text stroke */
-.texStroke {
-  -webkit-text-stroke: 1px #ffffff;
-  color: transparent;
-  font-weight: 600;
-}
-
-/* Typography utilities */
-.font-light {
-  font-weight: 300;
-}
-
-.font-normal {
-  font-weight: 400;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.font-extrabold {
-  font-weight: 800;
-}
-
-/* Letter spacing utilities */
-.tracking-tight {
-  letter-spacing: -0.025em;
-}
-
-.tracking-normal {
-  letter-spacing: 0em;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
-
-/* Glass morphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow:
-    0 8px 32px 0 rgba(31, 38, 135, 0.37),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive container utilities */
-.container-responsive {
+@utility page-x {
+  margin-inline: auto;
   width: 100%;
-  max-width: min(90rem, 95vw);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 2rem);
-}
-
-/* Responsive spacing utilities */
-.section-padding {
-  padding: clamp(3rem, 8vw, 6rem) 0;
-}
-
-.section-margin {
-  margin: clamp(3rem, 8vw, 6rem) 0;
-}
-
-.section-gap {
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-.element-gap {
-  gap: clamp(1rem, 3vw, 2rem);
-}
-
-.small-gap {
-  gap: clamp(0.5rem, 2vw, 1rem);
-}
-
-/* Hero section specific spacing */
-.hero-spacing {
-  margin-top: clamp(6rem, 12vw, 8rem);
-  margin-bottom: clamp(4rem, 8vw, 6rem);
-}
-
-/* Section header spacing */
-.section-header {
-  margin-bottom: clamp(2rem, 5vw, 3rem);
-}
-
-/* Card spacing */
-.card-gap {
-  gap: clamp(2rem, 6vw, 4rem);
-}
-
-/* Form spacing */
-.form-spacing {
-  gap: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-/* Prevent overflow on mobile */
-@media (max-width: 768px) {
-  .abstract-shape {
-    opacity: 0.4; /* Reduce opacity on mobile for better performance */
-  }
-
-  body::before {
-    background:
-      radial-gradient(
-        circle at 20% 20%,
-        rgba(120, 119, 198, 0.2) 0%,
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 80% 80%,
-        rgba(255, 119, 198, 0.2) 0%,
-        transparent 40%
-      ),
-      radial-gradient(
-        circle at 40% 60%,
-        rgba(120, 219, 255, 0.15) 0%,
-        transparent 40%
-      );
+  max-width: var(--container-page);
+  padding-inline: 20px;
+  @media (width >= 48rem) {
+    padding-inline: 32px;
   }
 }

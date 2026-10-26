@@ -1,171 +1,80 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Card, Avatar } from "@heroui/react";
-import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faTiktok,
   faInstagram,
   faYoutube,
   faGithub,
   faLinkedin,
-  faTwitter,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
+import Glow from "@/components/glow";
 import avatarImg from "@/public/headshot.jpg";
 
-const socialLinks = [
-  {
-    name: "TikTok",
-    url: "https://tiktok.com/@mikxyg",
-    icon: faTiktok,
-    color: "from-pink-500 to-purple-600",
-    bgColor: "bg-gradient-to-r from-pink-500/20 to-purple-600/20",
-    borderColor: "border-pink-500/30",
-  },
-  {
-    name: "Instagram",
-    url: "https://instagram.com/mikxyg",
-    icon: faInstagram,
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-gradient-to-r from-purple-500/20 to-pink-500/20",
-    borderColor: "border-purple-500/30",
-  },
-  {
-    name: "YouTube",
-    url: "https://youtube.com/@mikxyg",
-    icon: faYoutube,
-    color: "from-red-500 to-red-600",
-    bgColor: "bg-gradient-to-r from-red-500/20 to-red-600/20",
-    borderColor: "border-red-500/30",
-  },
-  {
-    name: "Development",
-    url: "/",
-    icon: faCode,
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "bg-gradient-to-r from-blue-500/20 to-cyan-500/20",
-    borderColor: "border-blue-500/30",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/IrishMikey",
-    icon: faGithub,
-    color: "from-gray-600 to-gray-800",
-    bgColor: "bg-gradient-to-r from-gray-600/20 to-gray-800/20",
-    borderColor: "border-gray-600/30",
-  },
+type SocialLink = { name: string; url: string; icon: IconDefinition };
+
+const socialLinks: SocialLink[] = [
+  { name: "MGWebs — websites", url: "/", icon: faCode },
+  { name: "TikTok", url: "https://tiktok.com/@mikxyg", icon: faTiktok },
+  { name: "Instagram", url: "https://instagram.com/mikxyg", icon: faInstagram },
+  { name: "YouTube", url: "https://youtube.com/@mikxyg", icon: faYoutube },
+  { name: "GitHub", url: "https://github.com/IrishMikey", icon: faGithub },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/michaeldanielgeraghty/",
     icon: faLinkedin,
-    color: "from-blue-600 to-blue-700",
-    bgColor: "bg-gradient-to-r from-blue-600/20 to-blue-700/20",
-    borderColor: "border-blue-600/30",
   },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/mgwebss",
-    icon: faTwitter,
-    color: "from-blue-400 to-blue-500",
-    bgColor: "bg-gradient-to-r from-blue-400/20 to-blue-500/20",
-    borderColor: "border-blue-400/30",
-  },
+  { name: "X (Twitter)", url: "https://twitter.com/mgwebss", icon: faXTwitter },
 ];
 
 export default function LinksPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-8">
-      {/* Abstract background shapes */}
-      <div className="abstract-shape"></div>
-      <div className="abstract-shape"></div>
-      <div className="abstract-shape"></div>
+    <main className="relative flex min-h-screen flex-col items-center overflow-hidden px-5 py-16">
+      <Glow className="-top-40 -left-40 size-[420px] bg-coral/15" />
+      <Glow className="-right-40 -bottom-40 size-[420px] bg-accent/15" />
 
-      <motion.div
-        className="mx-auto w-full max-w-md"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Profile Section */}
-        <motion.div
-          className="mb-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <Avatar
-            src={avatarImg.src}
-            className="mx-auto mb-4 h-24 w-24 text-large"
+      <div className="relative w-full max-w-md">
+        <div className="text-center">
+          <Image
+            src={avatarImg}
+            alt="Michael Geraghty"
+            width={96}
+            height={96}
+            priority
+            className="mx-auto size-24 rounded-full object-cover"
           />
-          <h1 className="text-responsive-xl mb-2 font-bold tracking-tight text-primary">
+          <h1 className="mt-5 font-display text-[36px] leading-[1.1] tracking-[-0.02em]">
             Michael Geraghty
           </h1>
-          <p className="text-muted text-responsive-sm">
-            Web Developer & Content Creator
-          </p>
-        </motion.div>
-
-        {/* Links Section */}
-        <div className="space-y-4">
-          {socialLinks.map((link, index) => (
-            <motion.div
-              key={link.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-            >
-              <Link href={link.url} target="_blank" rel="noopener noreferrer">
-                <Card
-                  className={`group relative cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 ${link.bgColor} border ${link.borderColor} backdrop-blur-sm`}
-                  style={{
-                    background: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
-                    boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-                  }}
-                >
-                  <div className="flex items-center justify-between p-4">
-                    <div className="flex items-center space-x-3">
-                      <div
-                        className={`h-10 w-10 rounded-lg bg-gradient-to-r ${link.color} flex items-center justify-center text-white`}
-                      >
-                        <FontAwesomeIcon icon={link.icon} className="text-lg" />
-                      </div>
-                      <span className="text-responsive-sm font-medium text-primary">
-                        {link.name}
-                      </span>
-                    </div>
-                    <div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <FontAwesomeIcon
-                        icon={faGlobe}
-                        className="text-muted text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Hover effect overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${link.color} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-                  ></div>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
+          <p className="mt-2 text-muted">Web developer & content creator</p>
         </div>
 
-        {/* Footer */}
-        <motion.div
-          className="mt-8 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <p className="text-muted text-responsive-xs">
-            Thanks for visiting! 🍀
-          </p>
-        </motion.div>
-      </motion.div>
-    </div>
+        <ul className="mt-10 flex flex-col gap-3">
+          {socialLinks.map((link) => {
+            const external = link.url.startsWith("http");
+            return (
+              <li key={link.name}>
+                <a
+                  href={link.url}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="flex min-h-14 items-center gap-4 rounded-full border border-line bg-white px-5 font-medium text-ink shadow-chip transition-colors hover:border-line-strong hover:bg-muted-bg"
+                >
+                  <FontAwesomeIcon
+                    icon={link.icon}
+                    aria-hidden="true"
+                    className="size-5 text-accent"
+                  />
+                  {link.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </main>
   );
 }

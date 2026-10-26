@@ -1,91 +1,40 @@
-"use client";
-import { Button } from "@heroui/react";
-import Link from "next/link";
-import React from "react";
-import { faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import ButtonLink from "./button";
+import Glow from "./glow";
+import HeadlineChip from "./headline-chip";
 
-import { useSectionInView } from "@/lib/hooks";
 export default function Hero() {
-  const { ref } = useSectionInView("Home", 0.5);
-
   return (
-    <section
-      ref={ref}
-      id="home"
-      className="hero-spacing flex min-h-[60svh] w-full flex-grow scroll-mt-[100rem] flex-col justify-around sm:min-h-[60svh]"
-    >
-      <motion.h4
-        className="text-accent-light w-full rounded-lg px-4 py-1 text-center text-[1.25rem] tracking-wide"
-        initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
-      >
-        Hey, I&apos;m Michael 👋
-      </motion.h4>
-      <div className="element-gap flex flex-col">
-        <motion.h1
-          className="mb-3 max-w-[10ch] text-[3rem] font-bold leading-[1.1] tracking-tight sm:max-w-[13ch]"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <span className="gradient-text">Web Developer</span>{" "}
-          <span className="texStroke">& Designer</span>
-        </motion.h1>
-        <motion.p
-          className="text-responsive-base max-w-[40ch] font-normal leading-relaxed text-secondary"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          I&apos;m on a mission to create captivating, enjoyable, and
-          user-oriented digital experiences
-        </motion.p>
-        <motion.div
-          className="small-gap flex flex-wrap sm:flex-nowrap"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.1,
-          }}
-        >
-          <Button
-            className="bg-[#52a9ff] font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl"
-            size="lg"
-            radius="md"
-          >
-            <Link href="#contact" className="text-responsive-sm font-medium">
-              Contact me <FontAwesomeIcon icon={faChevronRight} />
-            </Link>
-          </Button>
-          <Button
-            radius="md"
-            isIconOnly
-            className="glass h-[48px] w-[48px] transition-transform hover:scale-105"
-          >
-            <Link
-              href="https://twitter.com/MGWebss"
-              className="hover:text-accent-light text-lg text-primary transition-colors"
-            >
-              <FontAwesomeIcon icon={faXTwitter} size="1x" />
-            </Link>
-          </Button>
-          <Button
-            radius="md"
-            isIconOnly
-            className="glass h-[48px] w-[48px] transition-transform hover:scale-105"
-          >
-            <Link
-              href="https://www.linkedin.com/in/michaeldanielgeraghty/"
-              className="hover:text-accent-light text-lg text-primary transition-colors"
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="1x" />
-            </Link>
-          </Button>
-        </motion.div>
+    <section id="top" className="relative overflow-hidden">
+      <Glow className="-top-40 -left-48 size-[420px] bg-coral/15" />
+      <Glow className="-right-48 -bottom-40 size-[420px] bg-accent/15" />
+
+      <div className="relative mx-auto max-w-[1040px] px-5 pt-16 pb-20 text-center md:px-8 md:pt-24 md:pb-30">
+        <p className="text-[15px] text-muted">Mikey · Web designer in Dublin</p>
+
+        <h1 className="mt-5 font-display text-[clamp(44px,6vw,76px)] leading-[1.12] tracking-[-0.02em] text-ink">
+          Faster websites{" "}
+          <HeadlineChip label="Score 34 → 96" rotate="left" priority />{" "}
+          that win you <HeadlineChip label="Site on a phone" rotate="right" />{" "}
+          more customers.
+        </h1>
+
+        <p className="mx-auto mt-7 max-w-[640px] text-lg leading-relaxed text-muted md:text-xl">
+          I build and fix websites for Irish small businesses. Start with a
+          free speed check, explained in plain English.
+        </p>
+
+        <div className="mt-10 flex flex-col-reverse items-center justify-center gap-3 sm:flex-row">
+          <ButtonLink href="#work" variant="secondary" className="w-full sm:w-auto">
+            See my work
+          </ButtonLink>
+          <ButtonLink href="#audit" className="w-full sm:w-auto">
+            Get a free speed check
+          </ButtonLink>
+        </div>
+
+        <p className="mt-6 text-sm text-muted">
+          Fixed prices · Everything in your name · Reply within 24 hours
+        </p>
       </div>
     </section>
   );
