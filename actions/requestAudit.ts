@@ -106,7 +106,7 @@ export async function requestAudit(
     return {
       status: "error",
       message:
-        "Sorry, something went wrong sending your request. Please try again, or ring me instead.",
+        "Sorry, something went wrong sending your request. Please try again, or email info@mgwebs.com instead.",
       values,
     };
   }

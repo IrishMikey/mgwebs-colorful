@@ -114,10 +114,4 @@ export const faqs = [
     answer:
       "Yes. I’ll tell you honestly whether to fix it where it is or start fresh.",
   },
-  {
-    question: "Can I use the Trading Online Voucher?",
-    // TODO(Mikey): confirm this wording with your Local Enterprise Office.
-    answer:
-      "Your Local Enterprise Office voucher can cover up to 50% of eligible costs, up to €2,500.",
-  },
 ];

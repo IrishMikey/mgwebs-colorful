@@ -1,4 +1,3 @@
-import { contact } from "@/lib/site";
 import AuditForm from "./audit-form";
 
 export default function FinalCta() {
@@ -12,21 +11,6 @@ export default function FinalCta() {
           <p className="mt-6 text-lg leading-relaxed text-muted md:text-xl">
             Send me your web address and find out for free. You’ll hear back
             within 48 hours.
-          </p>
-          <p className="mt-6 text-[17px] text-body">
-            Prefer to talk?{" "}
-            {contact.phoneE164 ? (
-              <a
-                href={`tel:${contact.phoneE164}`}
-                className="inline-flex min-h-12 items-center font-medium text-accent hover:text-accent-hover"
-              >
-                {contact.phoneDisplay}
-              </a>
-            ) : (
-              <span className="font-medium text-accent">
-                {contact.phoneDisplay}
-              </span>
-            )}
           </p>
         </div>
         <div className="rounded-[28px] border border-line bg-white p-6 shadow-form md:p-9">

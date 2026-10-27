@@ -5,14 +5,14 @@ Everything shown on the site in `[BRACKETS]` is a placeholder. Copy lives in
 
 ## Copy & facts
 
-- [ ] **Business email**: `[HELLO]@mgwebs.com` → `contact.email` in `lib/site.ts` (form emails already send from `info@mgwebs.com`)
-- [ ] **Phone number**: `+353 [NUMBER]` → `contact.phoneDisplay`, plus `contact.phoneE164` (e.g. `+353871234567`). The `tel:` links and JSON-LD `telephone` only appear once `phoneE164` is set.
+- [x] **Business email**: `contact.email` in `lib/site.ts` is now the real `info@mgwebs.com`
+- [ ] **Phone number**: temporarily removed everywhere (footer, final CTA, JSON-LD) at Mikey's request, 2026-10-27 — no number is ready yet. To bring it back: re-add `phoneDisplay`/`phoneE164` to `contact` in `lib/site.ts`, then restore the conditional `tel:` links in `components/footer.tsx` and `components/final-cta.tsx` and the JSON-LD `telephone` spread in `app/page.tsx` (see git history around this commit for the removed code). Also revert the "ring"/"ring me" copy in `components/about.tsx` and `actions/requestAudit.ts` once a number exists.
 - [ ] **VAT note** (check registration status) → `vatNote`
 - [ ] **Guarantee terms** wording → `guaranteeTerms`
 - [ ] **Speed fix turnaround**: `[A WEEK]` → speed fix bullets
 - [ ] **Work captions**: `[PHONE SCORE]` for topdj.ie and mikxyg.com
 - [ ] **Speed-fix case study**: `[CLIENT NAME]`, score `[34] → [96]`, load time `[1.4s]`
-- [ ] **Trading Online Voucher** answer: confirm wording with your LEO (also emitted in FAQPage JSON-LD)
+- [ ] **Trading Online Voucher** FAQ: temporarily removed from `lib/content.ts` (and so from the FAQPage JSON-LD) pending confirmed wording from the Local Enterprise Office, 2026-10-27. Re-add the FAQ entry once confirmed.
 - [ ] Re-add speed stats only if dated/sourced (removed in V3)
 
 ## Images (render as grey placeholders until supplied — no stock photos)
@@ -20,7 +20,7 @@ Everything shown on the site in `[BRACKETS]` is a placeholder. Copy lives in
 - [ ] Hero chip 1: **score card screenshot** (34 → 96), ~264×144 → pass `src` to the first `HeadlineChip` in `components/hero.tsx` (keep `priority`)
 - [ ] Hero chip 2: **site on a phone mockup**, ~264×144 → second `HeadlineChip`
 - [ ] **topdj.ie screenshot**, **mikxyg.com screenshot**, **client before/after** → `components/work.tsx` (swap `Placeholder` for `next/image`)
-- [ ] **Portrait**: currently uses `public/me_headshot.webp` (Tenerife photo, cropped). Swap for a proper portrait if you have one.
+- [ ] **Portrait**: temporarily removed from the About section at Mikey's request, 2026-10-27 (was `public/me_headshot.webp`, a Tenerife photo, cropped — never a great fit). `components/about.tsx` is now text-only, single column. To bring a real portrait back: restore the two-column grid (image left, text right — see git history around this commit) with a proper photo.
 
 ## Launch
 

@@ -9,7 +9,7 @@ import Faq from "@/components/faq";
 import FinalCta from "@/components/final-cta";
 import Footer from "@/components/footer";
 import { faqs } from "@/lib/content";
-import { contact, siteDescription, siteName, siteUrl } from "@/lib/site";
+import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 const jsonLd = [
   {
@@ -26,7 +26,6 @@ const jsonLd = [
       addressLocality: "Dublin",
       addressCountry: "IE",
     },
-    ...(contact.phoneE164 ? { telephone: contact.phoneE164 } : {}),
     priceRange: "€€",
     founder: { "@type": "Person", name: "Michael Geraghty" },
     sameAs: [
