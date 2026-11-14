@@ -9,32 +9,49 @@ import {
   Preview,
   Section,
   Text,
-} from "@react-email/components";
-import { Tailwind } from "@react-email/tailwind";
+  Tailwind,
+} from "react-email";
 
-type ContactFormEmailProps = {
-  message: string;
-  senderEmail: string;
+type ReviewRequestEmailProps = {
+  name: string;
+  website: string;
+  contact: string;
+  notes?: string;
 };
 
-export default function ContactFormEmail({
-  message,
-  senderEmail,
-}: ContactFormEmailProps) {
+export default function ReviewRequestEmail({
+  name,
+  website,
+  contact,
+  notes,
+}: ReviewRequestEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>New message from your portfolio site</Preview>
+      <Preview>New free review request: {website}</Preview>
       <Tailwind>
         <Body className="bg-gray-100 text-black">
           <Container>
-            <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
+            <Section className="my-10 rounded-md bg-white px-10 py-4">
               <Heading className="leading-tight">
-                You received the following message from the contact form
+                New free review request
               </Heading>
-              <Text>{message}</Text>
+              <Text>
+                <strong>Name:</strong> {name}
+              </Text>
+              <Text>
+                <strong>Website:</strong> {website}
+              </Text>
+              <Text>
+                <strong>Email or phone:</strong> {contact}
+              </Text>
+              {notes ? (
+                <Text>
+                  <strong>Anything to look at:</strong> {notes}
+                </Text>
+              ) : null}
               <Hr />
-              <Text>The senders email is: {senderEmail}</Text>
+              <Text>Reply within 24 hours, as promised on the site.</Text>
             </Section>
           </Container>
         </Body>

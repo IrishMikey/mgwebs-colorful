@@ -1,17 +1,36 @@
-import React from "react";
+import { contact, social } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="container-responsive flex flex-col items-center">
-      <div className="flex min-h-20 w-full rounded-t-lg bg-zinc-800 px-4 shadow">
-        <ul className="flex flex-grow flex-col items-center justify-around gap-2 py-6 sm:flex-row sm:gap-0">
-          <li className="text-responsive-xs text-muted sm:text-responsive-sm font-normal">
-            MGWebs. 5
-          </li>
-          <li className="text-responsive-xs text-muted sm:text-responsive-sm font-normal">
-            This webpage is a work-in-progress
-          </li>
-        </ul>
+    <footer className="border-t border-line">
+      <div className="page-x flex flex-col gap-4 py-10 text-sm text-muted md:flex-row md:items-center md:justify-between">
+        <p>
+          <span className="font-display text-lg text-ink">
+            MGWebs<span className="text-coral">.</span>
+          </span>{" "}
+          · Dublin, Ireland
+        </p>
+        <a href={`mailto:${contact.email}`} className="hover:text-ink">
+          {contact.email}
+        </a>
+        <p className="flex gap-3">
+          <a href={social.instagram} className="hover:text-ink">
+            Instagram
+          </a>
+          ·
+          <a href={social.tiktok} className="hover:text-ink">
+            TikTok
+          </a>
+          {social.youtube ? (
+            <>
+              ·
+              <a href={social.youtube} className="hover:text-ink">
+                YouTube
+              </a>
+            </>
+          ) : null}
+        </p>
+        <p>© {new Date().getFullYear()} MGWebs</p>
       </div>
     </footer>
   );

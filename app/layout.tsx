@@ -1,38 +1,50 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import NavBar from "../components/navBar";
-import { Toaster } from "@pheralb/toast";
-import Footer from "../components/footer";
-import { Providers } from "./providers";
+import type { Metadata, Viewport } from "next";
+import { Inter, Questrial } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
+import "./globals.css";
+import { siteUrl, siteName, siteTitle, siteDescription } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
 });
 
-// Font awesome
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-config.autoAddCss = false;
-
-const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const questrial = Questrial({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-questrial",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "MGWebs",
-  description: "Web development by Michael Geraghty",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/apple-icon.png",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteName}`,
   },
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+    locale: "en_IE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -41,29 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="!scroll-smooth dark">
-      <body className={`${inter.variable} `} suppressHydrationWarning={true}>
-        {recaptchaSiteKey ? (
-          <Script
-            id="google-recaptcha"
-            src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
-            strategy="afterInteractive"
-          />
-        ) : null}
-        {/* Abstract background shapes */}
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-        <div className="abstract-shape"></div>
-
-        <Providers>
-          <ActiveSectionContextProvider>
-            <NavBar />
-            {children}
-            <Analytics />
-            <Toaster />
-          </ActiveSectionContextProvider>
-          <Footer />
-        </Providers>
+    <html lang="en-IE" className={`${inter.variable} ${questrial.variable}`}>
+      <body>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
