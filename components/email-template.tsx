@@ -12,27 +12,29 @@ import {
   Tailwind,
 } from "react-email";
 
-type AuditRequestEmailProps = {
+type ReviewRequestEmailProps = {
   name: string;
   website: string;
   contact: string;
+  notes?: string;
 };
 
-export default function AuditRequestEmail({
+export default function ReviewRequestEmail({
   name,
   website,
   contact,
-}: AuditRequestEmailProps) {
+  notes,
+}: ReviewRequestEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>New free speed check request: {website}</Preview>
+      <Preview>New free review request: {website}</Preview>
       <Tailwind>
         <Body className="bg-gray-100 text-black">
           <Container>
             <Section className="my-10 rounded-md bg-white px-10 py-4">
               <Heading className="leading-tight">
-                New free speed check request
+                New free review request
               </Heading>
               <Text>
                 <strong>Name:</strong> {name}
@@ -43,6 +45,11 @@ export default function AuditRequestEmail({
               <Text>
                 <strong>Email or phone:</strong> {contact}
               </Text>
+              {notes ? (
+                <Text>
+                  <strong>Anything to look at:</strong> {notes}
+                </Text>
+              ) : null}
               <Hr />
               <Text>Reply within 24 hours, as promised on the site.</Text>
             </Section>

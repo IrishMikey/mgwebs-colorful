@@ -1,15 +1,15 @@
 import Nav from "@/components/nav";
 import Hero from "@/components/hero";
-import Work from "@/components/work";
+import Builds from "@/components/builds";
+import AiSection from "@/components/ai-section";
 import Services from "@/components/services";
 import HowItWorks from "@/components/how-it-works";
-import Guarantee from "@/components/guarantee";
 import About from "@/components/about";
 import Faq from "@/components/faq";
 import FinalCta from "@/components/final-cta";
 import Footer from "@/components/footer";
 import { faqs } from "@/lib/content";
-import { siteDescription, siteName, siteUrl } from "@/lib/site";
+import { siteDescription, siteName, siteUrl, social } from "@/lib/site";
 
 const jsonLd = [
   {
@@ -20,7 +20,10 @@ const jsonLd = [
     url: siteUrl,
     description: siteDescription,
     image: `${siteUrl}/opengraph-image`,
-    areaServed: { "@type": "Country", name: "Ireland" },
+    areaServed: [
+      { "@type": "Country", name: "Ireland" },
+      { "@type": "Place", name: "Worldwide" },
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Dublin",
@@ -28,11 +31,9 @@ const jsonLd = [
     },
     priceRange: "€€",
     founder: { "@type": "Person", name: "Michael Geraghty" },
-    sameAs: [
-      "https://github.com/IrishMikey",
-      "https://www.linkedin.com/in/michaeldanielgeraghty/",
-      "https://twitter.com/MGWebss",
-    ],
+    sameAs: [social.instagram, social.tiktok, social.youtube].filter(
+      (url): url is string => Boolean(url),
+    ),
   },
   {
     "@context": "https://schema.org",
@@ -57,10 +58,10 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <Work />
+        <Builds />
+        <AiSection />
         <Services />
         <HowItWorks />
-        <Guarantee />
         <About />
         <Faq />
         <FinalCta />

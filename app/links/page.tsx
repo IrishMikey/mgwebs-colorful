@@ -16,7 +16,7 @@ import avatarImg from "@/public/headshot.jpg";
 type SocialLink = { name: string; url: string; icon: IconDefinition };
 
 const socialLinks: SocialLink[] = [
-  { name: "MGWebs — websites", url: "/", icon: faCode },
+  { name: "MGWebs: websites", url: "/", icon: faCode },
   { name: "TikTok", url: "https://tiktok.com/@mikxyg", icon: faTiktok },
   { name: "Instagram", url: "https://instagram.com/mikxyg", icon: faInstagram },
   { name: "YouTube", url: "https://youtube.com/@mikxyg", icon: faYoutube },

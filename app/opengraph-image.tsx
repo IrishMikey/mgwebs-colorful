@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "MGWebs — Faster websites that win you more customers. Web design and speed fixes in Dublin.";
+  "MGWebs. Good websites built fast with AI, finished by hand.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -44,7 +44,10 @@ export default function OpengraphImage() {
             background: glow("rgba(67,56,242,0.22)"),
           }}
         />
-        <div style={{ fontSize: 34, letterSpacing: -0.5 }}>MGWebs</div>
+        <div style={{ display: "flex", fontSize: 34, letterSpacing: -0.5 }}>
+          <span>MGWebs</span>
+          <span style={{ color: "#D6363F" }}>.</span>
+        </div>
         <div
           style={{
             marginTop: 36,
@@ -55,10 +58,10 @@ export default function OpengraphImage() {
             maxWidth: 960,
           }}
         >
-          Faster websites that win you more customers.
+          Good websites built fast with AI, finished by hand.
         </div>
         <div style={{ marginTop: 36, fontSize: 28, color: "#5E5E63" }}>
-          Web design & speed fixes in Dublin
+          Web developer in Dublin
         </div>
       </div>
     ),

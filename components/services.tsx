@@ -1,4 +1,4 @@
-import { carePlans, services, vatNote, type Service } from "@/lib/content";
+import { extras, services, type Service } from "@/lib/content";
 
 const variantClasses: Record<Service["variant"], string> = {
   tint: "bg-tint text-ink",
@@ -33,13 +33,9 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         <p className={`mt-3 text-[17px] ${secondaryText}`}>
           {service.description}
         </p>
-        <p className="mt-5 font-display text-[28px] leading-[1.2] md:text-[30px]">
-          <span className={`font-sans text-base ${secondaryText}`}>from </span>
-          {service.price}
-        </p>
       </div>
       <ul
-        className={`flex flex-[0_1_220px] flex-col gap-2 self-end text-[15px] ${secondaryText}`}
+        className={`flex flex-[0_1_220px] flex-col gap-2 self-center text-[15px] ${secondaryText}`}
       >
         {service.bullets.map((bullet) => (
           <li key={bullet} className="flex items-start gap-2.5">
@@ -72,7 +68,7 @@ export default function Services() {
             What I do
           </h2>
           <p className="mt-4 text-lg text-muted md:text-xl">
-            Fixed, written prices before any work starts. {vatNote}
+            Fixed, written prices before any work starts.
           </p>
         </div>
 
@@ -83,13 +79,13 @@ export default function Services() {
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-center gap-3 text-center text-[15px] text-muted">
-          <span>Care plans to keep it fast and safe:</span>
-          {carePlans.map((plan) => (
+          <span>Also:</span>
+          {extras.map((extra) => (
             <span
-              key={plan}
+              key={extra}
               className="rounded-full bg-muted-bg px-4 py-2 font-medium text-ink"
             >
-              {plan}
+              {extra}
             </span>
           ))}
           <span>Cancel any time.</span>

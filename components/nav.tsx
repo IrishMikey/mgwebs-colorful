@@ -10,8 +10,8 @@ export default function Nav() {
       >
         <ul className="hidden gap-8 md:flex">
           <li>
-            <a href="#work" className={linkClasses}>
-              Work
+            <a href="#builds" className={linkClasses}>
+              Builds
             </a>
           </li>
           <li>
@@ -24,7 +24,7 @@ export default function Nav() {
           href="#top"
           className="inline-flex min-h-12 items-center font-display text-[22px] text-ink"
         >
-          MGWebs
+          MGWebs<span className="text-coral">.</span>
         </a>
         <ul className="flex justify-end gap-8">
           <li className="hidden md:block">
@@ -34,10 +34,10 @@ export default function Nav() {
           </li>
           <li>
             <a
-              href="#audit"
+              href="#review"
               className="inline-flex min-h-12 items-center text-base font-medium text-accent hover:text-accent-hover md:text-[15px]"
             >
-              Free speed check
+              Free review
             </a>
           </li>
         </ul>

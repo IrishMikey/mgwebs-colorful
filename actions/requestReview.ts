@@ -2,14 +2,14 @@
 
 import nodemailer from "nodemailer";
 import { render } from "react-email";
-import AuditRequestEmail from "@/components/email-template";
+import ReviewRequestEmail from "@/components/email-template";
 
-const FROM_EMAIL = "MGWebs Speed Check <info@mgwebs.com>";
-const TO_EMAIL = "mikeygeraghty@gmail.com";
+const FROM_EMAIL = "MGWebs Review <info@mgwebs.com>";
+const TO_EMAIL = "info@mgwebs.com";
 
-type Field = "name" | "website" | "contact";
+type Field = "name" | "website" | "contact" | "notes";
 
-export type AuditState = {
+export type ReviewState = {
   status: "idle" | "success" | "error";
   message?: string;
   errors?: Partial<Record<Field, string>>;
@@ -55,10 +55,10 @@ const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 const isPhone = (value: string) =>
   /^[+()\d\s-]+$/.test(value) && value.replace(/\D/g, "").length >= 7;
 
-export async function requestAudit(
-  _prev: AuditState,
+export async function requestReview(
+  _prev: ReviewState,
   formData: FormData,
-): Promise<AuditState> {
+): Promise<ReviewState> {
   // Honeypot: real visitors never see or fill this field. Pretend it worked.
   if (text(formData, "company")) {
     return { status: "success" };
@@ -67,15 +67,17 @@ export async function requestAudit(
   const name = text(formData, "name");
   const websiteInput = text(formData, "website");
   const contact = text(formData, "contact");
-  const values = { name, website: websiteInput, contact };
+  const notes = text(formData, "notes");
+  const values = { name, website: websiteInput, contact, notes };
 
   const website = normaliseWebsite(websiteInput);
-  const errors: AuditState["errors"] = {};
+  const errors: ReviewState["errors"] = {};
   if (!name || name.length > 200) errors.name = "Please enter your name.";
   if (!website)
     errors.website = "Please enter your web address, for example mybusiness.ie";
   if (!contact || contact.length > 200 || !(isEmail(contact) || isPhone(contact)))
     errors.contact = "Please enter an email address or phone number.";
+  if (notes.length > 1000) errors.notes = "Please keep this under 1000 characters.";
 
   if (Object.keys(errors).length > 0) {
     return {
@@ -87,7 +89,7 @@ export async function requestAudit(
   }
 
   try {
-    const email = AuditRequestEmail({ name, website: website!, contact });
+    const email = ReviewRequestEmail({ name, website: website!, contact, notes });
     const [html, plainText] = await Promise.all([
       render(email),
       render(email, { plainText: true }),
@@ -97,12 +99,12 @@ export async function requestAudit(
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: isEmail(contact) ? contact : undefined,
-      subject: `Speed check request: ${website}`,
+      subject: `Free review request: ${website}`,
       html,
       text: plainText,
     });
   } catch (error) {
-    console.error("Failed to send speed check request", error);
+    console.error("Failed to send review request", error);
     return {
       status: "error",
       message:

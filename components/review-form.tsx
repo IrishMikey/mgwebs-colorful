@@ -1,10 +1,10 @@
 "use client";
 
 import { useActionState } from "react";
-import { requestAudit, type AuditState } from "@/actions/requestAudit";
+import { requestReview, type ReviewState } from "@/actions/requestReview";
 import { buttonClasses } from "./button";
 
-const initialState: AuditState = { status: "idle" };
+const initialState: ReviewState = { status: "idle" };
 
 const inputClasses =
   "mt-2 block min-h-13 w-full rounded-input border border-input bg-white px-4 text-[17px] text-ink placeholder:text-muted aria-invalid:border-coral";
@@ -16,7 +16,7 @@ type FieldProps = {
   autoComplete: string;
   placeholder?: string;
   inputMode?: "url" | "email" | "text";
-  state: AuditState;
+  state: ReviewState;
 };
 
 function Field({ name, label, state, ...input }: FieldProps) {
@@ -48,9 +48,9 @@ function Field({ name, label, state, ...input }: FieldProps) {
   );
 }
 
-export default function AuditForm() {
+export default function ReviewForm() {
   const [state, formAction, pending] = useActionState(
-    requestAudit,
+    requestReview,
     initialState,
   );
 
@@ -58,7 +58,7 @@ export default function AuditForm() {
     return (
       <div role="status" aria-live="polite" className="py-10 text-center">
         <p className="font-display text-[26px] leading-[1.3] text-ink">
-          Thanks — I’ll be in touch within 24 hours.
+          Thanks. I’ll be in touch within 24 hours.
         </p>
       </div>
     );
@@ -91,6 +91,19 @@ export default function AuditForm() {
         state={state}
       />
 
+      <div>
+        <label htmlFor="notes" className="text-[15px] font-medium text-ink">
+          Anything you’d like me to look at?
+        </label>
+        <textarea
+          id="notes"
+          name="notes"
+          rows={3}
+          defaultValue={state.values?.notes}
+          className="mt-2 block w-full rounded-input border border-input bg-white px-4 py-3 text-[17px] text-ink placeholder:text-muted"
+        />
+      </div>
+
       {/* Honeypot: hidden from people and screen readers, tempting to bots. */}
       <div aria-hidden="true" className="absolute -left-[9999px] size-px overflow-hidden">
         <label htmlFor="company">Company</label>
@@ -106,7 +119,7 @@ export default function AuditForm() {
         disabled={pending}
         className={buttonClasses("primary", "mt-1 min-h-14 w-full disabled:opacity-70")}
       >
-        {pending ? "Sending…" : "Send my free speed check"}
+        {pending ? "Sending..." : "Send my free review"}
       </button>
       <p className="text-center text-sm text-muted">
         Reply within 24 hours. No spam, ever.
