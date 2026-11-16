@@ -5,7 +5,6 @@ import {
   faTiktok,
   faInstagram,
   faYoutube,
-  faGithub,
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
@@ -13,14 +12,18 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import Glow from "@/components/glow";
 import avatarImg from "@/public/headshot.jpg";
 
-type SocialLink = { name: string; url: string; icon: IconDefinition };
+type SocialLink = {
+  name: string;
+  url: string;
+  icon: IconDefinition;
+  variant?: "primary";
+};
 
 const socialLinks: SocialLink[] = [
-  { name: "MGWebs: websites", url: "/", icon: faCode },
+  { name: "MGWebs: websites", url: "/", icon: faCode, variant: "primary" },
   { name: "TikTok", url: "https://tiktok.com/@mikxyg", icon: faTiktok },
   { name: "Instagram", url: "https://instagram.com/mikxyg", icon: faInstagram },
   { name: "YouTube", url: "https://youtube.com/@mikxyg", icon: faYoutube },
-  { name: "GitHub", url: "https://github.com/IrishMikey", icon: faGithub },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/michaeldanielgeraghty/",
@@ -54,6 +57,7 @@ export default function LinksPage() {
         <ul className="mt-10 flex flex-col gap-3">
           {socialLinks.map((link) => {
             const external = link.url.startsWith("http");
+            const primary = link.variant === "primary";
             return (
               <li key={link.name}>
                 <a
@@ -61,12 +65,16 @@ export default function LinksPage() {
                   {...(external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="flex min-h-14 items-center gap-4 rounded-full border border-line bg-white px-5 font-medium text-ink shadow-chip transition-colors hover:border-line-strong hover:bg-muted-bg"
+                  className={
+                    primary
+                      ? "flex min-h-14 items-center gap-4 rounded-full bg-accent px-5 font-medium text-white shadow-chip transition-colors hover:bg-accent-hover"
+                      : "flex min-h-14 items-center gap-4 rounded-full border border-line bg-white px-5 font-medium text-ink shadow-chip transition-colors hover:border-line-strong hover:bg-muted-bg"
+                  }
                 >
                   <FontAwesomeIcon
                     icon={link.icon}
                     aria-hidden="true"
-                    className="size-5 text-accent"
+                    className={`size-5 ${primary ? "text-white" : "text-accent"}`}
                   />
                   {link.name}
                 </a>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Nav from "@/components/nav";
+import NavSimple from "@/components/nav-simple";
 import Footer from "@/components/footer";
 import Glow from "@/components/glow";
 import InfoForm from "@/components/InfoForm";
@@ -31,7 +31,7 @@ const steps = [
 export default function InfoPage() {
   return (
     <>
-      <Nav />
+      <NavSimple />
       <main id="main" className="relative overflow-hidden">
         <Glow className="-top-40 -left-48 size-[420px] bg-coral/15" />
         <Glow className="-right-48 -bottom-40 size-[420px] bg-accent/15" />
